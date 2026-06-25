@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: widle-ai-web
+    env: node
+    nodeVersion: 20
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: STITCH_WEBHOOK_URL
+        sync: false
