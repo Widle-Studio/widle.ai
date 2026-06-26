@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import {
   Table,
   TableBody,
@@ -12,6 +11,8 @@ import {
 import { Plus, Pencil, Trash2 } from "lucide-react"
 import Image from "next/image"
 import { PublishToggle } from "@/components/admin/publish-toggle"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { CaseStudyForm } from "@/components/admin/forms/case-study-form"
 
 export default async function AdminCaseStudies() {
   const supabase = await createClient()
@@ -25,9 +26,20 @@ export default async function AdminCaseStudies() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Case Studies</h1>
-        <Button>
-          <Plus className="mr-2 h-4 w-4" /> Add Case Study
-        </Button>
+        
+        <Dialog>
+          <DialogTrigger >
+            <Button>
+              <Plus className="mr-2 h-4 w-4" /> Add Case Study
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Add New Case Study</DialogTitle>
+            </DialogHeader>
+            <CaseStudyForm />
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="rounded-md border border-border">
@@ -64,9 +76,20 @@ export default async function AdminCaseStudies() {
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
-                    <Button variant="ghost" size="icon">
-                      <Pencil className="h-4 w-4" />
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger >
+                        <Button variant="ghost" size="icon">
+                          <Pencil className="h-4 w-4" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Edit Case Study</DialogTitle>
+                        </DialogHeader>
+                        <CaseStudyForm initialData={study} />
+                      </DialogContent>
+                    </Dialog>
+
                     <form action={async () => {
                       "use server"
                       const supabaseServer = await createClient()
