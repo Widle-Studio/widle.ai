@@ -10,9 +10,12 @@ const serviceLinks = [
 ]
 
 const companyLinks = [
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Insights", href: "#insights" },
+  { label: "Company", href: "/company" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/insights" },
+  { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
+  { label: "Careers", href: "/careers" },
   { label: "Admin Login", href: "/admin/login" },
 ]
 
