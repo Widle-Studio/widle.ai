@@ -43,7 +43,7 @@ export function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button  className="bg-primary text-primary-foreground hover:bg-primary/90">
             <Link href="#contact">Contact Us</Link>
           </Button>
         </div>
@@ -78,7 +78,7 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-4">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button  className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
               </Button>
             </div>
