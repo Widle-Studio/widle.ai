@@ -2,19 +2,18 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
 const serviceLinks = [
-  { label: "AI Strategy Consulting", href: "/services/strategy" },
-  { label: "Machine Learning", href: "/services/ml" },
-  { label: "Computer Vision", href: "/services/cv" },
-  { label: "Natural Language Processing", href: "/services/nlp" },
-  { label: "Predictive Analytics", href: "/services/analytics" },
+  { label: "LLMs & RAG", href: "/services/llms-rag" },
+  { label: "AI Agents", href: "/services/ai-agents" },
+  { label: "MLOps", href: "/services/mlops" },
+  { label: "Computer Vision", href: "/services/computer-vision" },
+  { label: "Predictive Analytics", href: "/services/predictive-analytics" },
 ]
 
 const companyLinks = [
-  { label: "About Us", href: "/company" },
-  { label: "Careers", href: "/careers" },
-  { label: "Insights", href: "/insights" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "Insights", href: "#insights" },
+  { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
+  { label: "Admin Login", href: "/admin/login" },
 ]
 
 const socialLinks = [
@@ -101,7 +100,7 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <div className="mt-6">
+            <div className="mt-6" id="contact">
               <p className="text-sm text-muted-foreground">
                 Contact us at
               </p>
