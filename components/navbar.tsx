@@ -6,12 +6,10 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights", href: "/insights" },
-  { label: "Company", href: "/company" },
-  { label: "Careers", href: "/careers" },
+  { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "Insights", href: "#insights" },
+  { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
 ]
 
 export function Navbar() {
@@ -45,8 +43,8 @@ export function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Contact Us
+          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Link href="#contact">Contact Us</Link>
           </Button>
         </div>
 
@@ -80,8 +78,8 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-4">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                Contact Us
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
               </Button>
             </div>
           </div>
