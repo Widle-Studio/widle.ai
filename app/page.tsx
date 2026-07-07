@@ -1,65 +1,214 @@
-import Image from "next/image";
+import { createClient } from "@/lib/supabase/server"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { HeroSection } from "@/components/hero-section"
+import { ServiceCard } from "@/components/service-card"
+import { CaseStudyCard } from "@/components/case-study-card"
+import { StatsBanner } from "@/components/stats-banner"
+import { PartnerLogo } from "@/components/partner-logo"
+import { SectionHeader } from "@/components/section-header"
+import { CTABanner } from "@/components/cta-banner"
+import { LogoMarquee } from "@/components/logo-marquee"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
+import { BlogCard } from "@/components/blog-card"
+import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb } from "lucide-react"
 
-export default function Home() {
+// Partner Logos data (2 rows = 12 logos)
+const partnerLogos = [
+  { src: "/placeholder.svg?height=48&width=140", alt: "Amazon Web Services" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Google Cloud" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Microsoft Azure" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "NVIDIA" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "OpenAI" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Anthropic" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Databricks" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Snowflake" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "MongoDB" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Hugging Face" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Weights & Biases" },
+  { src: "/placeholder.svg?height=48&width=140", alt: "Scale AI" },
+]
+
+// Stats data
+const stats = [
+  { value: "200+", label: "Projects Delivered" },
+  { value: "50+", label: "AI Experts" },
+  { value: "5+", label: "Years Experience" },
+]
+
+// Map icon names to components for dynamic rendering
+const iconMap: Record<string, any> = {
+  "Brain": Brain,
+  "Bot": Bot,
+  "Cog": Cog,
+  "Eye": Eye,
+  "TrendingUp": TrendingUp,
+  "Lightbulb": Lightbulb,
+}
+
+export default async function Home() {
+  const supabase = await createClient()
+
+  // Fetch dynamic data from Supabase
+  const [
+    { data: servicesData },
+    { data: caseStudiesData },
+    { data: testimonialsData },
+    { data: postsData }
+  ] = await Promise.all([
+    supabase.from("services").select("*").eq("status", "Published").order("created_at", { ascending: true }).limit(6),
+    supabase.from("case_studies").select("*").eq("published", true).order("created_at", { ascending: false }).limit(3),
+    supabase.from("testimonials").select("*").order("order", { ascending: true }),
+    supabase.from("posts").select("*").eq("published", true).order("date", { ascending: false }).limit(3)
+  ])
+
+  // Fallback data if DB fetch fails or is empty
+  const services = servicesData && servicesData.length > 0 ? servicesData.map(s => ({
+    icon: iconMap[s.icon_name] || Brain, // Using Brain as fallback icon if none specified
+    title: s.title,
+    description: s.overview || "Professional AI solutions tailored to your enterprise needs.",
+    href: `/services/${s.slug}`,
+  })) : []
+
+  const caseStudies = caseStudiesData && caseStudiesData.length > 0 ? caseStudiesData.map(c => ({
+    image: c.thumbnail || "/placeholder.svg?height=400&width=640",
+    tag: c.industry || "Enterprise",
+    title: c.title,
+    description: c.challenge || "Learn how we delivered measurable ROI through advanced AI implementation.",
+    href: `/case-studies/${c.slug || c.id}`,
+  })) : []
+
+  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData.map(t => ({
+    quote: t.quote || "widle.ai transformed our approach to data. The ROI has been remarkable.",
+    clientName: t.client_name,
+    role: t.role,
+    companyLogo: "/placeholder.svg?height=32&width=120", // Hardcoded placeholder for now
+    companyName: t.company_name,
+  })) : []
+
+  const insights = postsData && postsData.length > 0 ? postsData.map(p => ({
+    image: p.thumbnail || "/placeholder.svg?height=360&width=640",
+    category: p.category,
+    title: p.title,
+    excerpt: p.excerpt || "A comprehensive guide on AI adoption and implementation.",
+    date: p.date,
+    href: `/insights/${p.slug || p.id}`,
+  })) : []
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* 1. Hero Section */}
+      <HeroSection
+        headline="Unlock the Full Potential of AI for"
+        highlightedText="Your Business"
+        subheadline="We partner with forward-thinking enterprises to design, build, and deploy AI solutions that transform operations and unlock new possibilities."
+        primaryCTA={{ text: "Get Started", href: "/contact" }}
+        secondaryCTA={{ text: "View Our Work", href: "/case-studies" }}
+        eyebrow="Enterprise AI Solutions"
+      />
+
+      {/* 2. Stats Banner */}
+      <StatsBanner stats={stats} />
+
+      {/* 3. Logo Marquee */}
+      <LogoMarquee speed="normal" />
+
+      {/* 4. Services Grid */}
+      {services.length > 0 && (
+        <section className="bg-background py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="Our Services"
+              headline="AI Solutions Tailored to Your Needs"
+              subtext="From strategy to deployment, we offer end-to-end AI services that drive measurable business outcomes."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+              {services.map((service) => (
+                <ServiceCard key={service.title} {...service} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. Case Studies Row */}
+      {caseStudies.length > 0 && (
+        <section className="bg-secondary/20 py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="Case Studies"
+              headline="Real Results, Real Impact"
+              subtext="Explore how we've helped industry leaders achieve breakthrough results with AI."
+            />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+              {caseStudies.map((study) => (
+                <CaseStudyCard key={study.title} {...study} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 6. Testimonials Carousel */}
+      {testimonials.length > 0 && (
+        <section className="bg-background py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="Testimonials"
+              headline="Trusted by Industry Leaders"
+              subtext="Hear what our clients have to say about working with widle.ai."
+            />
+            <div className="mt-12 lg:mt-16">
+              <TestimonialsCarousel testimonials={testimonials} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7. Partner Logos Grid */}
+      <section className="border-y border-border bg-secondary/30 py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-10 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Technology Partners & Platforms We Work With
+          </p>
+          <div className="grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {partnerLogos.map((logo, index) => (
+              <PartnerLogo key={index} src={logo.src} alt={logo.alt} />
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* 8. Insights Row */}
+      {insights.length > 0 && (
+        <section className="bg-background py-20 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              eyebrow="Insights"
+              headline="Latest from Our Blog"
+              subtext="Stay informed with our latest articles on AI trends, best practices, and industry insights."
+            />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+              {insights.map((post) => (
+                <BlogCard key={post.title} {...post} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 9. CTA Banner */}
+      <CTABanner
+        headline="Ready to build with AI?"
+        description="Schedule a free consultation with our experts and discover how AI can accelerate your business growth."
+        buttonText="Contact Us"
+        buttonHref="/contact"
+        variant="primary"
+      />
+
+      <Footer />
     </div>
-  );
+  )
 }
