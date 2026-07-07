@@ -6,7 +6,7 @@ import { CTABanner } from "@/components/cta-banner"
 import { createClient } from "@/lib/supabase/server"
 import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb } from "lucide-react"
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ElementType> = {
   "Brain": Brain,
   "Bot": Bot,
   "Cog": Cog,
