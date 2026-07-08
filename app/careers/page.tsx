@@ -51,7 +51,7 @@ export default function CareersPage() {
 
           <div className="mt-16 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold mb-8">Open Positions</h2>
-
+            
             <div className="space-y-4">
               {positions.map((job) => (
                 <div key={job.title} className="group flex flex-col sm:flex-row sm:items-center justify-between rounded-xl border bg-card p-6 transition-colors hover:border-primary/50">

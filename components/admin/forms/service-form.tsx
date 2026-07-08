@@ -63,7 +63,7 @@ export function ServiceForm({ initialData, onSuccess }: ServiceFormProps) {
   // 2. Define a submit handler.
   async function onSubmit(values: ServiceFormValues) {
     setIsLoading(true)
-
+    
     try {
       if (initialData?.id) {
         // Update
@@ -95,7 +95,7 @@ export function ServiceForm({ initialData, onSuccess }: ServiceFormProps) {
       form.reset()
       router.refresh()
       if (onSuccess) onSuccess()
-
+      
     } catch (error) {
       console.error("Error saving service:", error)
       // You might want to add a toast notification here

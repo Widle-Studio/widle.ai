@@ -37,11 +37,11 @@ The custom Content Management System (CMS) allows you to manage the data that dy
 ### CMS Features:
 
 *   **Dashboard (`/admin`):** View real-time counts of your Services, Case Studies, Posts, and Leads, along with a recent activity feed.
-*   **Services (`/admin/services`):**
+*   **Services (`/admin/services`):** 
     *   View all services.
     *   Click "Add Service" to create a new one using the form (Title, Slug, Status).
     *   Edit or Delete existing services.
-*   **Case Studies (`/admin/case-studies`):**
+*   **Case Studies (`/admin/case-studies`):** 
     *   View all case studies and their thumbnails.
     *   Click the **Publish Toggle** to instantly switch a case study from "Draft" to "Published" (which makes it visible on the public frontend).
     *   Upload images directly to the Supabase `images` storage bucket using the Add/Edit forms.
@@ -81,7 +81,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 ## 🤖 The AI Chatbot
 
-The website now features a sticky AI chatbot in the bottom right corner of all pages.
+The website now features a sticky AI chatbot in the bottom right corner of all pages. 
 *   It is powered by the **Vercel AI SDK** and **OpenAI's `gpt-4o-mini`**.
 *   It uses a custom system prompt to act as an enterprise AI sales assistant for widle.ai.
 *   *Note: Ensure you have an `OPENAI_API_KEY` configured in your environment variables for this feature to work properly.*

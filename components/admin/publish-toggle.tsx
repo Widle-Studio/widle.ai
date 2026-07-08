@@ -45,8 +45,8 @@ export function PublishToggle({ id, table, initialStatus }: PublishToggleProps) 
 
   return (
     <div className="flex items-center space-x-2">
-      <Switch
-        checked={isPublished}
+      <Switch 
+        checked={isPublished} 
         onCheckedChange={handleToggle}
         disabled={isLoading}
       />

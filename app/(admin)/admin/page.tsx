@@ -40,7 +40,7 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold tracking-tight">Dashboard Overview</h1>
-
+      
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => {
           const Icon = stat.icon
@@ -81,7 +81,7 @@ export default async function AdminDashboard() {
             </div>
           </CardContent>
         </Card>
-
+        
         <Card className="col-span-1 border-primary/20 bg-primary/5">
           <CardHeader>
             <CardTitle>Quick Actions</CardTitle>

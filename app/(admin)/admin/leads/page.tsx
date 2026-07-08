@@ -14,7 +14,7 @@ export default async function AdminLeads() {
 
   // Fetch leads. Use dummy data if it fails.
   const { data: leads, error } = await supabase.from("leads").select("*").order("created_at", { ascending: false })
-
+  
   const displayLeads = error || !leads ? [
     { id: 1, name: "Alice Johnson", email: "alice@example.com", company: "TechCorp", source: "ai_readiness_quiz", date: "2024-12-16" },
     { id: 2, name: "Bob Smith", email: "bob@example.com", company: "Innovate Inc", source: "website", date: "2024-12-15" },

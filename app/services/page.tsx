@@ -53,7 +53,7 @@ export default async function ServicesPage() {
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
-
+            
             {services.length === 0 && (
               <div className="col-span-full py-12 text-center text-muted-foreground">
                 <p>New services are being added. Check back soon!</p>
