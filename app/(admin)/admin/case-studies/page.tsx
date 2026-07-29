@@ -19,14 +19,14 @@ export default async function AdminCaseStudies() {
 
   // Fetch case studies.
   const { data: caseStudies, error } = await supabase.from("case_studies").select("*").order("created_at", { ascending: false })
-  
+
   const displayCaseStudies = error || !caseStudies ? [] : caseStudies
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Case Studies</h1>
-        
+
         <Dialog>
           <DialogTrigger >
             <Button>

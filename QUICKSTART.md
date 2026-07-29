@@ -37,6 +37,10 @@ The custom Content Management System (CMS) allows you to manage the data that dy
 ### CMS Features:
 
 *   **Dashboard (`/admin`):** View real-time counts of your Services, Case Studies, Posts, and Leads, along with a recent activity feed.
+*   **Services (`/admin/services`):**
+    *   View all services.
+    *   Click "Add Service" to create a new one using the form (Title, Slug, Status).
+    *   Edit or Delete existing services.
 *   **Services (`/admin/services`):** 
     *   View all services.
     *   Click "Add Service" to create a new one using the form (Title, Slug, Status).
