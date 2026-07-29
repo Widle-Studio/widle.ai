@@ -10,6 +10,7 @@ import { CTABanner } from "@/components/cta-banner"
 import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
+import { StatsSection } from "@/components/stats-section"
 import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, type LucideIcon } from "lucide-react"
 
 // Map icon names to components for dynamic rendering
@@ -48,7 +49,44 @@ export default async function Home() {
     title: s.title,
     description: s.overview || "Professional AI solutions tailored to your enterprise needs.",
     href: `/services/${s.slug}`,
-  })) : []
+  })) : [
+    {
+      title: "AI Strategy Consulting",
+      description: "Develop a comprehensive AI roadmap aligned with your business goals to ensure high ROI.",
+      icon: Brain,
+      href: "/services/ai-strategy",
+    },
+    {
+      title: "Machine Learning Solutions",
+      description: "Build custom ML models that predict trends, optimize processes, and automate decision-making.",
+      icon: TrendingUp,
+      href: "/services/machine-learning",
+    },
+    {
+      title: "Natural Language Processing",
+      description: "Leverage NLP to understand customer sentiment, automate support, and extract insights from text.",
+      icon: Bot,
+      href: "/services/nlp",
+    },
+    {
+      title: "Computer Vision Systems",
+      description: "Implement intelligent computer vision for quality control, security, and automated inspection.",
+      icon: Eye,
+      href: "/services/computer-vision",
+    },
+    {
+      title: "Predictive Analytics",
+      description: "Turn historical data into actionable forecasts to stay ahead of market shifts.",
+      icon: Lightbulb,
+      href: "/services/predictive-analytics",
+    },
+    {
+      title: "AI Infrastructure Setup",
+      description: "Design scalable and secure cloud infrastructure to power your AI applications.",
+      icon: Cog,
+      href: "/services/infrastructure",
+    }
+  ]
 
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData.map(t => ({
     quote: t.quote || "The predictive models built by widle.ai increased our efficiency.",
@@ -56,7 +94,29 @@ export default async function Home() {
     role: t.role,
     companyLogo: "/placeholder.svg?height=32&width=120",
     companyName: t.company_name,
-  })) : []
+  })) : [
+    {
+      quote: "Widle.ai transformed our customer service operations with their custom NLP solution. We've seen a 40% reduction in response times and a significant boost in customer satisfaction.",
+      clientName: "Sarah Jenkins",
+      role: "VP of Customer Success",
+      companyName: "TechFlow Solutions",
+      companyLogo: "/placeholder.svg?height=32&width=120"
+    },
+    {
+      quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
+      clientName: "David Chen",
+      role: "COO",
+      companyName: "Global Logistics Inc.",
+      companyLogo: "/placeholder.svg?height=32&width=120"
+    },
+    {
+      quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
+      clientName: "Elena Rodriguez",
+      role: "CTO",
+      companyName: "Manufacturing Dynamics",
+      companyLogo: "/placeholder.svg?height=32&width=120"
+    }
+  ]
 
   const insights = postsData && postsData.length > 0 ? postsData.map(p => ({
     image: p.thumbnail || "/placeholder.svg?height=360&width=640",
@@ -65,23 +125,93 @@ export default async function Home() {
     excerpt: p.excerpt || "A comprehensive guide on AI adoption and implementation.",
     date: p.date,
     href: `/insights/${p.slug || p.id}`,
-  })) : []
+  })) : [
+    {
+      title: "The Future of Generative AI in the Enterprise",
+      category: "Trends",
+      date: "Oct 12, 2023",
+      excerpt: "Explore how generative models are moving from novelties to core business tools.",
+      image: "/placeholder.svg?height=360&width=640",
+      href: "/insights/future-generative-ai"
+    },
+    {
+      title: "Building Trust in AI Systems",
+      category: "Ethics",
+      date: "Sep 28, 2023",
+      excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
+      image: "/placeholder.svg?height=360&width=640",
+      href: "/insights/trust-in-ai"
+    },
+    {
+      title: "A Guide to MLOps for Scale",
+      category: "Engineering",
+      date: "Sep 15, 2023",
+      excerpt: "Best practices for deploying and monitoring machine learning models in production.",
+      image: "/placeholder.svg?height=360&width=640",
+      href: "/insights/mlops-guide"
+    }
+  ]
 
   const partners = partnersData && partnersData.length > 0 ? partnersData.map(p => ({
     src: p.logo_url,
     alt: p.name,
-  })) : []
+  })) : [
+    { src: "/placeholder.svg?height=40&width=160&text=Microsoft", alt: "Microsoft" },
+    { src: "/placeholder.svg?height=40&width=160&text=Google", alt: "Google" },
+    { src: "/placeholder.svg?height=40&width=160&text=AWS", alt: "AWS" },
+    { src: "/placeholder.svg?height=40&width=160&text=NVIDIA", alt: "NVIDIA" },
+    { src: "/placeholder.svg?height=40&width=160&text=IBM", alt: "IBM" },
+    { src: "/placeholder.svg?height=40&width=160&text=Snowflake", alt: "Snowflake" },
+  ]
 
   const solutions = solutionsData && solutionsData.length > 0 ? solutionsData.map(s => ({
     title: s.title,
     description: s.description,
     icon: iconMap[s.icon_name] || Brain,
-  })) : []
+  })) : [
+    {
+      title: "Predictive Maintenance",
+      description: "AI-driven insights to predict equipment failures before they happen, reducing downtime and costs.",
+      icon: Cog
+    },
+    {
+      title: "Document Automation",
+      description: "Extract data and process complex documents automatically using advanced optical character recognition.",
+      icon: Bot
+    },
+    {
+      title: "Demand Forecasting",
+      description: "Accurately predict customer demand to optimize inventory and supply chain operations.",
+      icon: TrendingUp
+    },
+    {
+      title: "Fraud Detection",
+      description: "Real-time anomaly detection systems that identify and prevent fraudulent transactions.",
+      icon: Eye
+    }
+  ]
 
   const faqs = faqsData && faqsData.length > 0 ? faqsData.map(f => ({
     question: f.question,
     answer: f.answer,
-  })) : []
+  })) : [
+    {
+      question: "How long does a typical AI implementation take?",
+      answer: "A standard implementation typically takes 3-6 months from strategy to initial deployment, depending on data readiness and project complexity."
+    },
+    {
+      question: "Do we need in-house AI expertise to use your solutions?",
+      answer: "No. We build turnkey solutions that integrate smoothly with your existing systems. We also provide training and ongoing support for your team."
+    },
+    {
+      question: "How do you ensure data privacy and security?",
+      answer: "Security is built-in. We employ enterprise-grade encryption, role-based access control, and comply with SOC2, GDPR, and other relevant regulatory standards."
+    },
+    {
+      question: "Can your AI solutions integrate with our legacy software?",
+      answer: "Yes. Our architecture is designed to be highly interoperable, utilizing custom APIs and middleware to communicate with legacy systems seamlessly."
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-background">
@@ -97,7 +227,15 @@ export default async function Home() {
         eyebrow="Enterprise AI Solutions"
       />
 
+      {/* Stats Section */}
+      <StatsSection />
+
       {/* Official Partners / Clients Logos Marquee */}
+      {partners.length > 0 && (
+        <div className="pt-16 pb-8 text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          TECHNOLOGY PARTNERS & PLATFORMS WE WORK WITH
+        </div>
+      )}
       {partners.length > 0 && (
         <LogoMarquee logos={partners} speed="normal" />
       )}
