@@ -8,7 +8,7 @@ export default async function AdminTestimonials() {
 
   // Fetch testimonials.
   const { data: testimonials, error } = await supabase.from("testimonials").select("*").order("order", { ascending: true })
-  
+
   const displayTestimonials = error || !testimonials ? [] : testimonials
 
   return (

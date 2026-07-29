@@ -10,7 +10,7 @@ import { MessageSquare, X, Send, Bot, User } from "lucide-react"
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [inputVal, setInputVal] = useState("")
-  
+
   const { messages, append, isLoading } = useChat({
     api: '/api/chat',
     initialMessages: [
@@ -21,7 +21,7 @@ export function ChatWidget() {
       },
     ],
   })
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export function ChatWidget() {
               <X className="h-4 w-4" />
             </Button>
           </CardHeader>
-          
+
           <CardContent className="flex-1 p-4 overflow-y-auto space-y-4">
             {messages.map((m) => (
               <div
@@ -65,17 +65,17 @@ export function ChatWidget() {
                     <Bot className="h-4 w-4 text-primary" />
                   </div>
                 )}
-                
-                <div 
+
+                <div
                   className={`rounded-2xl px-4 py-2.5 max-w-[80%] text-sm ${
-                    m.role === 'user' 
-                      ? 'bg-primary text-primary-foreground rounded-tr-sm' 
+                    m.role === 'user'
+                      ? 'bg-primary text-primary-foreground rounded-tr-sm'
                       : 'bg-muted text-foreground rounded-tl-sm'
                   }`}
                 >
                   {m.content}
                 </div>
-                
+
                 {m.role === 'user' && (
                   <div className="h-8 w-8 shrink-0 rounded-full bg-secondary flex items-center justify-center">
                     <User className="h-4 w-4 text-muted-foreground" />
@@ -97,7 +97,7 @@ export function ChatWidget() {
             )}
             <div ref={messagesEndRef} />
           </CardContent>
-          
+
           <CardFooter className="p-3 border-t">
             <form onSubmit={onSubmit} className="flex w-full gap-2">
               <Input
@@ -114,7 +114,7 @@ export function ChatWidget() {
           </CardFooter>
         </Card>
       ) : (
-        <Button 
+        <Button
           onClick={() => setIsOpen(true)}
           className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-200 group relative"
         >
