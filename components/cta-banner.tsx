@@ -79,7 +79,7 @@ export function CTABanner({
           {/* CTA Button */}
           <div className="shrink-0">
             <Button
-              
+
               size="lg"
               className={cn(
                 "group",

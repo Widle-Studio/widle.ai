@@ -16,7 +16,7 @@ export default async function AdminPosts() {
 
   // Fetch posts.
   const { data: posts, error } = await supabase.from("posts").select("*").order("created_at", { ascending: false })
-  
+
   const displayPosts = error || !posts ? [] : posts
 
   return (
