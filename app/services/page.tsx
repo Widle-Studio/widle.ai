@@ -3,49 +3,49 @@ import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
-import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Workflow, Building2, Users } from "lucide-react"
+import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Workflow, Building2, Users, Cloud, Code } from "lucide-react"
 
 export const metadata = {
   title: "Our Technical Expertise in Applied AI Solutions | Widle Studio",
-  description: "Explore all the technology expertise we have to develop AI solutions for your enterprise.",
+  description: "Explore all the technology expertise we have to develop custom AI solutions, cloud infrastructures, and internal tooling for your enterprise.",
 }
 
 const services = [
   {
+    title: "Generative AI & LLMs",
+    description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
     icon: Bot,
-    title: "AI Agents & GenAI",
-    description: "Leverage advanced AI models like LLMs and real-time data retrieval systems to build intelligent, context-aware applications, including AI agents, co-pilots, and enhanced decision-making tools.",
-    href: "/services/ai-agents-genai",
+    href: "/services/gen-ai-llms",
   },
   {
+    title: "MLOps & AI Infrastructure",
+    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
     icon: Cog,
-    title: "MLOps",
-    description: "Streamline and automate the entire machine learning lifecycle—from development to deployment and monitoring—ensuring scalable, reliable, and efficient AI operations in production environments.",
     href: "/services/mlops",
   },
   {
+    title: "Computer Vision & Edge AI",
+    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
     icon: Eye,
-    title: "Computer Vision",
-    description: "Empower systems to interpret and understand visual data with advanced image recognition, 3D reconstruction, and quality control techniques, driving innovations in areas such as autonomous driving and manufacturing.",
     href: "/services/computer-vision",
   },
   {
-    icon: Brain,
-    title: "Edge Solutions",
-    description: "Bring intelligence closer to the source of data by deploying AI and analytics at the edge, enabling real-time processing for applications like IoT, smart devices, and remote monitoring in resource-constrained environments.",
-    href: "/services/edge-solutions",
+    title: "Cloud-Native Software Engineering",
+    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
+    icon: Cloud,
+    href: "/services/cloud-software",
   },
   {
-    icon: TrendingUp,
+    title: "Internal Tooling & Retool",
+    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
+    icon: Code,
+    href: "/services/internal-tooling",
+  },
+  {
     title: "Predictive Analytics",
-    description: "Harness the power of data to forecast future trends, optimize operations, and make data-driven decisions with applications ranging from predictive maintenance and anomaly detection to demand forecasting and marketing insights.",
+    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
+    icon: TrendingUp,
     href: "/services/predictive-analytics",
-  },
-  {
-    icon: Lightbulb,
-    title: "AI Guidance for Your Business",
-    description: "AI team in place but unsure of benchmarks or direction? Struggling with buy-in or use case prioritization? We’ve solved these challenges for our clients multiple times.",
-    href: "/services/ai-guidance",
   }
 ]
 
@@ -60,8 +60,8 @@ export default function ServicesPage() {
           {/* Main Hero Header matching DeepSense */}
           <SectionHeader
             eyebrow="Tech Expertise"
-            headline="Our Technical Expertise in Applied AI Solutions"
-            subtext="Explore all the technology expertise we have to develop AI solutions"
+            headline="Engineering Custom AI & Cloud Solutions"
+            subtext="Discover our core technical competencies used to architect and deploy highly scalable enterprise systems."
           />
 
           {/* Main Services Grid */}
@@ -83,14 +83,14 @@ export default function ServicesPage() {
                 <Workflow className="h-8 w-8" />
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                Deploy Agentic RAG Pipelines in Minutes with Widle Studio
+                Deploy Agentic RAG Pipelines & Scalable Architectures
               </h2>
               <p className="max-w-2xl text-lg text-muted-foreground mb-8">
-                Delivering tailored AI services across guidance, implementation, and support to provide you with a competitive advantage. Unlock the full potential of AI today.
+                Delivering tailored engineering services across strategy, implementation, and support to provide you with a competitive advantage. Unlock the full potential of your data today.
               </p>
               <CTABanner
-                headline="Unlock the Full Potential of AI"
-                description="Get to know us, our leadership, development direction, and why we call ourselves applied AI experts."
+                headline="Discover Our Engineering Philosophy"
+                description="Get to know us, our leadership, development direction, and why we call ourselves applied AI and Cloud experts."
                 buttonText="Learn More About Us"
                 buttonHref="/company"
                 variant="accent"
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                   Experience Across Industries
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  With experience across industries, we deliver impactful projects in key sectors. Our deep domain knowledge ensures that your AI solutions are tailored to your specific regulatory and operational needs.
+                  With deep domain knowledge across multiple sectors, we engineer solutions tailored to your specific regulatory, computational, and operational needs.
                 </p>
                 <a href="/industries" className="text-primary font-medium hover:underline inline-flex items-center">
                   Explore our industry expertise →
@@ -119,16 +119,16 @@ export default function ServicesPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                  <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Finance</p>
+                   <p className="font-semibold">Finance & FinTech</p>
                  </div>
                  <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Healthcare</p>
+                   <p className="font-semibold">Healthcare & MedTech</p>
                  </div>
                  <div className="rounded-xl border bg-card p-6 text-center">
                    <p className="font-semibold">Manufacturing</p>
                  </div>
                  <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Retail</p>
+                   <p className="font-semibold">Logistics & Retail</p>
                  </div>
               </div>
             </div>
@@ -142,10 +142,10 @@ export default function ServicesPage() {
                 <Users className="h-6 w-6" />
               </div>
             <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Join the Applied AI Revolution!
+              Join the Applied Engineering Revolution!
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-8">
-              Look at our open positions and join a team that is delivering real, measurable business impact across the globe.
+              Look at our open positions and join a team that is delivering real, measurable business impact through software and AI across the globe.
             </p>
              <a href="/careers" className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 View Open Positions
