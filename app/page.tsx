@@ -11,7 +11,7 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
-import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, type LucideIcon } from "lucide-react"
+import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Cloud, Code, type LucideIcon } from "lucide-react"
 
 // Map icon names to components for dynamic rendering
 const iconMap: Record<string, LucideIcon> = {
@@ -44,47 +44,47 @@ export default async function Home() {
   ])
 
   // Fallback / Formatting
-  const services = servicesData && servicesData.length > 0 ? servicesData.map(s => ({
+    const services = servicesData && servicesData.length > 0 ? servicesData.map(s => ({
     icon: iconMap[s.icon_name] || Brain,
     title: s.title,
     description: s.overview || "Professional AI solutions tailored to your enterprise needs.",
     href: `/services/${s.slug}`,
   })) : [
     {
-      title: "AI Strategy Consulting",
-      description: "Develop a comprehensive AI roadmap aligned with your business goals to ensure high ROI.",
-      icon: Brain,
-      href: "/services/ai-strategy",
-    },
-    {
-      title: "Machine Learning Solutions",
-      description: "Build custom ML models that predict trends, optimize processes, and automate decision-making.",
-      icon: TrendingUp,
-      href: "/services/machine-learning",
-    },
-    {
-      title: "Natural Language Processing",
-      description: "Leverage NLP to understand customer sentiment, automate support, and extract insights from text.",
+      title: "Generative AI & LLMs",
+      description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning and semantic data retrieval.",
       icon: Bot,
-      href: "/services/nlp",
+      href: "/services/gen-ai-llms",
     },
     {
-      title: "Computer Vision Systems",
-      description: "Implement intelligent computer vision for quality control, security, and automated inspection.",
+      title: "MLOps & AI Infrastructure",
+      description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment and monitoring.",
+      icon: Cog,
+      href: "/services/mlops",
+    },
+    {
+      title: "Computer Vision & Edge AI",
+      description: "Develop high-throughput visual processing systems. We deploy optimized models for real-time anomaly detection and autonomous tracking.",
       icon: Eye,
       href: "/services/computer-vision",
     },
     {
-      title: "Predictive Analytics",
-      description: "Turn historical data into actionable forecasts to stay ahead of market shifts.",
-      icon: Lightbulb,
-      href: "/services/predictive-analytics",
+      title: "Cloud-Native Software Engineering",
+      description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure using Terraform.",
+      icon: Cloud,
+      href: "/services/cloud-software",
     },
     {
-      title: "AI Infrastructure Setup",
-      description: "Design scalable and secure cloud infrastructure to power your AI applications.",
-      icon: Cog,
-      href: "/services/infrastructure",
+      title: "Internal Tooling & Retool",
+      description: "Accelerate your operational efficiency with highly customized, secure internal dashboards integrating complex databases and APIs.",
+      icon: Code,
+      href: "/services/internal-tooling",
+    },
+    {
+      title: "Predictive Analytics",
+      description: "Harness statistical modeling and deep learning to forecast market trends, optimize operations, and execute real-time fraud detection.",
+      icon: TrendingUp,
+      href: "/services/predictive-analytics",
     }
   ]
 
