@@ -157,7 +157,7 @@ export function HeroSection({
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Button
-            
+
             size="lg"
             className="group bg-primary text-primary-foreground hover:bg-primary/90"
           >
@@ -167,7 +167,7 @@ export function HeroSection({
             </a>
           </Button>
           <Button
-            
+
             size="lg"
             variant="outline"
             className="border-border bg-transparent text-foreground hover:bg-secondary"

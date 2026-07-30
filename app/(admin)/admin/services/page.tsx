@@ -17,14 +17,14 @@ export default async function AdminServices() {
 
   // Fetch services. Use dummy data if it fails.
   const { data: services, error } = await supabase.from("services").select("*").order("created_at", { ascending: false })
-  
+
   const displayServices = error || !services ? [] : services
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Services</h1>
-        
+
         <Dialog>
           <DialogTrigger >
             <Button>
@@ -78,7 +78,7 @@ export default async function AdminServices() {
                         <ServiceForm initialData={service} />
                       </DialogContent>
                     </Dialog>
-                    
+
                     <form action={async () => {
                       "use server"
                       const supabaseServer = await createClient()
