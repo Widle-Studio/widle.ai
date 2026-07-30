@@ -53,7 +53,7 @@ export function CaseStudyForm({ initialData, onSuccess }: CaseStudyFormProps) {
 
   async function onSubmit(values: CaseStudyFormValues) {
     setIsLoading(true)
-    
+
     try {
       if (initialData?.id) {
         const { error } = await supabase
@@ -84,7 +84,7 @@ export function CaseStudyForm({ initialData, onSuccess }: CaseStudyFormProps) {
       form.reset()
       router.refresh()
       if (onSuccess) onSuccess()
-      
+
     } catch (error) {
       console.error("Error saving case study:", error)
     } finally {
@@ -128,10 +128,10 @@ export function CaseStudyForm({ initialData, onSuccess }: CaseStudyFormProps) {
             <FormItem>
               <FormLabel>Thumbnail Image</FormLabel>
               <FormControl>
-                <ImageUpload 
-                  bucket="images" 
-                  defaultImage={field.value} 
-                  onUpload={(url) => field.onChange(url)} 
+                <ImageUpload
+                  bucket="images"
+                  defaultImage={field.value}
+                  onUpload={(url) => field.onChange(url)}
                 />
               </FormControl>
               <FormDescription>

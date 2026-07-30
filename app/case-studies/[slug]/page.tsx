@@ -286,7 +286,7 @@ export default async function CaseStudyDetailPage({
   }))
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
-  
+
   // Structured Data (JSON-LD)
   const jsonLd = {
     '@context': 'https://schema.org',
