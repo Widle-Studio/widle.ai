@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
 
 export async function POST(req: Request) {
   try {
@@ -13,28 +12,8 @@ export async function POST(req: Request) {
       )
     }
 
-    const supabase = await createClient()
-
-    const { error } = await supabase
-      .from('leads')
-      .insert([
-        {
-          name,
-          email,
-          company,
-          phone,
-          message,
-          source: 'contact_form'
-        }
-      ])
-
-    if (error) {
-      console.error('Supabase error inserting lead:', error)
-      return NextResponse.json(
-        { error: 'Failed to submit contact form' },
-        { status: 500 }
-      )
-    }
+    // Static Site Update: Mocking the database insert
+    console.log("Mock Lead Received:", { name, email, company, phone, message })
 
     return NextResponse.json(
       { message: 'Contact form submitted successfully' },

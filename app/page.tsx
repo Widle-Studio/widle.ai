@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/hero-section"
@@ -13,43 +12,8 @@ import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
 import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Cloud, Code, type LucideIcon } from "lucide-react"
 
-// Map icon names to components for dynamic rendering
-const iconMap: Record<string, LucideIcon> = {
-  "Brain": Brain,
-  "Bot": Bot,
-  "Cog": Cog,
-  "Eye": Eye,
-  "TrendingUp": TrendingUp,
-  "Lightbulb": Lightbulb,
-}
-
-export default async function Home() {
-  const supabase = await createClient()
-
-  // Fetch dynamic data from Supabase
-  const [
-    { data: servicesData },
-    { data: testimonialsData },
-    { data: postsData },
-    { data: partnersData },
-    { data: solutionsData },
-    { data: faqsData },
-  ] = await Promise.all([
-    supabase.from("services").select("*").eq("status", "Published").order("created_at", { ascending: true }).limit(6),
-    supabase.from("testimonials").select("*").order("order", { ascending: true }),
-    supabase.from("posts").select("*").eq("published", true).order("date", { ascending: false }).limit(3),
-    supabase.from("partners").select("*").order("order_index", { ascending: true }),
-    supabase.from("solutions").select("*").eq("status", "Published").order("order_index", { ascending: true }),
-    supabase.from("faqs").select("*").order("order_index", { ascending: true }),
-  ])
-
-  // Fallback / Formatting
-    const services = servicesData && servicesData.length > 0 ? servicesData.map(s => ({
-    icon: iconMap[s.icon_name] || Brain,
-    title: s.title,
-    description: s.overview || "Professional AI solutions tailored to your enterprise needs.",
-    href: `/services/${s.slug}`,
-  })) : [
+export default function Home() {
+  const services = [
     {
       title: "Generative AI & LLMs",
       description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning and semantic data retrieval.",
@@ -88,13 +52,7 @@ export default async function Home() {
     }
   ]
 
-  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData.map(t => ({
-    quote: t.quote || "The predictive models built by widle.ai increased our efficiency.",
-    clientName: t.client_name,
-    role: t.role,
-    companyLogo: "/placeholder.svg?height=32&width=120",
-    companyName: t.company_name,
-  })) : [
+  const testimonials = [
     {
       quote: "Widle.ai transformed our customer service operations with their custom NLP solution. We've seen a 40% reduction in response times and a significant boost in customer satisfaction.",
       clientName: "Sarah Jenkins",
@@ -118,14 +76,7 @@ export default async function Home() {
     }
   ]
 
-  const insights = postsData && postsData.length > 0 ? postsData.map(p => ({
-    image: p.thumbnail || "/placeholder.svg?height=360&width=640",
-    category: p.category,
-    title: p.title,
-    excerpt: p.excerpt || "A comprehensive guide on AI adoption and implementation.",
-    date: p.date,
-    href: `/insights/${p.slug || p.id}`,
-  })) : [
+  const insights = [
     {
       title: "The Future of Generative AI in the Enterprise",
       category: "Trends",
@@ -152,10 +103,7 @@ export default async function Home() {
     }
   ]
 
-  const partners = partnersData && partnersData.length > 0 ? partnersData.map(p => ({
-    src: p.logo_url,
-    alt: p.name,
-  })) : [
+  const partners = [
     { src: "/placeholder.svg?height=40&width=160&text=Microsoft", alt: "Microsoft" },
     { src: "/placeholder.svg?height=40&width=160&text=Google", alt: "Google" },
     { src: "/placeholder.svg?height=40&width=160&text=AWS", alt: "AWS" },
@@ -164,11 +112,7 @@ export default async function Home() {
     { src: "/placeholder.svg?height=40&width=160&text=Snowflake", alt: "Snowflake" },
   ]
 
-  const solutions = solutionsData && solutionsData.length > 0 ? solutionsData.map(s => ({
-    title: s.title,
-    description: s.description,
-    icon: iconMap[s.icon_name] || Brain,
-  })) : [
+  const solutions = [
     {
       title: "Predictive Maintenance",
       description: "AI-driven insights to predict equipment failures before they happen, reducing downtime and costs.",
@@ -191,10 +135,7 @@ export default async function Home() {
     }
   ]
 
-  const faqs = faqsData && faqsData.length > 0 ? faqsData.map(f => ({
-    question: f.question,
-    answer: f.answer,
-  })) : [
+  const faqs = [
     {
       question: "How long does a typical AI implementation take?",
       answer: "A standard implementation typically takes 3-6 months from strategy to initial deployment, depending on data readiness and project complexity."
