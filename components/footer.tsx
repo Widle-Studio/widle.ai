@@ -103,7 +103,7 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <div className="mt-6" id="contact">
+            <div className="mt-6" id="contact-footer">
               <p className="text-sm text-muted-foreground">
                 Contact us at
               </p>
