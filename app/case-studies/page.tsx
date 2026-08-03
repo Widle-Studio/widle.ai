@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
         headline="Start Your Own Success Story"
         description="Partner with us to build custom AI solutions that deliver real business value."
         buttonText="Get a Free Consultation"
-        buttonHref="/#contact"
+        buttonHref="/contact"
         variant="accent"
       />
 
