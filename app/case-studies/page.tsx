@@ -3,22 +3,39 @@ import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { CaseStudyCard } from "@/components/case-study-card"
 import { CTABanner } from "@/components/cta-banner"
-import { createClient } from "@/lib/supabase/server"
 
 export const metadata = {
   title: "Case Studies & Client Success Stories",
   description: "Read how Widle Studio has helped enterprises across industries implement AI solutions for measurable business impact.",
 }
 
-export default async function CaseStudiesPage() {
-  const supabase = await createClient()
-
-  // Fetch published case studies from the database
-  const { data: studiesData } = await supabase
-    .from("case_studies")
-    .select("*")
-    .eq("is_published", true)
-    .order("created_at", { ascending: false })
+export default function CaseStudiesPage() {
+  const studiesData = [
+    {
+      id: "1",
+      title: "MedTech AI Diagnostics",
+      industry: "Healthcare",
+      metric_highlight: "Reduced diagnostic time by 40% using custom Computer Vision models.",
+      slug: "medtech-ai-diagnostics",
+      image_url: "/placeholder.svg?height=400&width=600"
+    },
+    {
+      id: "2",
+      title: "FinTech Fraud Detection",
+      industry: "Finance",
+      metric_highlight: "Identified anomalous transactions in real-time, saving $2M annually.",
+      slug: "fintech-fraud-detection",
+      image_url: "/placeholder.svg?height=400&width=600"
+    },
+    {
+      id: "3",
+      title: "Retail Demand Forecasting",
+      industry: "Retail",
+      metric_highlight: "Optimized supply chain inventory with 95% predictive accuracy.",
+      slug: "retail-demand-forecasting",
+      image_url: "/placeholder.svg?height=400&width=600"
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-background">
@@ -39,7 +56,7 @@ export default async function CaseStudiesPage() {
                   key={study.id}
                   title={study.title}
                   tag={study.industry}
-                  description={study.metric_highlight || study.client}
+                  description={study.metric_highlight}
                   href={`/case-studies/${study.slug}`}
                   image={study.image_url || "/placeholder.svg"}
                 />
