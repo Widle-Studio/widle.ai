@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
-import { Mail, MapPin, Phone, MessageSquare, ArrowRight, ShieldCheck } from "lucide-react"
+import { Mail, MapPin, Phone, ArrowRight, ShieldCheck } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-2xl font-bold tracking-tight mb-4">Get in Touch</h3>
                 <p className="text-muted-foreground text-lg">
-                  Whether you're looking to automate internal operations with AI or build scalable cloud infrastructures, our engineering team is ready to help.
+                  Whether you&apos;re looking to automate internal operations with AI or build scalable cloud infrastructures, our engineering team is ready to help.
                 </p>
               </div>
 

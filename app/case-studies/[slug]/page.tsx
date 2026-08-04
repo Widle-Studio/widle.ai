@@ -333,7 +333,7 @@ export default async function CaseStudyDetailPage({
 
         {/* 3. Long-form Body Content */}
         <RichTextContent>
-          {caseStudy.content.sections.map((section: any, index) => {
+          {caseStudy.content.sections.map((section: { type: string; content?: string; text?: string; items?: string[]; quote?: string; author?: string; role?: string; image?: string; alt?: string; caption?: string }, index) => {
             switch (section.type) {
               case "heading":
                 return <ContentHeading key={index}>{section.text}</ContentHeading>

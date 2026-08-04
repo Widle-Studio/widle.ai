@@ -42,8 +42,12 @@ export default function LoginPage() {
 
       router.push("/admin")
       router.refresh()
-    } catch (error: any) {
-      setError(error.message || "Failed to log in")
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError("Failed to log in")
+      }
     } finally {
       setLoading(false)
     }

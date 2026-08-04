@@ -10,7 +10,7 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
-import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Cloud, Code, type LucideIcon } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Cloud, Code } from "lucide-react"
 
 export default function Home() {
   const services = [

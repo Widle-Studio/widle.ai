@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
-import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Workflow, Building2, Users, Cloud, Code } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code } from "lucide-react"
 
 export const metadata = {
   title: "Our Technical Expertise in Applied AI Solutions | Widle Studio",
