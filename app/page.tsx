@@ -160,12 +160,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection
-        headline="Unlock the Full Potential of AI for"
-        highlightedText="Your Business"
-        subheadline="We partner with forward-thinking enterprises to design, build, and deploy AI solutions that transform operations and unlock new possibilities."
-        primaryCTA={{ text: "Get Started", href: "/contact" }}
-        secondaryCTA={{ text: "View Our Work", href: "/case-studies" }}
-        eyebrow="Enterprise AI Solutions"
+        headline="Engineering Custom AI & Cloud"
+        highlightedText="Software Solutions"
+        subheadline="We specialize in LLMs, MLOps, computer vision, and AI-powered automation to drive business growth. Partner with Widle to architect and deploy highly scalable enterprise systems."
+        primaryCTA={{ text: "Schedule Technical Discovery", href: "/contact" }}
+        secondaryCTA={{ text: "View Success Stories", href: "/case-studies" }}
+        eyebrow="Widle Studio"
       />
 
       {/* Stats Section */}
@@ -186,9 +186,9 @@ export default function Home() {
         <section className="bg-background py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeader
-              eyebrow="Our Services"
-              headline="Services We Provide"
-              subtext="From strategy to deployment, we offer end-to-end AI services that drive measurable business outcomes."
+              eyebrow="Our Technical Expertise"
+              headline="Custom Enterprise AI Services"
+              subtext="From predictive analytics to multi-agent LLM systems, we build resilient, secure solutions."
             />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
               {services.map((service) => (
