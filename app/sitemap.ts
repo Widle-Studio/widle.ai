@@ -1,9 +1,7 @@
 import { MetadataRoute } from 'next'
-import { createClient } from '@/lib/supabase/server'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
-  const supabase = await createClient()
 
   // Define static routes
   const staticRoutes = [
@@ -23,47 +21,46 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1.0 : 0.8,
   }))
 
-  try {
-    // Fetch dynamic routes from Supabase
-    const [
-      { data: services },
-      { data: caseStudies },
-      { data: posts }
-    ] = await Promise.all([
-      supabase.from('services').select('slug, updated_at').eq('status', 'Published'),
-      supabase.from('case_studies').select('slug, updated_at').eq('published', true),
-      supabase.from('posts').select('slug, updated_at').eq('published', true),
-    ])
+  const dynamicServiceRoutes = [
+    '/services/gen-ai-llms',
+    '/services/mlops',
+    '/services/computer-vision',
+    '/services/cloud-software',
+    '/services/internal-tooling',
+    '/services/predictive-analytics'
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
 
-    const dynamicServiceRoutes = (services || []).map((service) => ({
-      url: `${baseUrl}/services/${service.slug}`,
-      lastModified: new Date(service.updated_at || new Date()),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
+  const dynamicCaseStudyRoutes = [
+    '/case-studies/medtech-ai-diagnostics',
+    '/case-studies/fintech-fraud-detection',
+    '/case-studies/retail-demand-forecasting'
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+  
+  const dynamicPostRoutes = [
+    '/insights/future-generative-ai',
+    '/insights/trust-in-ai',
+    '/insights/mlops-guide'
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
-    const dynamicCaseStudyRoutes = (caseStudies || []).map((study) => ({
-      url: `${baseUrl}/case-studies/${study.slug}`,
-      lastModified: new Date(study.updated_at || new Date()),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
-
-    const dynamicPostRoutes = (posts || []).map((post) => ({
-      url: `${baseUrl}/insights/${post.slug}`,
-      lastModified: new Date(post.updated_at || new Date()),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
-
-    return [
-      ...staticRoutes,
-      ...dynamicServiceRoutes,
-      ...dynamicCaseStudyRoutes,
-      ...dynamicPostRoutes,
-    ]
-  } catch (error) {
-    console.error('Error generating sitemap:', error)
-    return staticRoutes
-  }
+  return [
+    ...staticRoutes,
+    ...dynamicServiceRoutes,
+    ...dynamicCaseStudyRoutes,
+    ...dynamicPostRoutes,
+  ]
 }
