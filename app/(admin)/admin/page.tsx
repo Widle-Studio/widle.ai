@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"
 import { createClient } from "@/lib/supabase/server"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Briefcase, FileStack, FileText, Users, Activity } from "lucide-react"
