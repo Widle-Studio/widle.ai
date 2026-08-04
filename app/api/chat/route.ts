@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   Keep responses relatively brief (1-3 short paragraphs max) unless explicitly asked for detailed information.`;
 
   const result = await streamText({
-    model: openai('gpt-4o-mini') as any, // Typecast to bypass version mismatch
+    model: openai('gpt-4o-mini') as Parameters<typeof streamText>[0]["model"], // Typecast to bypass version mismatch
     messages,
     system: systemPrompt,
   });
