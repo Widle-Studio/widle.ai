@@ -12,7 +12,7 @@ export const metadata = {
 export default function CompanyPage() {
   const expertiseAreas = [
     {
-      title: "Large Language Models (LLMs) & RAG",
+      title: "Generative AI & LLMs",
       description: "We architect distributed AI pipelines utilizing state-of-the-art transformer models. Our Retrieval-Augmented Generation (RAG) implementations leverage vector databases and semantic search to ground foundation models in enterprise-specific data corpora, ensuring zero-hallucination inference.",
       icon: Brain
     },
@@ -65,7 +65,7 @@ export default function CompanyPage() {
                   At Widle.ai, we recognize that deploying artificial intelligence in a production environment is fundamentally a systems engineering challenge. We go beyond theoretical data science to build fault-tolerant, scalable, and secure AI architectures.
                 </p>
                 <p>
-                  Our DNA is a synthesis of advanced algorithmic capabilities—inspired by leaders like Deepsense.ai—and the pragmatic, rapid-deployment cloud software expertise of Widle Studio. We specialize in operationalizing AI: transforming raw computational models into resilient microservices that integrate seamlessly with your existing tech stack.
+                  Our DNA is a synthesis of advanced algorithmic capabilities and the pragmatic, rapid-deployment cloud software expertise of Widle Studio. We specialize in operationalizing AI: transforming raw computational models into resilient microservices that integrate seamlessly with your existing tech stack.
                 </p>
                 <p>
                   Whether it is deploying custom Large Language Models (LLMs) with strict data governance, building automated MLOps pipelines, or developing secure internal tooling via Retool, our solutions are engineered for maximum ROI and deterministic reliability.
