@@ -10,6 +10,7 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
+import { AnimateIn } from "@/components/animate-in"
 import { Bot, Cog, Eye, TrendingUp, Cloud, Code } from "lucide-react"
 
 export default function Home() {
@@ -58,21 +59,21 @@ export default function Home() {
       clientName: "Sarah Jenkins",
       role: "VP of Customer Success",
       companyName: "TechFlow Solutions",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
     },
     {
       quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
       clientName: "David Chen",
       role: "COO",
       companyName: "Global Logistics Inc.",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
     },
     {
       quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
       clientName: "Elena Rodriguez",
       role: "CTO",
       companyName: "Manufacturing Dynamics",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
     }
   ]
 
@@ -82,7 +83,7 @@ export default function Home() {
       category: "Trends",
       date: "Oct 12, 2023",
       excerpt: "Explore how generative models are moving from novelties to core business tools.",
-      image: "/placeholder.svg?height=360&width=640",
+      image: "//widle.studio/assets/images/Widle-Logo.jpg",
       href: "/insights/future-generative-ai"
     },
     {
@@ -90,7 +91,7 @@ export default function Home() {
       category: "Ethics",
       date: "Sep 28, 2023",
       excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
-      image: "/placeholder.svg?height=360&width=640",
+      image: "//widle.studio/assets/images/Widle-Logo.jpg",
       href: "/insights/trust-in-ai"
     },
     {
@@ -98,7 +99,7 @@ export default function Home() {
       category: "Engineering",
       date: "Sep 15, 2023",
       excerpt: "Best practices for deploying and monitoring machine learning models in production.",
-      image: "/placeholder.svg?height=360&width=640",
+      image: "//widle.studio/assets/images/Widle-Logo.jpg",
       href: "/insights/mlops-guide"
     }
   ]

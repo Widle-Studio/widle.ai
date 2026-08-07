@@ -1,189 +1,92 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
-import { useEffect, useRef } from "react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { AnimateIn } from "./animate-in"
+import { StaggeredGrid } from "./staggered-grid"
 
 interface HeroSectionProps {
-  headline?: string
+  headline: string
   highlightedText?: string
-  subheadline?: string
-  primaryCTA?: { text: string; href: string }
-  secondaryCTA?: { text: string; href: string }
+  subheadline: string
+  primaryCTA: {
+    text: string
+    href: string
+  }
+  secondaryCTA?: {
+    text: string
+    href: string
+  }
   eyebrow?: string
+  className?: string
 }
 
 export function HeroSection({
-  headline = "Build the Future with",
-  highlightedText = "Intelligent AI",
-  subheadline = "We partner with forward-thinking enterprises to design, build, and deploy AI solutions that transform operations and unlock new possibilities.",
-  primaryCTA = { text: "Start Your AI Journey", href: "/contact" },
-  secondaryCTA = { text: "Watch Demo", href: "/demo" },
-  eyebrow = "Now accepting new enterprise partnerships",
+  headline,
+  highlightedText,
+  subheadline,
+  primaryCTA,
+  secondaryCTA,
+  eyebrow,
+  className,
 }: HeroSectionProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    let animationFrameId: number
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      size: number
-      opacity: number
-    }> = []
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      particles.length = 0
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000)
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.5 + 0.2,
-        })
-      }
-    }
-
-    const drawParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const dx = p1.x - p2.x
-          const dy = p1.y - p2.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 150) {
-            ctx.beginPath()
-            ctx.strokeStyle = `rgba(79, 70, 229, ${0.15 * (1 - distance / 150)})`
-            ctx.lineWidth = 1
-            ctx.moveTo(p1.x, p1.y)
-            ctx.lineTo(p2.x, p2.y)
-            ctx.stroke()
-          }
-        })
-      })
-
-      // Draw particles
-      particles.forEach((p) => {
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(14, 165, 233, ${p.opacity})`
-        ctx.fill()
-
-        // Update position
-        p.x += p.vx
-        p.y += p.vy
-
-        // Wrap around edges
-        if (p.x < 0) p.x = canvas.width
-        if (p.x > canvas.width) p.x = 0
-        if (p.y < 0) p.y = canvas.height
-        if (p.y > canvas.height) p.y = 0
-      })
-
-      animationFrameId = requestAnimationFrame(drawParticles)
-    }
-
-    resizeCanvas()
-    createParticles()
-    drawParticles()
-
-    window.addEventListener("resize", () => {
-      resizeCanvas()
-      createParticles()
-    })
-
-    return () => {
-      cancelAnimationFrame(animationFrameId)
-      window.removeEventListener("resize", resizeCanvas)
-    }
-  }, [])
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-background">
-      {/* Animated Background */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 h-full w-full"
-        aria-hidden="true"
-      />
-
-      {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-background" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-4 pt-16 text-center sm:px-6 lg:px-8">
-        {/* Eyebrow */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-          </span>
-          {eyebrow}
-        </div>
-
-        {/* Headline */}
-        <h1 className="max-w-4xl text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-          {headline}{" "}
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {highlightedText}
-          </span>
-        </h1>
-
-        {/* Subheadline */}
-        <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          {subheadline}
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Button
-
-            size="lg"
-            className="group bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            <a href={primaryCTA.href}>
-              {primaryCTA.text}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
-          <Button
-
-            size="lg"
-            variant="outline"
-            className="border-border bg-transparent text-foreground hover:bg-secondary"
-          >
-            <a href={secondaryCTA.href}>
-              <Play className="mr-2 h-4 w-4" />
-              {secondaryCTA.text}
-            </a>
-          </Button>
-        </div>
-
-        {/* Trust Indicator */}
-        <p className="mt-16 text-sm text-muted-foreground">
-          Trusted by industry leaders worldwide
-        </p>
+    <div className={cn("relative overflow-hidden bg-background pt-24 lg:pt-32", className)}>
+      {/* Abstract Grid Background */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      {/* Glow Effect */}
+      <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform-gpu blur-3xl" aria-hidden="true">
+        <div
+          className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary to-accent opacity-20"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
       </div>
-    </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 lg:pb-32">
+        <div className="mx-auto max-w-3xl text-center">
+          <StaggeredGrid>
+            {eyebrow && (
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">
+                {eyebrow}
+              </span>
+            )}
+            
+            <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-7xl">
+              {headline}{" "}
+              {highlightedText && (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  {highlightedText}
+                </span>
+              )}
+            </h1>
+
+            <p className="mt-6 text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
+              {subheadline}
+            </p>
+
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href={primaryCTA.href}
+                className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 hover:-translate-y-1"
+              >
+                {primaryCTA.text}
+              </Link>
+              {secondaryCTA && (
+                <Link
+                  href={secondaryCTA.href}
+                  className="group text-sm font-semibold leading-6 text-foreground flex items-center gap-2 hover:text-primary transition-colors"
+                >
+                  {secondaryCTA.text}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
+            </div>
+          </StaggeredGrid>
+        </div>
+      </div>
+    </div>
   )
 }
