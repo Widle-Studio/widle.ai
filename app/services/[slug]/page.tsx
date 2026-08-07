@@ -70,7 +70,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Legal Tech",
         title: "AI-Powered Contract Analysis",
         description:
@@ -78,7 +78,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/contract-analysis",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Healthcare",
         title: "Medical Knowledge Assistant",
         description:
@@ -115,7 +115,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "E-commerce",
         title: "Autonomous Customer Support",
         description:
@@ -123,7 +123,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/customer-support",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Finance",
         title: "Automated Due Diligence",
         description:
@@ -160,7 +160,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Technology",
         title: "Enterprise ML Platform",
         description:
@@ -168,7 +168,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/ml-platform",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Retail",
         title: "Real-Time Recommendation Engine",
         description:
@@ -205,7 +205,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Manufacturing",
         title: "Automated Quality Inspection",
         description:
@@ -213,7 +213,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/quality-inspection",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Retail",
         title: "Smart Inventory Management",
         description:
@@ -250,7 +250,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Supply Chain",
         title: "Demand Forecasting System",
         description:
@@ -258,7 +258,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/demand-forecasting",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Finance",
         title: "Credit Risk Modeling",
         description:
@@ -295,7 +295,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Enterprise",
         title: "AI Transformation Roadmap",
         description:
@@ -303,7 +303,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/ai-transformation",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "//widle.studio/assets/images/Widle-Logo.jpg",
         tag: "Financial Services",
         title: "AI Center of Excellence",
         description:

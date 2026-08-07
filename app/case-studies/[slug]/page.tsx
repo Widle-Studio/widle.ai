@@ -24,7 +24,7 @@ const caseStudies = {
     title: "AI-Powered Diagnostics Platform Reduces Detection Time by 85%",
     client: "MedTech Innovations",
     industry: "Healthcare",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "//widle.studio/assets/images/Widle-Logo.jpg",
     challenge:
       "MedTech Innovations faced a critical bottleneck in their diagnostic workflow. Manual analysis of medical imaging took an average of 45 minutes per scan, creating delays in patient care and limiting throughput to just 30 patients per day.",
     solution:
@@ -135,7 +135,7 @@ const caseStudies = {
     title: "Real-Time Fraud Detection Saves $47M Annually for Global Bank",
     client: "GlobalBank Corp",
     industry: "Finance",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "//widle.studio/assets/images/Widle-Logo.jpg",
     challenge:
       "GlobalBank Corp was losing an estimated $62M annually to sophisticated fraud schemes that their rule-based detection systems couldn't catch. False positives were also creating customer friction, blocking 12% of legitimate transactions.",
     solution:
@@ -190,7 +190,7 @@ const caseStudies = {
     title: "AI Demand Forecasting Cuts Inventory Costs by $12M",
     client: "RetailMax",
     industry: "Retail",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "//widle.studio/assets/images/Widle-Logo.jpg",
     challenge:
       "RetailMax, a 500-store retail chain, was struggling with inventory management. Overstock situations tied up $80M in working capital while stockouts were costing an estimated $25M in lost sales annually.",
     solution:
