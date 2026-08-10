@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { AnimateIn } from "./animate-in"
 
 interface FAQ {
   question: string

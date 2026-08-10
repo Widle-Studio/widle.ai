@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ReactNode } from "react"
 
 interface RichTextContentProps {
@@ -79,10 +80,12 @@ export function ContentImage({
 }) {
   return (
     <figure className="my-8">
-      <img
+      <Image
         src={src}
         alt={alt}
-        className="w-full rounded-xl"
+        width={1200}
+        height={630}
+        className="w-full rounded-xl object-cover"
       />
       {caption && (
         <figcaption className="mt-3 text-center text-sm text-muted-foreground">

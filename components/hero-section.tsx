@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { AnimateIn } from "./animate-in"
 import { StaggeredGrid } from "./staggered-grid"
 
 interface HeroSectionProps {

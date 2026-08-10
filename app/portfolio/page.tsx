@@ -2,7 +2,6 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { CTABanner } from "@/components/cta-banner"
-import { AnimateIn } from "@/components/animate-in"
 import { StaggeredGrid } from "@/components/staggered-grid"
 import Image from "next/image"
 
