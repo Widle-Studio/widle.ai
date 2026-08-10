@@ -10,7 +10,6 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
-import { AnimateIn } from "@/components/animate-in"
 import { Bot, Cog, Eye, TrendingUp, Cloud, Code } from "lucide-react"
 
 export default function Home() {
