@@ -17,7 +17,6 @@ const companyLinks = [
   { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
   { label: "Careers", href: "/careers" },
-  { label: "Admin Login", href: "/admin/login" },
 ]
 
 const socialLinks = [
