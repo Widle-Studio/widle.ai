@@ -14,37 +14,37 @@ const portfolioItems = [
   {
     title: "Xaver Sports",
     category: "Web Application",
-    image: "https://widle.studio/assets/images/Xaver-Sport.png",
+    image: "/images/portfolio/Xaver-Sport.png",
     description: "A high-performance sports management platform built for scalability and real-time data tracking.",
   },
   {
     title: "Scalers Case",
     category: "Cloud Infrastructure",
-    image: "https://widle.studio/assets/images/Scalers-Case.png",
+    image: "/images/portfolio/Scalers-Case.png",
     description: "Cloud-native architecture optimization allowing for elastic scaling during peak user loads.",
   },
   {
     title: "Instacoach Platform",
     category: "Mobile & Web",
-    image: "https://widle.studio/assets/images/Instacoach-Case.png",
+    image: "/images/portfolio/Instacoach-Case.png",
     description: "A comprehensive booking and coaching platform integrating complex payment gateways and scheduling algorithms.",
   },
   {
     title: "Houst Management",
     category: "Internal Tooling / Retool",
-    image: "https://widle.studio/assets/images/Houst-Case.png",
+    image: "/images/portfolio/Houst-Case.png",
     description: "Custom internal dashboards built with Retool to streamline operations and property management.",
   },
   {
     title: "Safelet Dashboard",
     category: "Security & Analytics",
-    image: "https://widle.studio/assets/images/Safelet+Dashboard.png",
+    image: "/images/portfolio/Safelet-Dashboard.png",
     description: "Secure, real-time analytics dashboard providing instant visibility into critical user metrics.",
   },
   {
     title: "Maverick App",
     category: "Custom Software",
-    image: "https://widle.studio/assets/images/Maverick+Mockup+2.png",
+    image: "/images/portfolio/Maverick-Mockup-2.png",
     description: "End-to-end custom application development with a focus on seamless UX and robust backend performance.",
   }
 ]

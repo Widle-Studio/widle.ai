@@ -58,21 +58,21 @@ export default function Home() {
       clientName: "Sarah Jenkins",
       role: "VP of Customer Success",
       companyName: "TechFlow Solutions",
-      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
+      companyLogo: "/images/Widle-Logo.jpg"
     },
     {
       quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
       clientName: "David Chen",
       role: "COO",
       companyName: "Global Logistics Inc.",
-      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
+      companyLogo: "/images/Widle-Logo.jpg"
     },
     {
       quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
       clientName: "Elena Rodriguez",
       role: "CTO",
       companyName: "Manufacturing Dynamics",
-      companyLogo: "//widle.studio/assets/images/Widle-Logo.jpg"
+      companyLogo: "/images/Widle-Logo.jpg"
     }
   ]
 
@@ -82,7 +82,7 @@ export default function Home() {
       category: "Trends",
       date: "Oct 12, 2023",
       excerpt: "Explore how generative models are moving from novelties to core business tools.",
-      image: "//widle.studio/assets/images/Widle-Logo.jpg",
+      image: "/images/Widle-Logo.jpg",
       href: "/insights/future-generative-ai"
     },
     {
@@ -90,7 +90,7 @@ export default function Home() {
       category: "Ethics",
       date: "Sep 28, 2023",
       excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
-      image: "//widle.studio/assets/images/Widle-Logo.jpg",
+      image: "/images/Widle-Logo.jpg",
       href: "/insights/trust-in-ai"
     },
     {
@@ -98,7 +98,7 @@ export default function Home() {
       category: "Engineering",
       date: "Sep 15, 2023",
       excerpt: "Best practices for deploying and monitoring machine learning models in production.",
-      image: "//widle.studio/assets/images/Widle-Logo.jpg",
+      image: "/images/Widle-Logo.jpg",
       href: "/insights/mlops-guide"
     }
   ]

@@ -4,10 +4,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'widle.studio',
-      },
-      {
-        protocol: 'https',
         hostname: 'images.unsplash.com',
       }
     ],

@@ -17,7 +17,7 @@ export default function CaseStudiesPage() {
       industry: "Healthcare",
       metric_highlight: "Reduced diagnostic time by 40% using custom Computer Vision models.",
       slug: "medtech-ai-diagnostics",
-      image_url: "//widle.studio/assets/images/Widle-Logo.jpg"
+      image_url: "/images/Widle-Logo.jpg"
     },
     {
       id: "2",
@@ -25,7 +25,7 @@ export default function CaseStudiesPage() {
       industry: "Finance",
       metric_highlight: "Identified anomalous transactions in real-time, saving $2M annually.",
       slug: "fintech-fraud-detection",
-      image_url: "//widle.studio/assets/images/Widle-Logo.jpg"
+      image_url: "/images/Widle-Logo.jpg"
     },
     {
       id: "3",
@@ -33,7 +33,7 @@ export default function CaseStudiesPage() {
       industry: "Retail",
       metric_highlight: "Optimized supply chain inventory with 95% predictive accuracy.",
       slug: "retail-demand-forecasting",
-      image_url: "//widle.studio/assets/images/Widle-Logo.jpg"
+      image_url: "/images/Widle-Logo.jpg"
     }
   ]
 
