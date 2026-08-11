@@ -43,6 +43,8 @@ export default function Home() {
       description: "Accelerate your operational efficiency with highly customized, secure internal dashboards integrating complex databases and APIs.",
       icon: Code,
       href: "/services/internal-tooling",
+      badgeImage: "/images/partners/retool-badge.png",
+      badgeText: "Widle Exclusive Partnership",
     },
     {
       title: "Predictive Analytics",
@@ -110,6 +112,7 @@ export default function Home() {
     { src: "/images/partners/nvidia.svg", alt: "NVIDIA" },
     { src: "/images/partners/ibm.svg", alt: "IBM" },
     { src: "/images/partners/snowflake.svg", alt: "Snowflake" },
+    { src: "/images/partners/retool.svg", alt: "Retool" },
   ]
 
   const solutions = [
