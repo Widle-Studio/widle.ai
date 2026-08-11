@@ -104,12 +104,12 @@ export default function Home() {
   ]
 
   const partners = [
-    { src: "/placeholder.svg?height=40&width=160&text=Microsoft", alt: "Microsoft" },
-    { src: "/placeholder.svg?height=40&width=160&text=Google", alt: "Google" },
-    { src: "/placeholder.svg?height=40&width=160&text=AWS", alt: "AWS" },
-    { src: "/placeholder.svg?height=40&width=160&text=NVIDIA", alt: "NVIDIA" },
-    { src: "/placeholder.svg?height=40&width=160&text=IBM", alt: "IBM" },
-    { src: "/placeholder.svg?height=40&width=160&text=Snowflake", alt: "Snowflake" },
+    { src: "/images/partners/microsoft.svg", alt: "Microsoft" },
+    { src: "/images/partners/google.svg", alt: "Google" },
+    { src: "/images/partners/aws.svg", alt: "AWS" },
+    { src: "/images/partners/nvidia.svg", alt: "NVIDIA" },
+    { src: "/images/partners/ibm.svg", alt: "IBM" },
+    { src: "/images/partners/snowflake.svg", alt: "Snowflake" },
   ]
 
   const solutions = [
