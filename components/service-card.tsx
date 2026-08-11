@@ -2,19 +2,41 @@ import Link from "next/link"
 import { ArrowRight, type LucideIcon } from "lucide-react"
 import { AnimateIn } from "./animate-in"
 
+import Image from "next/image"
+
 interface ServiceCardProps {
+  badgeImage?: string
+  badgeText?: string
+
   icon: LucideIcon
   title: string
   description: string
   href: string
 }
 
-export function ServiceCard({ icon: Icon, title, description, href }: ServiceCardProps) {
+export function ServiceCard({ icon: Icon, title, description, href, badgeImage, badgeText }: ServiceCardProps) {
   return (
     <AnimateIn direction="up">
       <div className="group relative rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:bg-card/80">
         {/* Gradient Glow */}
         <div className="absolute -inset-px -z-10 rounded-xl bg-gradient-to-b from-primary/20 to-transparent opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+
+        
+        {/* Partnership Badge */}
+        {(badgeImage || badgeText) && (
+          <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+             {badgeImage && (
+               <div className="relative h-10 w-24">
+                 <Image src={badgeImage} alt={badgeText || "Partner Badge"} fill className="object-contain object-right opacity-90 transition-opacity group-hover:opacity-100" />
+               </div>
+             )}
+             {badgeText && (
+               <span className="text-[10px] font-bold uppercase tracking-wider text-primary/80">
+                 {badgeText}
+               </span>
+             )}
+          </div>
+        )}
 
         {/* Icon */}
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
