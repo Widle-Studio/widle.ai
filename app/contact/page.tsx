@@ -245,6 +245,34 @@ export default function ContactPage() {
                ))}
              </div>
           </div>
+          
+          {/* Our Promise Section */}
+          <div className="mt-32 border-t border-border pt-20">
+             <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold tracking-tight">Our promise</h2>
+             </div>
+             
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               <div className="p-6 bg-card border border-border rounded-xl">
+                 <h4 className="text-xl font-semibold mb-3">Quality Deliverance</h4>
+                 <p className="text-muted-foreground leading-relaxed">
+                   We deliver only premium quality products to our clients by bringing them compelling & profitable apps, while also meeting all there project expectations at the best industry price.
+                 </p>
+               </div>
+               <div className="p-6 bg-card border border-border rounded-xl">
+                 <h4 className="text-xl font-semibold mb-3">Dedication to every client</h4>
+                 <p className="text-muted-foreground leading-relaxed">
+                   From the first idea till the end of the development process, we believe each client is unique and should be treated with the best care possible.
+                 </p>
+               </div>
+               <div className="p-6 bg-card border border-border rounded-xl">
+                 <h4 className="text-xl font-semibold mb-3">Trust & Confidence</h4>
+                 <p className="text-muted-foreground leading-relaxed">
+                   We believe trust and confidence in our team is an engine to a productive and outstanding development lifecycle.
+                 </p>
+               </div>
+             </div>
+          </div>
 
         </div>
       </main>

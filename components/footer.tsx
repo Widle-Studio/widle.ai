@@ -20,10 +20,8 @@ const companyLinks = [
 ]
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: ExternalLink },
-  { label: "Twitter", href: "https://twitter.com", icon: ExternalLink },
-  { label: "GitHub", href: "https://github.com", icon: ExternalLink },
-  { label: "YouTube", href: "https://youtube.com", icon: ExternalLink },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/widlestudio/", icon: ExternalLink },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCyD_47xWqS5yV1R45uQzMaw", icon: ExternalLink },
 ]
 
 export function Footer() {
@@ -108,10 +106,10 @@ export function Footer() {
                 Contact us at
               </p>
               <a
-                href="mailto:hello@widle.ai"
+                href="mailto:info@widle.studio"
                 className="text-sm font-medium text-accent hover:underline"
               >
-                hello@widle.ai
+                info@widle.studio
               </a>
             </div>
           </div>
