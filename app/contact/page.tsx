@@ -4,14 +4,14 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
-import { Mail, MapPin, Phone, ArrowRight, ShieldCheck } from "lucide-react"
+import { Mail, Clock, ShieldCheck, ArrowRight, CalendarDays, FileText, MessageCircle } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    company: "",
+    subject: "",
     message: ""
   })
   
@@ -41,7 +41,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setSubmitStatus("success")
-        setFormData({ name: "", email: "", phone: "", company: "", message: "" })
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
       } else {
         setSubmitStatus("error")
       }
@@ -61,7 +61,7 @@ export default function ContactPage() {
           
           <SectionHeader
             eyebrow="Contact Us"
-            headline="Let's Architect Your Next AI Solution"
+            headline="Whatever it may be, we are glad to hear from you!"
             subtext="Reach out to discuss your enterprise requirements, get technical guidance, or explore partnership opportunities with Widle."
           />
 
@@ -69,63 +69,60 @@ export default function ContactPage() {
             
             {/* Contact Information */}
             <div className="space-y-12 pr-0 lg:pr-12">
-              <div>
-                <h3 className="text-2xl font-bold tracking-tight mb-4">Get in Touch</h3>
-                <p className="text-muted-foreground text-lg">
-                  Whether you&apos;re looking to automate internal operations with AI or build scalable cloud infrastructures, our engineering team is ready to help.
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                
+                {/* Live Chat */}
+                <div className="p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-all">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                    <MessageCircle className="h-6 w-6" />
+                  </div>
+                  <h4 className="text-lg font-semibold mb-2">Live chat</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Click the button to start. Wait time: approximately 20 minutes.</p>
+                  <a href="#" className="text-sm font-medium text-primary hover:underline">CHAT WITH US →</a>
+                </div>
+
+                {/* Submit Request */}
+                <div className="p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-all">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                    <FileText className="h-6 w-6" />
+                  </div>
+                  <h4 className="text-lg font-semibold mb-2">Submit a request</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Send a request directly to us! Typical response time: within 1 business day.</p>
+                  <a href="#form" className="text-sm font-medium text-primary hover:underline">SUBMIT →</a>
+                </div>
+
+                {/* Schedule */}
+                <div className="p-6 rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-all sm:col-span-2">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                    <CalendarDays className="h-6 w-6" />
+                  </div>
+                  <h4 className="text-lg font-semibold mb-2">Schedule a meeting</h4>
+                  <p className="text-sm text-muted-foreground mb-4">Set up a meeting with us! We are available: Monday - Friday 9:00 am - 7:00 pm IST.</p>
+                  <a href="https://calendly.com/widlestudio/30-minute-introductory-meeting" target="_blank" rel="noreferrer" className="text-sm font-medium text-primary hover:underline">SCHEDULE →</a>
+                </div>
+
               </div>
 
-              <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
-                    <Phone className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Phone</h4>
-                    <p className="text-muted-foreground mt-1">Available for direct inquiries and urgent technical scoping.</p>
-                    <a href="tel:+917016620913" className="inline-block mt-2 font-mono text-primary hover:underline">
-                      +91-7016620913
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
-                    <Mail className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Email</h4>
-                    <p className="text-muted-foreground mt-1">Drop us a line with your RFP or technical queries.</p>
-                    <a href="mailto:contact@widle.studio" className="inline-block mt-2 font-mono text-primary hover:underline">
-                      contact@widle.studio
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Global Operations</h4>
-                    <p className="text-muted-foreground mt-1">We operate remotely, delivering highly secure cloud software solutions and AI deployments worldwide.</p>
-                  </div>
+              <div className="p-6 rounded-2xl bg-secondary/20">
+                <h4 className="font-semibold mb-2">Direct Contact</h4>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-center"><Mail className="w-4 h-4 mr-2" /> info@widle.studio</p>
+                  <p className="flex items-center"><Clock className="w-4 h-4 mr-2" /> +91-7016620913</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="relative rounded-3xl border bg-card p-8 shadow-sm">
+            <div id="form" className="relative rounded-3xl border bg-card p-8 shadow-sm">
               <div className="mb-8">
-                 <h3 className="text-2xl font-bold">Send a Message</h3>
-                 <p className="text-sm text-muted-foreground mt-2">Fill out the form below and an engineer will get back to you shortly.</p>
+                 <h3 className="text-2xl font-bold">Let&apos;s work together</h3>
+                 <p className="text-sm text-muted-foreground mt-2">Have a project? Let&apos;s make great things!</p>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">Full Name <span className="text-destructive">*</span></label>
+                    <label htmlFor="name" className="text-sm font-medium">Your name <span className="text-destructive">*</span></label>
                     <input
                       id="name"
                       name="name"
@@ -138,7 +135,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">Work Email <span className="text-destructive">*</span></label>
+                    <label htmlFor="email" className="text-sm font-medium">Your email <span className="text-destructive">*</span></label>
                     <input
                       id="email"
                       name="email"
@@ -154,19 +151,19 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium">Company</label>
+                    <label htmlFor="subject" className="text-sm font-medium">Subject</label>
                     <input
-                      id="company"
-                      name="company"
+                      id="subject"
+                      name="subject"
                       type="text"
-                      value={formData.company}
+                      value={formData.subject}
                       onChange={handleChange}
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Acme Corp"
+                      placeholder="Project Inquiry"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
+                    <label htmlFor="phone" className="text-sm font-medium">Your contact</label>
                     <input
                       id="phone"
                       name="phone"
@@ -180,11 +177,10 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">Project Details <span className="text-destructive">*</span></label>
+                  <label htmlFor="message" className="text-sm font-medium">Your message (optional)</label>
                   <textarea
                     id="message"
                     name="message"
-                    required
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
@@ -202,7 +198,7 @@ export default function ContactPage() {
                     "Submitting..."
                   ) : (
                     <>
-                      Submit Inquiry <ArrowRight className="ml-2 h-4 w-4" />
+                      Submit <ArrowRight className="ml-2 h-4 w-4" />
                     </>
                   )}
                 </button>
@@ -225,6 +221,31 @@ export default function ContactPage() {
               </form>
             </div>
           </div>
+          
+          {/* Process Section */}
+          <div className="mt-32 border-t border-border pt-20">
+             <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold tracking-tight">Our Simplest Yet Robust Process To Get Your Project Estimation</h2>
+             </div>
+             
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+               {[
+                 { step: "01", title: "Send us your requirement", desc: "Put forward your inquiry with us on this page. And one of our representatives will see you in 1 business day, for further communication" },
+                 { step: "02", title: "Sign NDA", desc: "We sign NDA with all of our customers and make you feel secure. By doing so we would like to assure you of the privacy of your idea and project." },
+                 { step: "03", title: "Analyzing your requirement", desc: "Once you share the details of your requirement, we will analyze it. Our team of scrum masters will read and analyze the same, and will get back to you within a few hours." },
+                 { step: "04", title: "Get your estimation", desc: "Once our team is done with analyzing the scope of work and compilation of necessary resources required for the project, we will get back to you with the Estimated Cost and Timeline." },
+               ].map(s => (
+                 <div key={s.step} className="relative p-6 bg-card border border-border rounded-xl">
+                   <div className="absolute -top-5 left-6 bg-primary text-primary-foreground text-xl font-bold py-1 px-3 rounded-lg shadow-sm">
+                     {s.step}
+                   </div>
+                   <h4 className="text-lg font-semibold mt-4 mb-3">{s.title}</h4>
+                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                 </div>
+               ))}
+             </div>
+          </div>
+
         </div>
       </main>
 
