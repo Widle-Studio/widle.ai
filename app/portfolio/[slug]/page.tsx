@@ -5,6 +5,8 @@ import { Footer } from "@/components/footer"
 import { CTABanner } from "@/components/cta-banner"
 import { AnimateIn } from "@/components/animate-in"
 import Image from "next/image"
+import { CaseStudyCard } from "@/components/case-study-card"
+import { SectionHeader } from "@/components/section-header"
 
 // Centralized static data for all Widle Studio projects
 export const portfolioData: Record<string, { title: string, category: string, image: string, overview: string, challenge: string, solution: string, results: string[], techStack: string[] }> = {
@@ -106,6 +108,23 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
     notFound()
   }
 
+  // Calculate similar projects
+  const allSlugs = Object.keys(portfolioData);
+  const otherSlugs = allSlugs.filter(s => s !== slug);
+  
+  // Try to find projects in the same category first
+  let similarSlugs = otherSlugs.filter(s => portfolioData[s].category === project.category);
+  
+  // If not enough, fill with random others
+  if (similarSlugs.length < 3) {
+      const remaining = otherSlugs.filter(s => !similarSlugs.includes(s));
+      similarSlugs = [...similarSlugs, ...remaining].slice(0, 3);
+  } else {
+      similarSlugs = similarSlugs.slice(0, 3);
+  }
+  
+  const similarProjects = similarSlugs.map(s => ({ slug: s, ...portfolioData[s] }));
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -199,6 +218,29 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
         </div>
 
       </main>
+
+      {/* Similar Projects Section */}
+      <section className="bg-secondary/10 py-20 mb-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="More Work"
+            headline="Similar Projects"
+            subtext="Explore other successful projects and implementations."
+          />
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {similarProjects.map((p) => (
+              <CaseStudyCard
+                key={p.slug}
+                title={p.title}
+                tag={p.category}
+                description={p.overview.substring(0, 100) + "..."}
+                href={`/portfolio/${p.slug}`}
+                image={p.image}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-20">
         <CTABanner
