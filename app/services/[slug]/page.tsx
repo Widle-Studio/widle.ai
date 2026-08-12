@@ -1,3 +1,4 @@
+import { Cloud } from "lucide-react"
 import { Code } from "lucide-react"
 import { notFound } from "next/navigation"
 import {
@@ -43,6 +44,86 @@ interface ServiceData {
 }
 
 const servicesData: Record<string, ServiceData> = {
+
+  "internal-tooling": {
+    title: "Internal Tooling & Retool",
+    subtitle: "Accelerate Operations with Custom Dashboards",
+    icon: Code,
+    overview: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool. Whether it is customer support portals, inventory management systems, or administrative dashboards, we build internal tools that are as intuitive and performant as your core product.",
+    process: [
+      {
+        icon: Search,
+        title: "Workflow Analysis",
+        description: "We audit your existing manual processes and identify the specific data silos that are slowing down your operations."
+      },
+      {
+        icon: Layers,
+        title: "Retool Architecture",
+        description: "We design a secure, unified Retool application connecting your disparate PostgreSQL databases, Stripe APIs, and third-party SaaS tools."
+      },
+      {
+        icon: Rocket,
+        title: "Deployment & Training",
+        description: "We deploy the dashboard with strict Role-Based Access Control and provide comprehensive training for your operations team."
+      }
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/Instacoach-Case.png",
+        tag: "Web Booking",
+        title: "Instacoach Admin Panel",
+        description: "A comprehensive booking platform integrating complex payment gateways into a single Retool interface.",
+        href: "/portfolio/instacoach-retool"
+      },
+      {
+        image: "/images/portfolio/Houst-Case.png",
+        tag: "Operations",
+        title: "Houst Management",
+        description: "Custom internal dashboards built with Retool to streamline operations and property management.",
+        href: "/portfolio/houst-case"
+      }
+    ]
+  },
+  "cloud-software": {
+    title: "Cloud-Native Software Engineering",
+    subtitle: "Scalable Backend Architectures",
+    icon: Cloud,
+    overview: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications. Our engineering team specializes in transitioning legacy monolithic applications into decoupled, event-driven architectures that can effortlessly scale during peak loads.",
+    process: [
+      {
+        icon: Search,
+        title: "Infrastructure Audit",
+        description: "We assess your current cloud architecture, identifying performance bottlenecks, security vulnerabilities, and cost inefficiencies."
+      },
+      {
+        icon: Layers,
+        title: "Microservices Design",
+        description: "We refactor your application logic into independent, scalable microservices deployed via Kubernetes or serverless functions."
+      },
+      {
+        icon: Rocket,
+        title: "IaC Deployment",
+        description: "We codify your entire infrastructure using Terraform or AWS CDK to guarantee reproducible, automated, and secure multi-region deployments."
+      }
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/yoypr-g.png",
+        tag: "Backend Architecture",
+        title: "YOYPR Cloud Migration",
+        description: "Enterprise-grade backend architecture built to handle complex, asynchronous data routing and media distribution.",
+        href: "/portfolio/yoypr"
+      },
+      {
+        image: "/images/portfolio/dexterangels-g.png",
+        tag: "Cloud Security",
+        title: "Dexter Angels Platform",
+        description: "Secure, highly-available corporate platform deployed on a private cloud environment.",
+        href: "/portfolio/dexter-angels"
+      }
+    ]
+  },
+
   "retool-custom-components": {
     title: "Retool Custom Components",
     subtitle: "Extend Retool's native capabilities with our specialized library",
