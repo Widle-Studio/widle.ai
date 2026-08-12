@@ -10,49 +10,55 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
-import { Bot, Cog, Eye, TrendingUp, Cloud, Code } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Cloud, Code, Code2 } from "lucide-react"
 
 export default function Home() {
   const services = [
-    {
-      title: "Generative AI & LLMs",
-      description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning and semantic data retrieval.",
-      icon: Bot,
-      href: "/services/gen-ai-llms",
-    },
-    {
-      title: "MLOps & AI Infrastructure",
-      description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment and monitoring.",
-      icon: Cog,
-      href: "/services/mlops",
-    },
-    {
-      title: "Computer Vision & Edge AI",
-      description: "Develop high-throughput visual processing systems. We deploy optimized models for real-time anomaly detection and autonomous tracking.",
-      icon: Eye,
-      href: "/services/computer-vision",
-    },
-    {
-      title: "Cloud-Native Software Engineering",
-      description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure using Terraform.",
-      icon: Cloud,
-      href: "/services/cloud-software",
-    },
-    {
-      title: "Internal Tooling & Retool",
-      description: "Accelerate your operational efficiency with highly customized, secure internal dashboards integrating complex databases and APIs.",
-      icon: Code,
-      href: "/services/internal-tooling",
-      badgeImage: "/images/partners/retool-badge.png",
-      badgeText: "Widle Exclusive Partnership",
-    },
-    {
-      title: "Predictive Analytics",
-      description: "Harness statistical modeling and deep learning to forecast market trends, optimize operations, and execute real-time fraud detection.",
-      icon: TrendingUp,
-      href: "/services/predictive-analytics",
-    }
-  ]
+  {
+    title: "Generative AI & LLMs",
+    description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
+    icon: Bot,
+    href: "/services/llms-rag",
+  },
+  {
+    title: "MLOps & AI Infrastructure",
+    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
+    icon: Cog,
+    href: "/services/mlops",
+  },
+  {
+    title: "Computer Vision & Edge AI",
+    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
+    icon: Eye,
+    href: "/services/computer-vision",
+  },
+  {
+    title: "Cloud-Native Software Engineering",
+    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
+    icon: Cloud,
+    href: "/services/cloud-software",
+  },
+  {
+    title: "Internal Tooling & Retool",
+    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
+    icon: Code,
+    href: "/services/internal-tooling",
+    badgeImage: "/images/partners/retool-badge.png",
+    badgeText: "Widle Exclusive Partnership",
+  },
+  {
+    title: "Retool Custom Components",
+    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
+    icon: Code2,
+    href: "/services/retool-custom-components",
+  },
+  {
+    title: "Predictive Analytics",
+    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
+    icon: TrendingUp,
+    href: "/services/predictive-analytics",
+  }
+]
 
   const testimonials = [
     {

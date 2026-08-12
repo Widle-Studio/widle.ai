@@ -1,3 +1,4 @@
+import { Code } from "lucide-react"
 import { notFound } from "next/navigation"
 import {
   Brain,
@@ -42,6 +43,51 @@ interface ServiceData {
 }
 
 const servicesData: Record<string, ServiceData> = {
+  "retool-custom-components": {
+    title: "Retool Custom Components",
+    subtitle: "Extend Retool's native capabilities with our specialized library",
+    icon: Code,
+    overview:
+      "Extend Retool's capabilities with our library of custom-built components. From advanced data tables to interactive maps, each component is designed to solve real business problems and seamlessly integrate into your Retool applications. Can't find what you're looking for? Our team of certified Retool engineers can build bespoke components tailored exactly to your specific operational needs, ensuring your internal tools are as powerful and intuitive as your public-facing apps.",
+    process: [
+      {
+        icon: Search,
+        title: "Identify Component Gaps",
+        description:
+          "We analyze your Retool application to identify UX bottlenecks or missing functionalities that standard components cannot fulfill.",
+      },
+      {
+        icon: Layers,
+        title: "React Component Engineering",
+        description:
+          "Our developers architect high-performance custom React components, such as D3 Force Graphs, Multi-View Expandable Tables, or Smart File Viewers.",
+      },
+      {
+        icon: Rocket,
+        title: "Integration & Deployment",
+        description:
+          "We seamlessly inject these components into your Retool environment, ensuring perfect state management and API data binding.",
+      },
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/Scalers-Case.png",
+        tag: "Internal Tooling",
+        title: "Scalers Internal Dashboard",
+        description:
+          "Engineered complex data visualization components in Retool, significantly improving operational throughput.",
+        href: "/portfolio/scaler-retool",
+      },
+      {
+        image: "/images/portfolio/Safelet-Dashboard.png",
+        tag: "Analytics",
+        title: "Safelet Security Dashboard",
+        description:
+          "Built custom mapping and analytics components within Retool to provide real-time visibility into security metrics.",
+        href: "/portfolio/safelet-g",
+      },
+    ],
+  },
   "llms-rag": {
     title: "LLMs & RAG",
     subtitle: "Large Language Models & Retrieval-Augmented Generation",

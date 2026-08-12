@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/computer-vision',
     '/services/cloud-software',
     '/services/internal-tooling',
+    '/services/retool-custom-components',
     '/services/predictive-analytics'
   ].map((route) => ({
     url: `${baseUrl}${route}`,

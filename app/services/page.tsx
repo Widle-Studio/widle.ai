@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
-import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 
 export const metadata = {
   title: "Our Technical Expertise in Applied AI Solutions | Widle Studio",
@@ -15,7 +15,7 @@ const services = [
     title: "Generative AI & LLMs",
     description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
     icon: Bot,
-    href: "/services/gen-ai-llms",
+    href: "/services/llms-rag",
   },
   {
     title: "MLOps & AI Infrastructure",
@@ -40,6 +40,14 @@ const services = [
     description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
     icon: Code,
     href: "/services/internal-tooling",
+    badgeImage: "/images/partners/retool-badge.png",
+    badgeText: "Widle Exclusive Partnership",
+  },
+  {
+    title: "Retool Custom Components",
+    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
+    icon: Code2,
+    href: "/services/retool-custom-components",
   },
   {
     title: "Predictive Analytics",
