@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/section-header"
 import { CTABanner } from "@/components/cta-banner"
 import { StaggeredGrid } from "@/components/staggered-grid"
 import Image from "next/image"
+import Link from "next/link"
 
 export const metadata = {
   title: "Portfolio | Widle.ai",
@@ -13,75 +14,45 @@ export const metadata = {
 const portfolioItems = [
   {
     title: "Xaver Sports",
-    category: "Retool Application",
+    category: "Retool SaaS Platform",
     image: "/images/portfolio/Xaver-Sport.png",
     description: "A high-performance sports management platform built for scalability and real-time data tracking.",
+    slug: "xaver-sport-retool"
   },
   {
-    title: "Scalers Case",
-    category: "Retool Application",
+    title: "Scalers",
+    category: "Internal Tooling & Automation",
     image: "/images/portfolio/Scalers-Case.png",
     description: "Cloud-native architecture optimization allowing for elastic scaling during peak user loads.",
+    slug: "scaler-retool"
   },
   {
     title: "Instacoach Platform",
-    category: "Retool Application",
+    category: "Mobile & Web Booking Platform",
     image: "/images/portfolio/Instacoach-Case.png",
     description: "A comprehensive booking and coaching platform integrating complex payment gateways and scheduling algorithms.",
-  },
-  {
-    title: "Houst Management",
-    category: "Internal Tooling",
-    image: "/images/portfolio/Houst-Case.png",
-    description: "Custom internal dashboards built with Retool to streamline operations and property management.",
+    slug: "instacoach-retool"
   },
   {
     title: "UXDX",
-    category: "ReactJS Website",
+    category: "High-Performance ReactJS Website",
     image: "/images/portfolio/uxdx-g.png",
     description: "A dynamic, high-performance front-end architecture for a premier product design conference.",
+    slug: "uxdx"
   },
   {
     title: "Dexter Angels",
-    category: "Website & Architecture",
+    category: "Corporate Investment Platform",
     image: "/images/portfolio/dexterangels-g.png",
     description: "Secure, highly-available corporate platform designed for angel investors and syndicates.",
+    slug: "dexter-angels"
   },
   {
     title: "YOYPR",
-    category: "Angular Backend Website",
+    category: "Angular Backend Architecture",
     image: "/images/portfolio/yoypr-g.png",
     description: "Enterprise-grade Angular backend architecture built to handle complex, asynchronous data routing.",
-  },
-  {
-    title: "Safelet Dashboard",
-    category: "Security & Analytics",
-    image: "/images/portfolio/Safelet-Dashboard.png",
-    description: "Secure, real-time analytics dashboard providing instant visibility into critical user metrics.",
-  },
-  {
-    title: "Maverick App",
-    category: "Custom Software",
-    image: "/images/portfolio/Maverick-Mockup-2.png",
-    description: "End-to-end custom application development with a focus on seamless UX and robust backend performance.",
-  },
-  {
-    title: "24ent",
-    category: "Custom Solution",
-    image: "/images/portfolio/24ent-g.png",
-    description: "Scalable platform designed to aggregate and distribute multimedia content securely.",
-  },
-  {
-    title: "StaffMerge",
-    category: "Enterprise Tooling",
-    image: "/images/portfolio/StaffMerge-g.png",
-    description: "An automated HR and recruitment platform utilizing intelligent data parsing and matching.",
-  },
-  {
-    title: "Newzkast",
-    category: "Media & Publishing",
-    image: "/images/portfolio/newzkast-g.png",
-    description: "High-throughput content delivery system engineered for real-time news publishing.",
+    slug: "yoypr"
   }
 ]
 
@@ -100,7 +71,7 @@ export default function PortfolioPage() {
 
           <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {portfolioItems.map((item, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md">
+              <Link href={`/portfolio/${item.slug}`} key={idx} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md hover:-translate-y-1 block cursor-pointer">
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center p-6">
                   {/* Many of the extracted logos are transparent PNGs or raw logos, so we use object-contain and a nice background */}
                   <Image
@@ -122,7 +93,7 @@ export default function PortfolioPage() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </StaggeredGrid>
         </div>
