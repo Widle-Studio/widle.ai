@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries',
     '/portfolio',
     '/case-studies',
-    '/insights',
     '/company',
     '/careers',
     '/contact',
@@ -40,18 +39,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicCaseStudyRoutes = [
     '/case-studies/medtech-ai-diagnostics',
     '/case-studies/fintech-fraud-detection',
-    '/case-studies/retail-demand-forecasting'
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-  
-  const dynamicPostRoutes = [
-    '/insights/future-generative-ai',
-    '/insights/trust-in-ai',
-    '/insights/mlops-guide'
+    '/case-studies/retail-demand-forecasting',
+    '/case-studies/future-generative-ai',
+    '/case-studies/trust-in-ai',
+    '/case-studies/mlops-guide'
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -63,6 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...dynamicServiceRoutes,
     ...dynamicCaseStudyRoutes,
-    ...dynamicPostRoutes,
   ]
 }

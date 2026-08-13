@@ -91,7 +91,7 @@ export default function Home() {
       date: "Oct 12, 2023",
       excerpt: "Explore how generative models are moving from novelties to core business tools.",
       image: "/images/Widle-Logo.jpg",
-      href: "/insights/future-generative-ai"
+      href: "/case-studies/future-generative-ai"
     },
     {
       title: "Building Trust in AI Systems",
@@ -99,7 +99,7 @@ export default function Home() {
       date: "Sep 28, 2023",
       excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
       image: "/images/Widle-Logo.jpg",
-      href: "/insights/trust-in-ai"
+      href: "/case-studies/trust-in-ai"
     },
     {
       title: "A Guide to MLOps for Scale",
@@ -107,7 +107,7 @@ export default function Home() {
       date: "Sep 15, 2023",
       excerpt: "Best practices for deploying and monitoring machine learning models in production.",
       image: "/images/Widle-Logo.jpg",
-      href: "/insights/mlops-guide"
+      href: "/case-studies/mlops-guide"
     }
   ]
 
