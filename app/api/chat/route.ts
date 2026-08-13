@@ -1,5 +1,5 @@
-import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
+import { openai } from '@ai-sdk/openai';
 
 export const maxDuration = 30;
 
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   Keep responses relatively brief (1-3 short paragraphs max) unless explicitly asked for detailed information.`;
 
   const result = await streamText({
-    model: openai('gpt-4o-mini'),
+    model: openai('gpt-4o-mini') as unknown as Parameters<typeof streamText>[0]["model"],
     messages,
     system: systemPrompt,
   });

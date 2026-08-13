@@ -11,19 +11,17 @@ const serviceLinks = [
 
 const companyLinks = [
   { label: "Company", href: "/company" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights", href: "/insights" },
+
   { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
   { label: "Careers", href: "/careers" },
-  { label: "Admin Login", href: "/admin/login" },
 ]
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: ExternalLink },
-  { label: "Twitter", href: "https://twitter.com", icon: ExternalLink },
-  { label: "GitHub", href: "https://github.com", icon: ExternalLink },
-  { label: "YouTube", href: "https://youtube.com", icon: ExternalLink },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/widlestudio/", icon: ExternalLink },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCyD_47xWqS5yV1R45uQzMaw", icon: ExternalLink },
 ]
 
 export function Footer() {
@@ -103,15 +101,15 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <div className="mt-6" id="contact">
+            <div className="mt-6" id="contact-footer">
               <p className="text-sm text-muted-foreground">
                 Contact us at
               </p>
               <a
-                href="mailto:hello@widle.ai"
+                href="mailto:info@widle.studio"
                 className="text-sm font-medium text-accent hover:underline"
               >
-                hello@widle.ai
+                info@widle.studio
               </a>
             </div>
           </div>

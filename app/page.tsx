@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/hero-section"
@@ -11,164 +10,118 @@ import { LogoMarquee } from "@/components/logo-marquee"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
-import { Brain, Bot, Cog, Eye, TrendingUp, Lightbulb, Cloud, Code, type LucideIcon } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Cloud, Code, Code2 } from "lucide-react"
 
-// Map icon names to components for dynamic rendering
-const iconMap: Record<string, LucideIcon> = {
-  "Brain": Brain,
-  "Bot": Bot,
-  "Cog": Cog,
-  "Eye": Eye,
-  "TrendingUp": TrendingUp,
-  "Lightbulb": Lightbulb,
-}
+export default function Home() {
+  const services = [
+  {
+    title: "Generative AI & LLMs",
+    description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
+    icon: Bot,
+    href: "/services/llms-rag",
+  },
+  {
+    title: "MLOps & AI Infrastructure",
+    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
+    icon: Cog,
+    href: "/services/mlops",
+  },
+  {
+    title: "Computer Vision & Edge AI",
+    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
+    icon: Eye,
+    href: "/services/computer-vision",
+  },
+  {
+    title: "Cloud-Native Software Engineering",
+    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
+    icon: Cloud,
+    href: "/services/cloud-software",
+  },
+  {
+    title: "Internal Tooling & Retool",
+    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
+    icon: Code,
+    href: "/services/internal-tooling",
+    badgeImage: "/images/partners/retool-badge.png",
+    badgeText: "Widle Exclusive Partnership",
+  },
+  {
+    title: "Retool Custom Components",
+    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
+    icon: Code2,
+    href: "/services/retool-custom-components",
+  },
+  {
+    title: "Predictive Analytics",
+    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
+    icon: TrendingUp,
+    href: "/services/predictive-analytics",
+  }
+]
 
-export default async function Home() {
-  const supabase = await createClient()
-
-  // Fetch dynamic data from Supabase
-  const [
-    { data: servicesData },
-    { data: testimonialsData },
-    { data: postsData },
-    { data: partnersData },
-    { data: solutionsData },
-    { data: faqsData },
-  ] = await Promise.all([
-    supabase.from("services").select("*").eq("status", "Published").order("created_at", { ascending: true }).limit(6),
-    supabase.from("testimonials").select("*").order("order", { ascending: true }),
-    supabase.from("posts").select("*").eq("published", true).order("date", { ascending: false }).limit(3),
-    supabase.from("partners").select("*").order("order_index", { ascending: true }),
-    supabase.from("solutions").select("*").eq("status", "Published").order("order_index", { ascending: true }),
-    supabase.from("faqs").select("*").order("order_index", { ascending: true }),
-  ])
-
-  // Fallback / Formatting
-    const services = servicesData && servicesData.length > 0 ? servicesData.map(s => ({
-    icon: iconMap[s.icon_name] || Brain,
-    title: s.title,
-    description: s.overview || "Professional AI solutions tailored to your enterprise needs.",
-    href: `/services/${s.slug}`,
-  })) : [
-    {
-      title: "Generative AI & LLMs",
-      description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning and semantic data retrieval.",
-      icon: Bot,
-      href: "/services/gen-ai-llms",
-    },
-    {
-      title: "MLOps & AI Infrastructure",
-      description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment and monitoring.",
-      icon: Cog,
-      href: "/services/mlops",
-    },
-    {
-      title: "Computer Vision & Edge AI",
-      description: "Develop high-throughput visual processing systems. We deploy optimized models for real-time anomaly detection and autonomous tracking.",
-      icon: Eye,
-      href: "/services/computer-vision",
-    },
-    {
-      title: "Cloud-Native Software Engineering",
-      description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure using Terraform.",
-      icon: Cloud,
-      href: "/services/cloud-software",
-    },
-    {
-      title: "Internal Tooling & Retool",
-      description: "Accelerate your operational efficiency with highly customized, secure internal dashboards integrating complex databases and APIs.",
-      icon: Code,
-      href: "/services/internal-tooling",
-    },
-    {
-      title: "Predictive Analytics",
-      description: "Harness statistical modeling and deep learning to forecast market trends, optimize operations, and execute real-time fraud detection.",
-      icon: TrendingUp,
-      href: "/services/predictive-analytics",
-    }
-  ]
-
-  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData.map(t => ({
-    quote: t.quote || "The predictive models built by widle.ai increased our efficiency.",
-    clientName: t.client_name,
-    role: t.role,
-    companyLogo: "/placeholder.svg?height=32&width=120",
-    companyName: t.company_name,
-  })) : [
+  const testimonials = [
     {
       quote: "Widle.ai transformed our customer service operations with their custom NLP solution. We've seen a 40% reduction in response times and a significant boost in customer satisfaction.",
       clientName: "Sarah Jenkins",
       role: "VP of Customer Success",
       companyName: "TechFlow Solutions",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "/images/Widle-Logo.jpg"
     },
     {
       quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
       clientName: "David Chen",
       role: "COO",
       companyName: "Global Logistics Inc.",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "/images/Widle-Logo.jpg"
     },
     {
       quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
       clientName: "Elena Rodriguez",
       role: "CTO",
       companyName: "Manufacturing Dynamics",
-      companyLogo: "/placeholder.svg?height=32&width=120"
+      companyLogo: "/images/Widle-Logo.jpg"
     }
   ]
 
-  const insights = postsData && postsData.length > 0 ? postsData.map(p => ({
-    image: p.thumbnail || "/placeholder.svg?height=360&width=640",
-    category: p.category,
-    title: p.title,
-    excerpt: p.excerpt || "A comprehensive guide on AI adoption and implementation.",
-    date: p.date,
-    href: `/insights/${p.slug || p.id}`,
-  })) : [
+  const insights = [
     {
       title: "The Future of Generative AI in the Enterprise",
       category: "Trends",
       date: "Oct 12, 2023",
       excerpt: "Explore how generative models are moving from novelties to core business tools.",
-      image: "/placeholder.svg?height=360&width=640",
-      href: "/insights/future-generative-ai"
+      image: "/images/Widle-Logo.jpg",
+      href: "/case-studies/future-generative-ai"
     },
     {
       title: "Building Trust in AI Systems",
       category: "Ethics",
       date: "Sep 28, 2023",
       excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
-      image: "/placeholder.svg?height=360&width=640",
-      href: "/insights/trust-in-ai"
+      image: "/images/Widle-Logo.jpg",
+      href: "/case-studies/trust-in-ai"
     },
     {
       title: "A Guide to MLOps for Scale",
       category: "Engineering",
       date: "Sep 15, 2023",
       excerpt: "Best practices for deploying and monitoring machine learning models in production.",
-      image: "/placeholder.svg?height=360&width=640",
-      href: "/insights/mlops-guide"
+      image: "/images/Widle-Logo.jpg",
+      href: "/case-studies/mlops-guide"
     }
   ]
 
-  const partners = partnersData && partnersData.length > 0 ? partnersData.map(p => ({
-    src: p.logo_url,
-    alt: p.name,
-  })) : [
-    { src: "/placeholder.svg?height=40&width=160&text=Microsoft", alt: "Microsoft" },
-    { src: "/placeholder.svg?height=40&width=160&text=Google", alt: "Google" },
-    { src: "/placeholder.svg?height=40&width=160&text=AWS", alt: "AWS" },
-    { src: "/placeholder.svg?height=40&width=160&text=NVIDIA", alt: "NVIDIA" },
-    { src: "/placeholder.svg?height=40&width=160&text=IBM", alt: "IBM" },
-    { src: "/placeholder.svg?height=40&width=160&text=Snowflake", alt: "Snowflake" },
+  const partners = [
+    { src: "/images/partners/microsoft.svg", alt: "Microsoft" },
+    { src: "/images/partners/google.svg", alt: "Google" },
+    { src: "/images/partners/aws.svg", alt: "AWS" },
+    { src: "/images/partners/nvidia.svg", alt: "NVIDIA" },
+    { src: "/images/partners/ibm.svg", alt: "IBM" },
+    { src: "/images/partners/snowflake.svg", alt: "Snowflake" },
+    { src: "/images/partners/retool.svg", alt: "Retool" },
   ]
 
-  const solutions = solutionsData && solutionsData.length > 0 ? solutionsData.map(s => ({
-    title: s.title,
-    description: s.description,
-    icon: iconMap[s.icon_name] || Brain,
-  })) : [
+  const solutions = [
     {
       title: "Predictive Maintenance",
       description: "AI-driven insights to predict equipment failures before they happen, reducing downtime and costs.",
@@ -191,10 +144,7 @@ export default async function Home() {
     }
   ]
 
-  const faqs = faqsData && faqsData.length > 0 ? faqsData.map(f => ({
-    question: f.question,
-    answer: f.answer,
-  })) : [
+  const faqs = [
     {
       question: "How long does a typical AI implementation take?",
       answer: "A standard implementation typically takes 3-6 months from strategy to initial deployment, depending on data readiness and project complexity."
@@ -219,12 +169,12 @@ export default async function Home() {
 
       {/* Hero Section */}
       <HeroSection
-        headline="Unlock the Full Potential of AI for"
-        highlightedText="Your Business"
-        subheadline="We partner with forward-thinking enterprises to design, build, and deploy AI solutions that transform operations and unlock new possibilities."
-        primaryCTA={{ text: "Get Started", href: "/contact" }}
-        secondaryCTA={{ text: "View Our Work", href: "/case-studies" }}
-        eyebrow="Enterprise AI Solutions"
+        headline="Engineering Custom AI & Cloud"
+        highlightedText="Software Solutions"
+        subheadline="We specialize in LLMs, MLOps, computer vision, and AI-powered automation to drive business growth. Partner with Widle to architect and deploy highly scalable enterprise systems."
+        primaryCTA={{ text: "Schedule Technical Discovery", href: "/contact" }}
+        secondaryCTA={{ text: "View Success Stories", href: "/case-studies" }}
+        eyebrow="Widle Studio"
       />
 
       {/* Stats Section */}
@@ -245,9 +195,9 @@ export default async function Home() {
         <section className="bg-background py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeader
-              eyebrow="Our Services"
-              headline="Services We Provide"
-              subtext="From strategy to deployment, we offer end-to-end AI services that drive measurable business outcomes."
+              eyebrow="Our Technical Expertise"
+              headline="Custom Enterprise AI Services"
+              subtext="From predictive analytics to multi-agent LLM systems, we build resilient, secure solutions."
             />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
               {services.map((service) => (
