@@ -4,7 +4,7 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, Folder, ArrowRight } from 'lucide-react'
+import { Calendar, Folder, ArrowRight, User } from 'lucide-react'
 
 export const revalidate = 3600;
 
@@ -34,7 +34,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .filter(a => a.id !== article.id)
     .slice(0, 3); // Ensure max 3
 
-  // Since we might not get enough related, pad with other recent articles
   if (suggestions.length < 3) {
     const additional = articles
       .filter(a => a.id !== article.id && !suggestions.some(s => s.id === a.id))
@@ -47,34 +46,42 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <Navbar />
 
       <main className="flex-grow pt-24 pb-16 sm:pt-32 sm:pb-20">
-        <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <header className="mb-12 text-center">
-            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1 bg-muted px-3 py-1 rounded-full">
+          <header className="mb-12 text-center max-w-4xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
+              <Link
+                href={`/blog?industry=${encodeURIComponent(article.industry)}`}
+                className="flex items-center gap-1 bg-muted hover:bg-muted/80 transition-colors px-3 py-1 rounded-full text-foreground font-medium"
+              >
                 <Folder className="w-4 h-4" />
                 {article.industry}
-              </span>
+              </Link>
               <span className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
                 {new Date(article.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight">{article.title}</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight leading-tight">{article.title}</h1>
 
-            <div className="flex items-center justify-center gap-4">
+            <Link
+              href={`/blog?author=${encodeURIComponent(article.author)}`}
+              className="inline-flex items-center justify-center gap-4 hover:opacity-80 transition-opacity"
+            >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
                 {article.author.charAt(0)}
               </div>
               <div className="text-left">
-                <p className="font-semibold text-lg">{article.author}</p>
-                <p className="text-sm text-muted-foreground">Author</p>
+                <p className="font-semibold text-lg text-foreground">{article.author}</p>
+                <p className="text-sm text-muted-foreground flex items-center gap-1">
+                  <User className="w-3 h-3" /> View all posts
+                </p>
               </div>
-            </div>
+            </Link>
           </header>
 
-          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden mb-12 bg-muted">
+          <div className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] lg:h-[550px] rounded-2xl overflow-hidden mb-16 bg-muted shadow-lg border border-border">
             <Image
               src={article.thumbnail}
               alt={article.title}
@@ -84,24 +91,61 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             />
           </div>
 
-          <div
-            className="prose prose-lg dark:prose-invert max-w-none prose-img:rounded-xl prose-img:shadow-md prose-a:text-primary hover:prose-a:text-primary/80"
-            dangerouslySetInnerHTML={{ __html: article.content }}
-          />
+          <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto relative">
 
-          {/* Tags */}
-          {article.categories.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-border">
-              <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-muted-foreground">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {article.categories.map((cat, idx) => (
-                  <span key={idx} className="bg-muted px-3 py-1 rounded-md text-sm">
-                    {cat}
-                  </span>
-                ))}
-              </div>
+            {/* Table of Contents Sidebar */}
+            {article.toc && article.toc.length > 0 && (
+              <aside className="lg:w-64 shrink-0 hidden lg:block">
+                <div className="sticky top-28 border border-border rounded-xl p-6 bg-card shadow-sm">
+                  <h3 className="font-bold text-lg mb-4 text-foreground">Table of Contents</h3>
+                  <ul className="space-y-3 text-sm">
+                    {article.toc.map((item, idx) => (
+                      <li key={idx} className={`${item.level === 3 ? 'ml-4' : ''}`}>
+                        <a
+                          href={`#${item.id}`}
+                          className="text-muted-foreground hover:text-primary transition-colors line-clamp-2 leading-relaxed"
+                        >
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </aside>
+            )}
+
+            {/* Main Article Content */}
+            <div className="flex-1 min-w-0">
+              <div
+                className="prose prose-lg dark:prose-invert max-w-none
+                  prose-headings:scroll-mt-24
+                  prose-img:mx-auto prose-img:block
+                  prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4
+                  prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:font-normal prose-blockquote:not-italic
+                  prose-li:marker:text-primary"
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              />
+
+              {/* Tags */}
+              {article.categories.length > 0 && (
+                <div className="mt-16 pt-8 border-t border-border">
+                  <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-muted-foreground">Related Tags</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {article.categories.map((cat, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/blog?tag=${encodeURIComponent(cat)}`}
+                        className="bg-muted hover:bg-primary/10 hover:text-primary transition-colors px-4 py-1.5 rounded-full text-sm border border-border/50"
+                      >
+                        {cat}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+
+          </div>
         </article>
 
         {/* Suggestions */}
