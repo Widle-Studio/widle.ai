@@ -3,9 +3,9 @@ import { BlogClient } from './blog-client'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { SectionHeader } from '@/components/section-header'
+import { Suspense } from 'react'
 
-// Ensure we get fresh data occasionally but benefit from ISR
-export const revalidate = 3600; // revalidate at most every hour
+export const revalidate = 3600;
 
 export default async function BlogPage() {
   const articles = await fetchMediumArticles()
@@ -23,7 +23,9 @@ export default async function BlogPage() {
           />
 
           <div className="mt-12">
-            <BlogClient initialArticles={articles} />
+            <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading articles...</div>}>
+              <BlogClient initialArticles={articles} />
+            </Suspense>
           </div>
         </div>
       </main>
