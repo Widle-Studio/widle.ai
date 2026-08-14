@@ -5,6 +5,7 @@ import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, Folder, ArrowRight, User } from 'lucide-react'
+import { ReadingProgress } from './reading-progress'
 
 export const revalidate = 3600;
 
@@ -44,6 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
+      <ReadingProgress />
 
       <main className="flex-grow pt-24 pb-16 sm:pt-32 sm:pb-20">
         <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -91,7 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             />
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto relative">
+          <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto relative px-4">
 
             {/* Table of Contents Sidebar */}
             {article.toc && article.toc.length > 0 && (
@@ -118,15 +120,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="flex-1 min-w-0">
               <div
                 className="prose prose-lg dark:prose-invert max-w-none
-                  prose-headings:scroll-mt-24
-                  prose-img:mx-auto prose-img:block
-                  prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4
-                  prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:font-normal prose-blockquote:not-italic
+                  prose-p:leading-loose prose-p:my-8 prose-p:text-lg
+                  prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:mt-16 prose-headings:mb-6
+                  prose-h2:text-3xl prose-h3:text-2xl
+                  prose-img:mx-auto prose-img:block prose-img:rounded-2xl prose-img:my-12 prose-img:shadow-xl
+                  prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4 prose-a:font-medium
+                  prose-blockquote:border-l-4 prose-blockquote:border-l-primary prose-blockquote:bg-muted/40 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-lg prose-blockquote:my-10
+                  prose-ul:my-8 prose-li:my-3 prose-li:leading-relaxed
                   prose-li:marker:text-primary"
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
 
-              {/* Tags */}
+              {/* Divider before tags is already handled by border-t in tags div, no need for gradient divider here unless we remove border-t */}
               {article.categories.length > 0 && (
                 <div className="mt-16 pt-8 border-t border-border">
                   <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-muted-foreground">Related Tags</h3>
