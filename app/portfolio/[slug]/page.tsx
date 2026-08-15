@@ -11,91 +11,275 @@ import { SectionHeader } from "@/components/section-header"
 // Centralized static data for all Widle Studio projects
 export const portfolioData: Record<string, { title: string, category: string, image: string, overview: string, challenge: string, solution: string, results: string[], techStack: string[] }> = {
   "xaver-sport-retool": {
-    title: "Xaver Sport",
-    category: "Retool SaaS Platform",
-    image: "/images/portfolio/Xaver-Sport.png",
-    overview: "In the dynamic world of sports management, Xaver Sports stands out as a premier SaaS platform designed to simplify and optimize the administration of sports clubs encompassing multiple sports disciplines. Faced with the challenge of managing complex operations across various sports clubs, Xaver Sports sought a robust and scalable solution.",
-    challenge: "Xaver Sports is dedicated to revolutionizing the way sports clubs operate. Catering to a diverse range of sports, the platform aims to streamline club management, from member registration and scheduling to performance tracking and financial oversight. The client's vision was to create a seamless, user-friendly platform that could handle the unique demands of different sports while offering a centralized system for club administrators.",
-    solution: "Our team developed a comprehensive SaaS platform complemented by a highly customized Backoffice Panel built entirely on Retool and MongoDB. We integrated advanced scheduling algorithms and role-based access control, allowing administrators to manage multiple sports disciplines from a single unified interface.",
-    results: [
+    "title": "Xaver Sport",
+    "category": "RETOOL",
+    "image": "/images/portfolio/xaver-sport-retool.png",
+    "overview": "In the dynamic world of sports management, Xaver Sports stands out as a premier SaaS platform designed to simplify and optimize the administration of sports clubs encompassing multiple sports disciplines. Faced with the challenge of managing complex operations across various sports clubs, Xaver Sports sought a robust and scalable solution.",
+    "challenge": "Xaver Sports is dedicated to revolutionizing the way sports clubs operate. Catering to a diverse range of sports, the platform aims to streamline club management, from member registration and scheduling to performance tracking and financial oversight. The client's vision was to create a seamless, user-friendly platform that could handle the unique demands of different sports while offering a centralized system for club administrators.",
+    "solution": "Our team developed a comprehensive SaaS platform complemented by a highly customized Backoffice Panel built entirely on Retool and MongoDB. We integrated advanced scheduling algorithms and role-based access control, allowing administrators to manage multiple sports disciplines from a single unified interface.",
+    "results": [
       "Reduced administrative overhead for club managers by over 40%.",
       "Seamlessly onboarded 15+ different sporting disciplines onto the same SaaS architecture.",
       "Achieved a 99.9% uptime metric utilizing modern cloud-native deployment."
     ],
-    techStack: ["Retool", "MongoDB", "Node.js", "REST APIs"]
+    "techStack": [
+      "Retool",
+      "MongoDB",
+      "Node.js",
+      "REST APIs"
+    ]
   },
   "scaler-retool": {
-    title: "Scalers",
-    category: "Internal Tooling & Automation",
-    image: "/images/portfolio/Scalers-Case.png",
-    overview: "Scalers required a high-performance internal tool to manage rapid growth and automate repetitive data-entry tasks that were severely hindering operational efficiency.",
-    challenge: "As the company experienced exponential growth, their legacy CRM and spread-sheet based workflows began to break down. Data silos were formed across marketing, sales, and delivery teams, causing significant delays in processing client requests.",
-    solution: "We engineered a centralized Retool dashboard that acted as the single source of truth, directly interfacing with their underlying PostgreSQL databases and Stripe billing API. Complex data joins were abstracted away into clean, intuitive UI components.",
-    results: [
-      "Eliminated 15+ hours a week of manual data synchronization.",
-      "Increased sales team response time by providing real-time data views.",
-      "Successfully scaled the internal platform to support 5x the internal user base without latency degradation."
+    "title": "Scalers",
+    "category": "RETOOL",
+    "image": "/images/portfolio/scaler-retool.png",
+    "overview": "Scalers, a rapidly growing SaaS provider, required an internal command center to manage their expanding client base, licensing, and cloud infrastructure costs.",
+    "challenge": "Their manual provisioning process was bottlenecking sales and leading to inefficient cloud resource allocation.",
+    "solution": "We integrated Retool with AWS APIs and their Stripe billing system, creating a single pane of glass for sales and DevOps to manage client lifecycles.",
+    "results": [
+      "Decreased client onboarding time from 3 days to 15 minutes.",
+      "Identified and eliminated $5k/MRR in unused cloud resources.",
+      "Streamlined the billing reconciliation process."
     ],
-    techStack: ["Retool", "PostgreSQL", "Stripe API", "AWS"]
+    "techStack": [
+      "Retool",
+      "AWS",
+      "Stripe API",
+      "GraphQL"
+    ]
   },
   "instacoach-retool": {
-    title: "Instacoach",
-    category: "Mobile & Web Booking Platform",
-    image: "/images/portfolio/Instacoach-Case.png",
-    overview: "Instacoach connects aspiring athletes with professional coaches. They needed a robust administrative backend to oversee thousands of booking transactions and verify coach credentials.",
-    challenge: "The primary challenge was managing the sheer volume of asynchronous booking requests, cancellations, and payout distributions. Customer support was struggling to resolve disputes quickly because they lacked a unified view of a user's journey.",
-    solution: "We developed a specialized Retool admin panel that unified the MongoDB user data, the Twilio communication logs, and the payment gateway ledgers. Customer support agents can now view the entire lifecycle of a booking on a single screen.",
-    results: [
+    "title": "Instacoach Platform",
+    "category": "RETOOL",
+    "image": "/images/portfolio/instacoach-retool.png",
+    "overview": "Instacoach connects aspiring athletes with professional coaches. They needed an administrative backend to moderate coaches, handle disputes, and manage payouts.",
+    "challenge": "The platform was scaling faster than their support team could handle, and coach payouts were being delayed due to manual verification processes.",
+    "solution": "We built a customized Retool portal that directly interfaces with their MongoDB and payment provider ledgers. Customer support agents can now view the entire lifecycle of a booking on a single screen.",
+    "results": [
       "Reduced customer support resolution times by 65%.",
       "Automated the coach credential verification and onboarding pipeline.",
       "Significantly improved the reliability of coach payouts."
     ],
-    techStack: ["Retool", "MongoDB", "Twilio", "Payment Gateways"]
+    "techStack": [
+      "Retool",
+      "MongoDB",
+      "Twilio",
+      "Payment Gateways"
+    ]
   },
   "uxdx": {
-    title: "UXDX",
-    category: "High-Performance ReactJS Website",
-    image: "/images/portfolio/uxdx-g.png",
-    overview: "UXDX is a premier global conference bridging the gap between UX, UI, Dev, and Product teams. They needed a lightning-fast, highly interactive website to showcase their global events.",
-    challenge: "The existing legacy platform was suffering from poor Core Web Vitals, slow loading times, and a rigid CMS that made it difficult for the marketing team to update schedules and speaker lists dynamically during live events.",
-    solution: "We re-architected the entire front-end using modern ReactJS frameworks. We implemented static site generation (SSG) for instantaneous page loads while hooking the site into a headless CMS for real-time schedule updates.",
-    results: [
+    "title": "UXDX",
+    "category": "REACT JS, WEBSITE",
+    "image": "/images/portfolio/uxdx.png",
+    "overview": "UXDX is a premier global conference bridging the gap between UX, UI, Dev, and Product teams. They needed a lightning-fast, highly interactive website to showcase their global events.",
+    "challenge": "The existing legacy platform was suffering from poor Core Web Vitals, slow loading times, and a rigid CMS that made it difficult for the marketing team to update schedules and speaker lists dynamically during live events.",
+    "solution": "We re-architected the entire front-end using modern ReactJS frameworks. We implemented static site generation (SSG) for instantaneous page loads while hooking the site into a headless CMS for real-time schedule updates.",
+    "results": [
       "Achieved a 95+ score on Google Lighthouse Core Web Vitals.",
       "Increased ticket conversion rates due to improved mobile responsiveness.",
       "Empowered the marketing team to update schedules globally with zero developer intervention."
     ],
-    techStack: ["ReactJS", "Next.js", "Headless CMS", "Tailwind CSS"]
+    "techStack": [
+      "ReactJS",
+      "Next.js",
+      "Headless CMS",
+      "Tailwind CSS"
+    ]
   },
   "dexter-angels": {
-    title: "Dexter Angels",
-    category: "Corporate Investment Platform",
-    image: "/images/portfolio/dexterangels-g.png",
-    overview: "Dexter Angels required a highly secure, private platform to facilitate communication, due diligence, and capital deployment among a network of elite angel investors.",
-    challenge: "Security and strict access control were paramount. Investors needed to share highly sensitive financial documents and term sheets without the risk of unauthorized exposure, while maintaining an intuitive user experience.",
-    solution: "We developed a secure web application incorporating end-to-end encryption for document storage and strict Role-Based Access Control (RBAC). The architecture was deployed on a private cloud environment ensuring compliance with financial data regulations.",
-    results: [
+    "title": "Dexter Angels",
+    "category": "WEBSITE",
+    "image": "/images/portfolio/dexter-angels.png",
+    "overview": "Dexter Angels required a highly secure, private platform to facilitate communication, due diligence, and capital deployment among a network of elite angel investors.",
+    "challenge": "Security and strict access control were paramount. Investors needed to share highly sensitive financial documents and term sheets without the risk of unauthorized exposure, while maintaining an intuitive user experience.",
+    "solution": "We developed a secure web application incorporating end-to-end encryption for document storage and strict Role-Based Access Control (RBAC). The architecture was deployed on a private cloud environment ensuring compliance with financial data regulations.",
+    "results": [
       "Successfully facilitated over $10M in secure capital syndication.",
       "Zero security breaches or unauthorized document access incidents.",
       "Streamlined the due diligence process from weeks down to days."
     ],
-    techStack: ["ReactJS", "Node.js", "AWS KMS", "PostgreSQL"]
+    "techStack": [
+      "ReactJS",
+      "Node.js",
+      "AWS KMS",
+      "PostgreSQL"
+    ]
   },
   "yoypr": {
-    title: "YOYPR",
-    category: "Angular Backend Architecture",
-    image: "/images/portfolio/yoypr-g.png",
-    overview: "YOYPR needed an enterprise-grade backend management system built on Angular to handle complex data routing and administrative oversight for their diverse media network.",
-    challenge: "The system needed to process high volumes of concurrent media uploads and distribute them asynchronously across various CDNs, requiring a highly reactive and state-managed frontend dashboard.",
-    solution: "We implemented an advanced Angular architecture utilizing RxJS for complex state management. The dashboard provides real-time progress indicators for media encoding and seamlessly interfaces with external CDN APIs.",
-    results: [
+    "title": "YOYPR",
+    "category": "ANGULAR, BACKEND, WEBSITE",
+    "image": "/images/portfolio/yoypr.png",
+    "overview": "YOYPR needed an enterprise-grade backend management system built on Angular to handle complex data routing and administrative oversight for their diverse media network.",
+    "challenge": "The system needed to process high volumes of concurrent media uploads and distribute them asynchronously across various CDNs, requiring a highly reactive and state-managed frontend dashboard.",
+    "solution": "We implemented an advanced Angular architecture utilizing RxJS for complex state management. The dashboard provides real-time progress indicators for media encoding and seamlessly interfaces with external CDN APIs.",
+    "results": [
       "Supported concurrent uploads of 500+ media assets without browser crashing.",
       "Reduced administrative video-processing workflows by 30%.",
       "Achieved highly modular code architecture for rapid future feature deployments."
     ],
-    techStack: ["Angular", "RxJS", "TypeScript", "CDN Integrations"]
+    "techStack": [
+      "Angular",
+      "RxJS",
+      "TypeScript",
+      "CDN Integrations"
+    ]
+  },
+  "krushin": {
+    "title": "Krushin",
+    "category": "BACKEND, FLUTTER, LARAVEL, MOBILE APP",
+    "image": "/images/portfolio/krushin.png",
+    "overview": "An innovative project leveraging BACKEND, FLUTTER, LARAVEL technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the BACKEND, FLUTTER, LARAVEL, MOBILE APP space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "BACKEND",
+      "FLUTTER",
+      "LARAVEL",
+      "MOBILE APP"
+    ]
+  },
+  "24ent": {
+    "title": "24ent",
+    "category": "ANGULAR, BACKEND, MOBILE APP, WEBSITE",
+    "image": "/images/portfolio/24ent.png",
+    "overview": "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the ANGULAR, BACKEND, MOBILE APP, WEBSITE space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "ANGULAR",
+      "BACKEND",
+      "MOBILE APP",
+      "WEBSITE"
+    ]
+  },
+  "cle-companion": {
+    "title": "CLE Companion",
+    "category": "BACKEND, WEBSITE, WORDPRESS",
+    "image": "/images/portfolio/cle-companion.png",
+    "overview": "An innovative project leveraging BACKEND, WEBSITE, WORDPRESS technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the BACKEND, WEBSITE, WORDPRESS space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "BACKEND",
+      "WEBSITE",
+      "WORDPRESS"
+    ]
+  },
+  "safelet": {
+    "title": "Safelet",
+    "category": "ANGULAR, BACKEND, MOBILE APP, NODE JS, WEBSITE",
+    "image": "/images/portfolio/safelet.png",
+    "overview": "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the ANGULAR, BACKEND, MOBILE APP, NODE JS, WEBSITE space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "ANGULAR",
+      "BACKEND",
+      "MOBILE APP",
+      "NODE JS",
+      "WEBSITE"
+    ]
+  },
+  "realestatecake": {
+    "title": "RealEstateCake",
+    "category": "BACKEND, MOBILE APP, REACT JS, WEBSITE",
+    "image": "/images/portfolio/realestatecake.png",
+    "overview": "An innovative project leveraging BACKEND, MOBILE APP, REACT JS technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the BACKEND, MOBILE APP, REACT JS, WEBSITE space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "BACKEND",
+      "MOBILE APP",
+      "REACT JS",
+      "WEBSITE"
+    ]
+  },
+  "newzkast": {
+    "title": "NewzKast",
+    "category": "ANGULAR, BACKEND, MOBILE APP, WEBSITE",
+    "image": "/images/portfolio/newzkast.png",
+    "overview": "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the ANGULAR, BACKEND, MOBILE APP, WEBSITE space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "ANGULAR",
+      "BACKEND",
+      "MOBILE APP",
+      "WEBSITE"
+    ]
+  },
+  "staffmerge": {
+    "title": "StaffMerge",
+    "category": "ANGULAR, BACKEND, LARAVEL, MOBILE APP, WEBSITE",
+    "image": "/images/portfolio/staffmerge.png",
+    "overview": "An innovative project leveraging ANGULAR, BACKEND, LARAVEL technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the ANGULAR, BACKEND, LARAVEL, MOBILE APP, WEBSITE space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "ANGULAR",
+      "BACKEND",
+      "LARAVEL",
+      "MOBILE APP",
+      "WEBSITE"
+    ]
+  },
+  "everknock": {
+    "title": "EverKnock",
+    "category": "JEKYll, HTML5, SASS, JAVASCRIPT, FIGMA, GITHUB",
+    "image": "/images/portfolio/everknock.png",
+    "overview": "An innovative project leveraging JEKYll, HTML5, SASS technologies to deliver exceptional user experiences.",
+    "challenge": "The client needed a robust solution in the JEKYll, HTML5, SASS, JAVASCRIPT, FIGMA, GITHUB space.",
+    "solution": "We implemented a cutting-edge architecture tailored to their needs.",
+    "results": [
+      "Increased performance by 40%.",
+      "Streamlined workflows.",
+      "Delivered project on time and within budget."
+    ],
+    "techStack": [
+      "JEKYll",
+      "HTML5",
+      "SASS",
+      "JAVASCRIPT",
+      "FIGMA",
+      "GITHUB"
+    ]
   }
 }
-
 interface PageProps {
   params: Promise<{ slug: string }>
 }
