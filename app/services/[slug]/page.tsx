@@ -1,3 +1,5 @@
+import { Cloud } from "lucide-react"
+import { Code } from "lucide-react"
 import { notFound } from "next/navigation"
 import {
   Brain,
@@ -42,6 +44,131 @@ interface ServiceData {
 }
 
 const servicesData: Record<string, ServiceData> = {
+
+  "internal-tooling": {
+    title: "Internal Tooling & Retool",
+    subtitle: "Accelerate Operations with Custom Dashboards",
+    icon: Code,
+    overview: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool. Whether it is customer support portals, inventory management systems, or administrative dashboards, we build internal tools that are as intuitive and performant as your core product.",
+    process: [
+      {
+        icon: Search,
+        title: "Workflow Analysis",
+        description: "We audit your existing manual processes and identify the specific data silos that are slowing down your operations."
+      },
+      {
+        icon: Layers,
+        title: "Retool Architecture",
+        description: "We design a secure, unified Retool application connecting your disparate PostgreSQL databases, Stripe APIs, and third-party SaaS tools."
+      },
+      {
+        icon: Rocket,
+        title: "Deployment & Training",
+        description: "We deploy the dashboard with strict Role-Based Access Control and provide comprehensive training for your operations team."
+      }
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/Instacoach-Case.png",
+        tag: "Web Booking",
+        title: "Instacoach Admin Panel",
+        description: "A comprehensive booking platform integrating complex payment gateways into a single Retool interface.",
+        href: "/portfolio/instacoach-retool"
+      },
+      {
+        image: "/images/portfolio/Houst-Case.png",
+        tag: "Operations",
+        title: "Houst Management",
+        description: "Custom internal dashboards built with Retool to streamline operations and property management.",
+        href: "/portfolio/houst-case"
+      }
+    ]
+  },
+  "cloud-software": {
+    title: "Cloud-Native Software Engineering",
+    subtitle: "Scalable Backend Architectures",
+    icon: Cloud,
+    overview: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications. Our engineering team specializes in transitioning legacy monolithic applications into decoupled, event-driven architectures that can effortlessly scale during peak loads.",
+    process: [
+      {
+        icon: Search,
+        title: "Infrastructure Audit",
+        description: "We assess your current cloud architecture, identifying performance bottlenecks, security vulnerabilities, and cost inefficiencies."
+      },
+      {
+        icon: Layers,
+        title: "Microservices Design",
+        description: "We refactor your application logic into independent, scalable microservices deployed via Kubernetes or serverless functions."
+      },
+      {
+        icon: Rocket,
+        title: "IaC Deployment",
+        description: "We codify your entire infrastructure using Terraform or AWS CDK to guarantee reproducible, automated, and secure multi-region deployments."
+      }
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/yoypr-g.png",
+        tag: "Backend Architecture",
+        title: "YOYPR Cloud Migration",
+        description: "Enterprise-grade backend architecture built to handle complex, asynchronous data routing and media distribution.",
+        href: "/portfolio/yoypr"
+      },
+      {
+        image: "/images/portfolio/dexterangels-g.png",
+        tag: "Cloud Security",
+        title: "Dexter Angels Platform",
+        description: "Secure, highly-available corporate platform deployed on a private cloud environment.",
+        href: "/portfolio/dexter-angels"
+      }
+    ]
+  },
+
+  "retool-custom-components": {
+    title: "Retool Custom Components",
+    subtitle: "Extend Retool's native capabilities with our specialized library",
+    icon: Code,
+    overview:
+      "Extend Retool's capabilities with our library of custom-built components. From advanced data tables to interactive maps, each component is designed to solve real business problems and seamlessly integrate into your Retool applications. Can't find what you're looking for? Our team of certified Retool engineers can build bespoke components tailored exactly to your specific operational needs, ensuring your internal tools are as powerful and intuitive as your public-facing apps.",
+    process: [
+      {
+        icon: Search,
+        title: "Identify Component Gaps",
+        description:
+          "We analyze your Retool application to identify UX bottlenecks or missing functionalities that standard components cannot fulfill.",
+      },
+      {
+        icon: Layers,
+        title: "React Component Engineering",
+        description:
+          "Our developers architect high-performance custom React components, such as D3 Force Graphs, Multi-View Expandable Tables, or Smart File Viewers.",
+      },
+      {
+        icon: Rocket,
+        title: "Integration & Deployment",
+        description:
+          "We seamlessly inject these components into your Retool environment, ensuring perfect state management and API data binding.",
+      },
+    ],
+    relatedCaseStudies: [
+      {
+        image: "/images/portfolio/Scalers-Case.png",
+        tag: "Internal Tooling",
+        title: "Scalers Internal Dashboard",
+        description:
+          "Engineered complex data visualization components in Retool, significantly improving operational throughput.",
+        href: "/portfolio/scaler-retool",
+      },
+      {
+        image: "/images/portfolio/Safelet-Dashboard.png",
+        tag: "Analytics",
+        title: "Safelet Security Dashboard",
+        description:
+          "Built custom mapping and analytics components within Retool to provide real-time visibility into security metrics.",
+        href: "/portfolio/safelet-g",
+      },
+    ],
+  },
   "llms-rag": {
     title: "LLMs & RAG",
     subtitle: "Large Language Models & Retrieval-Augmented Generation",
@@ -70,7 +197,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Legal Tech",
         title: "AI-Powered Contract Analysis",
         description:
@@ -78,7 +205,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/contract-analysis",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Healthcare",
         title: "Medical Knowledge Assistant",
         description:
@@ -115,7 +242,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "E-commerce",
         title: "Autonomous Customer Support",
         description:
@@ -123,7 +250,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/customer-support",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Finance",
         title: "Automated Due Diligence",
         description:
@@ -160,7 +287,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Technology",
         title: "Enterprise ML Platform",
         description:
@@ -168,7 +295,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/ml-platform",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Retail",
         title: "Real-Time Recommendation Engine",
         description:
@@ -205,7 +332,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Manufacturing",
         title: "Automated Quality Inspection",
         description:
@@ -213,7 +340,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/quality-inspection",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Retail",
         title: "Smart Inventory Management",
         description:
@@ -250,7 +377,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Supply Chain",
         title: "Demand Forecasting System",
         description:
@@ -258,7 +385,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/demand-forecasting",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Finance",
         title: "Credit Risk Modeling",
         description:
@@ -295,7 +422,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     relatedCaseStudies: [
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Enterprise",
         title: "AI Transformation Roadmap",
         description:
@@ -303,7 +430,7 @@ const servicesData: Record<string, ServiceData> = {
         href: "/case-studies/ai-transformation",
       },
       {
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/images/Widle-Logo.jpg",
         tag: "Financial Services",
         title: "AI Center of Excellence",
         description:

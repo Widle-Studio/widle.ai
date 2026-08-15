@@ -1,3 +1,4 @@
+import { AnimateIn } from "./animate-in"
 export function StatsSection() {
   const stats = [
     { value: "200+", label: "PROJECTS DELIVERED" },
@@ -6,7 +7,8 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="bg-background py-20 sm:py-24 border-b border-border/50">
+    <AnimateIn direction="up">
+      <section className="bg-background py-20 sm:py-24 border-b border-border/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 text-center">
           {stats.map((stat, index) => (
@@ -17,6 +19,7 @@ export function StatsSection() {
           ))}
         </div>
       </div>
-    </section>
+          </section>
+    </AnimateIn>
   )
 }

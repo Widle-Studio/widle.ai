@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { ChatWidget } from '@/components/chat-widget'
+import { CookieConsent } from '@/components/cookie-consent'
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
 
@@ -82,6 +83,7 @@ export default function RootLayout({
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <ChatWidget />
+        <CookieConsent />
       </body>
     </html>
   )
