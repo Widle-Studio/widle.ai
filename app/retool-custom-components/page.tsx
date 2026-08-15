@@ -4,6 +4,8 @@ import { SectionHeader } from "@/components/section-header"
 import { CTABanner } from "@/components/cta-banner"
 import Link from "next/link"
 import { Code, Component, Layout, Cpu, Boxes } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
+import { StaggeredGrid } from "@/components/staggered-grid"
 
 export const metadata = {
   title: "Retool Custom Components | Widle Studio",
@@ -51,6 +53,7 @@ export default function RetoolCustomComponentsPage() {
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
+            <AnimateIn direction="up">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">Retool Custom Components Library</h1>
             <p className="text-xl text-muted-foreground mb-8">
               Push the boundaries of internal tools. We engineer bespoke React components to extend Retool&apos;s native capabilities for your specific operational needs.
@@ -63,9 +66,11 @@ export default function RetoolCustomComponentsPage() {
                 Request Custom Build
               </Link>
             </div>
+            </AnimateIn>
           </div>
 
           {/* Featured Preview Section */}
+          <AnimateIn direction="up" delay={0.2}>
           <div className="mt-16 rounded-3xl overflow-hidden border border-border bg-card shadow-2xl">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="p-10 lg:p-16 flex flex-col justify-center">
@@ -112,6 +117,7 @@ export default function RetoolCustomComponentsPage() {
               </div>
             </div>
           </div>
+          </AnimateIn>
 
           <div id="components">
             <SectionHeader
@@ -121,7 +127,7 @@ export default function RetoolCustomComponentsPage() {
             />
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <StaggeredGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {componentsList.map((comp, idx) => (
               <div key={idx} className="group flex flex-col rounded-2xl border border-border bg-card p-8 hover:border-primary/50 hover:shadow-lg transition-all">
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
@@ -140,12 +146,13 @@ export default function RetoolCustomComponentsPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </StaggeredGrid>
 
         </div>
 
         <section className="mt-32 border-t border-border bg-muted/30 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <AnimateIn direction="up">
             <div className="flex flex-col items-center text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
                 Need a specific component for your app?
@@ -161,6 +168,7 @@ export default function RetoolCustomComponentsPage() {
                 variant="accent"
               />
             </div>
+            </AnimateIn>
           </div>
         </section>
 

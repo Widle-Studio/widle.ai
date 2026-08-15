@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ReactNode } from "react"
+import { ReactNode, Children } from "react"
 
 interface StaggeredGridProps {
-  children: ReactNode[]
+  children: ReactNode
   className?: string
   staggerDelay?: number
 }
@@ -29,6 +29,9 @@ export function StaggeredGrid({
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
   }
 
+  // To support conditional rendering or single children correctly:
+  const arrayChildren = Children.toArray(children).filter(Boolean);
+
   return (
     <motion.div
       variants={container}
@@ -37,7 +40,7 @@ export function StaggeredGrid({
       viewport={{ once: true, margin: "-50px" }}
       className={className}
     >
-      {children.map((child, i) => (
+      {arrayChildren.map((child, i) => (
         <motion.div key={i} variants={item}>
           {child}
         </motion.div>
