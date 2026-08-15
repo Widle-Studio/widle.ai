@@ -2,45 +2,14 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { CTABanner } from "@/components/cta-banner"
-import { Activity, Building2, Landmark, Plane, ShoppingCart, Truck } from "lucide-react"
+import Link from "next/link"
+import { INDUSTRIES_DATA } from "@/lib/constants"
+import { ArrowRight } from "lucide-react"
 
 export const metadata = {
-  title: "Industries We Serve",
-  description: "Discover how our AI solutions are transforming finance, healthcare, retail, manufacturing, and more.",
+  title: "Industries We Serve | Widle Studio",
+  description: "Discover how our AI solutions and custom software are transforming finance, healthcare, SaaS, manufacturing, and more.",
 }
-
-const industries = [
-  {
-    name: "Finance & Banking",
-    icon: Landmark,
-    description: "Automate fraud detection, optimize algorithmic trading, and personalize customer banking experiences with predictive AI.",
-  },
-  {
-    name: "Healthcare",
-    icon: Activity,
-    description: "Enhance diagnostic accuracy, accelerate drug discovery, and streamline patient data management using advanced machine learning models.",
-  },
-  {
-    name: "Retail & E-commerce",
-    icon: ShoppingCart,
-    description: "Boost sales with intelligent recommendation engines, optimize pricing dynamically, and forecast inventory demand accurately.",
-  },
-  {
-    name: "Manufacturing",
-    icon: Building2,
-    description: "Implement predictive maintenance, optimize supply chain logistics, and ensure rigorous quality control with computer vision.",
-  },
-  {
-    name: "Logistics & Supply Chain",
-    icon: Truck,
-    description: "Optimize routing, manage fleet efficiently, and predict supply chain disruptions before they happen using AI analytics.",
-  },
-  {
-    name: "Travel & Hospitality",
-    icon: Plane,
-    description: "Deliver personalized booking experiences, dynamic pricing strategies, and 24/7 intelligent customer service agents.",
-  },
-]
 
 export default function IndustriesPage() {
   return (
@@ -52,22 +21,29 @@ export default function IndustriesPage() {
           <SectionHeader
             eyebrow="Industries"
             headline="AI Solutions Tailored for Your Sector"
-            subtext="We understand that every industry has unique challenges. Our AI solutions are custom-built to address the specific needs and regulatory requirements of your sector."
+            subtext="We understand that every industry has unique challenges. Our AI solutions and custom software builds are designed to address the specific needs and regulatory requirements of your sector."
           />
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => {
+          <div className="mt-16 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRIES_DATA.map((industry) => {
               const Icon = industry.icon
               return (
-                <div key={industry.name} className="flex flex-col rounded-2xl border bg-card p-8 transition-colors hover:border-primary/50">
-                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Link
+                  href={`/industries/${industry.slug}`}
+                  key={industry.name}
+                  className="group flex flex-col rounded-2xl border bg-card p-8 transition-all hover:border-primary hover:shadow-md"
+                >
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold">{industry.name}</h3>
-                  <p className="text-muted-foreground flex-1">
+                  <h3 className="mb-3 text-xl font-bold group-hover:text-primary transition-colors">{industry.name}</h3>
+                  <p className="text-muted-foreground flex-1 mb-6">
                     {industry.description}
                   </p>
-                </div>
+                  <div className="flex items-center text-sm font-semibold text-primary mt-auto">
+                    Explore Solutions <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               )
             })}
           </div>
@@ -76,9 +52,9 @@ export default function IndustriesPage() {
 
       <CTABanner
         headline="Don't see your industry?"
-        description="Our AI capabilities are highly adaptable. Contact us to discuss how we can build a custom solution for your specific niche."
+        description="Our AI capabilities and full-stack development skills are highly adaptable. Contact us to discuss how we can build a custom solution for your specific niche."
         buttonText="Discuss Your Needs"
-        buttonHref="/#contact"
+        buttonHref="/contact"
         variant="accent"
       />
 

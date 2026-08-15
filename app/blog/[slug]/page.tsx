@@ -85,6 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </Link>
           </header>
+
           </AnimateIn>
 
           <AnimateIn direction="up" delay={0.2}>
@@ -97,6 +98,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               unoptimized
             />
           </div>
+
+          <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto relative">
+
           </AnimateIn>
 
           <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto relative px-4">
@@ -122,6 +126,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               </aside>
             )}
+
+            {/* Main Article Content */}
+            <div className="flex-1 min-w-0">
+              <div
+                className="prose prose-lg dark:prose-invert max-w-none
+                  prose-headings:scroll-mt-24
+                  prose-img:mx-auto prose-img:block
+                  prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4
+                  prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:font-normal prose-blockquote:not-italic
             </AnimateIn>
 
             <AnimateIn direction="up" delay={0.4} className="flex-1 min-w-0">
@@ -140,6 +153,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
 
+              {/* Tags */}
               {/* Divider before tags is already handled by border-t in tags div, no need for gradient divider here unless we remove border-t */}
               {article.categories.length > 0 && (
                 <div className="mt-16 pt-8 border-t border-border">
@@ -166,6 +180,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Suggestions */}
         {suggestions.length > 0 && (
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-border">
+            <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimateIn direction="up">
             <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
             </AnimateIn>
@@ -204,6 +220,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </div>
                 </div>
               ))}
+            </div>
             </StaggeredGrid>
           </section>
         )}

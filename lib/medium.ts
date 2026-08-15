@@ -65,6 +65,17 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
   const $ = cheerio.load(rawHtml);
 
   // Medium often includes the hero image inside a <figure> tag right at the top.
+  // We want to remove the very first image because we use it as the main thumbnail on our own layout.
+  $('img').first().closest('figure').remove();
+
+  // Sometimes the first img isn't in a figure. Let's ensure the first img is gone if it's identical to the thumbnail.
+  // A simpler approach: just remove the first <img> tag overall to avoid duplication with the hero banner.
+  $('img').first().remove();
+
+  // Clean up medium specific classes/styles that might break our layout
+  $('img').removeAttr('width').removeAttr('height').addClass('w-full h-auto rounded-xl shadow-md my-8 object-cover');
+  $('figure').addClass('my-8 flex flex-col items-center justify-center');
+  $('figcaption').addClass('text-center text-sm text-muted-foreground mt-2 italic');
   $('img').first().closest('figure').remove();
   $('img').first().remove();
 
@@ -121,6 +132,7 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
     // Create an ID from the text (slugify)
     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     el.attr('id', id);
+    el.addClass('scroll-mt-24'); // Add scroll margin for sticky header offset
     el.addClass('scroll-mt-32 relative group'); // Add scroll margin for sticky header offset
 
     // Add a hoverable anchor link for headers
