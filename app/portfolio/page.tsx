@@ -11,50 +11,7 @@ export const metadata = {
   description: "View our expansive portfolio of custom software, AI implementations, and cloud-native solutions delivered by Widle Studio.",
 }
 
-const portfolioItems = [
-  {
-    title: "Xaver Sports",
-    category: "Retool SaaS Platform",
-    image: "/images/portfolio/Xaver-Sport.png",
-    description: "A high-performance sports management platform built for scalability and real-time data tracking.",
-    slug: "xaver-sport-retool"
-  },
-  {
-    title: "Scalers",
-    category: "Internal Tooling & Automation",
-    image: "/images/portfolio/Scalers-Case.png",
-    description: "Cloud-native architecture optimization allowing for elastic scaling during peak user loads.",
-    slug: "scaler-retool"
-  },
-  {
-    title: "Instacoach Platform",
-    category: "Mobile & Web Booking Platform",
-    image: "/images/portfolio/Instacoach-Case.png",
-    description: "A comprehensive booking and coaching platform integrating complex payment gateways and scheduling algorithms.",
-    slug: "instacoach-retool"
-  },
-  {
-    title: "UXDX",
-    category: "High-Performance ReactJS Website",
-    image: "/images/portfolio/uxdx-g.png",
-    description: "A dynamic, high-performance front-end architecture for a premier product design conference.",
-    slug: "uxdx"
-  },
-  {
-    title: "Dexter Angels",
-    category: "Corporate Investment Platform",
-    image: "/images/portfolio/dexterangels-g.png",
-    description: "Secure, highly-available corporate platform designed for angel investors and syndicates.",
-    slug: "dexter-angels"
-  },
-  {
-    title: "YOYPR",
-    category: "Angular Backend Architecture",
-    image: "/images/portfolio/yoypr-g.png",
-    description: "Enterprise-grade Angular backend architecture built to handle complex, asynchronous data routing.",
-    slug: "yoypr"
-  }
-]
+import { PORTFOLIO_DATA } from '@/lib/portfolio-data'
 
 export default function PortfolioPage() {
   return (
@@ -70,7 +27,7 @@ export default function PortfolioPage() {
           />
 
           <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioItems.map((item, idx) => (
+            {PORTFOLIO_DATA.map((item, idx) => (
               <Link href={`/portfolio/${item.slug}`} key={idx} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md hover:-translate-y-1 block cursor-pointer">
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center p-6">
                   {/* Many of the extracted logos are transparent PNGs or raw logos, so we use object-contain and a nice background */}
