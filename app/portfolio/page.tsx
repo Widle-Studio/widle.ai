@@ -12,6 +12,106 @@ export const metadata = {
 }
 
 import { PORTFOLIO_DATA } from '@/lib/portfolio-data'
+const portfolioItems = [
+  {
+    title: "Xaver Sports",
+    category: "RETOOL",
+    image: "/images/portfolio/xaver-sport-retool.png",
+    description: "A high-performance sports management platform built for scalability and real-time data tracking.",
+    slug: "xaver-sport-retool"
+  },
+  {
+    title: "Scalers",
+    category: "RETOOL",
+    image: "/images/portfolio/scaler-retool.png",
+    description: "Cloud-native architecture optimization allowing for elastic scaling during peak user loads.",
+    slug: "scaler-retool"
+  },
+  {
+    title: "Instacoach",
+    category: "RETOOL",
+    image: "/images/portfolio/instacoach-retool.png",
+    description: "A comprehensive booking and coaching platform integrating complex payment gateways and scheduling algorithms.",
+    slug: "instacoach-retool"
+  },
+  {
+    title: "UXDX",
+    category: "REACT JS, WEBSITE",
+    image: "/images/portfolio/uxdx.png",
+    description: "A dynamic, high-performance front-end architecture for a premier product design conference.",
+    slug: "uxdx"
+  },
+  {
+    title: "Dexter Angels",
+    category: "WEBSITE",
+    image: "/images/portfolio/dexter-angels.png",
+    description: "Secure, highly-available corporate platform designed for angel investors and syndicates.",
+    slug: "dexter-angels"
+  },
+  {
+    title: "YOYPR",
+    category: "ANGULAR, BACKEND, WEBSITE",
+    image: "/images/portfolio/yoypr.png",
+    description: "Enterprise-grade Angular backend architecture built to handle complex, asynchronous data routing.",
+    slug: "yoypr"
+  },
+  {
+    title: "Krushin",
+    category: "BACKEND, FLUTTER, LARAVEL, MOBILE APP",
+    image: "/images/portfolio/krushin.png",
+    description: "An innovative project leveraging BACKEND, FLUTTER, LARAVEL technologies to deliver exceptional user experiences.",
+    slug: "krushin"
+  },
+  {
+    title: "24ent",
+    category: "ANGULAR, BACKEND, MOBILE APP, WEBSITE",
+    image: "/images/portfolio/24ent.png",
+    description: "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    slug: "24ent"
+  },
+  {
+    title: "CLE Companion",
+    category: "BACKEND, WEBSITE, WORDPRESS",
+    image: "/images/portfolio/cle-companion.png",
+    description: "An innovative project leveraging BACKEND, WEBSITE, WORDPRESS technologies to deliver exceptional user experiences.",
+    slug: "cle-companion"
+  },
+  {
+    title: "Safelet",
+    category: "ANGULAR, BACKEND, MOBILE APP, NODE JS, WEBSITE",
+    image: "/images/portfolio/safelet.png",
+    description: "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    slug: "safelet"
+  },
+  {
+    title: "RealEstateCake",
+    category: "BACKEND, MOBILE APP, REACT JS, WEBSITE",
+    image: "/images/portfolio/realestatecake.png",
+    description: "An innovative project leveraging BACKEND, MOBILE APP, REACT JS technologies to deliver exceptional user experiences.",
+    slug: "realestatecake"
+  },
+  {
+    title: "NewzKast",
+    category: "ANGULAR, BACKEND, MOBILE APP, WEBSITE",
+    image: "/images/portfolio/newzkast.png",
+    description: "An innovative project leveraging ANGULAR, BACKEND, MOBILE APP technologies to deliver exceptional user experiences.",
+    slug: "newzkast"
+  },
+  {
+    title: "StaffMerge",
+    category: "ANGULAR, BACKEND, LARAVEL, MOBILE APP, WEBSITE",
+    image: "/images/portfolio/staffmerge.png",
+    description: "An innovative project leveraging ANGULAR, BACKEND, LARAVEL technologies to deliver exceptional user experiences.",
+    slug: "staffmerge"
+  },
+  {
+    title: "EverKnock",
+    category: "JEKYll, HTML5, SASS, JAVASCRIPT, FIGMA, GITHUB",
+    image: "/images/portfolio/everknock.png",
+    description: "An innovative project leveraging JEKYll, HTML5, SASS technologies to deliver exceptional user experiences.",
+    slug: "everknock"
+  }
+]
 
 export default function PortfolioPage() {
   return (

@@ -1,6 +1,24 @@
 import { INDUSTRIES } from '@/lib/constants';
 
 export const industries = INDUSTRIES;
+export const industries = [
+  "Healthcare & Life Sciences",
+  "Financial Services & Banking",
+  "E-commerce & Retail",
+  "Software as a Service (SaaS)",
+  "Manufacturing & Supply Chain",
+  "Real Estate & Property Management",
+  "Education & EdTech",
+  "Legal & Compliance",
+  "Marketing & Advertising",
+  "Human Resources & Recruiting",
+  "Logistics & Transportation",
+  "Media & Entertainment",
+  "Telecommunications",
+  "Energy & Utilities",
+  "Hospitality & Tourism"
+] as const;
+
 export type Industry = typeof industries[number];
 
 export interface QuizOption {

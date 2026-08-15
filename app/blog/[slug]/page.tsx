@@ -5,6 +5,9 @@ import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, Folder, ArrowRight, User } from 'lucide-react'
+import { ReadingProgress } from './reading-progress'
+import { AnimateIn } from '@/components/animate-in'
+import { StaggeredGrid } from '@/components/staggered-grid'
 
 export const revalidate = 3600;
 
@@ -44,10 +47,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
+      <ReadingProgress />
 
       <main className="flex-grow pt-24 pb-16 sm:pt-32 sm:pb-20">
         <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
+          <AnimateIn direction="up">
           <header className="mb-12 text-center max-w-4xl mx-auto">
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
               <Link
@@ -81,6 +86,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </Link>
           </header>
 
+          </AnimateIn>
+
+          <AnimateIn direction="up" delay={0.2}>
           <div className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] lg:h-[550px] rounded-2xl overflow-hidden mb-16 bg-muted shadow-lg border border-border">
             <Image
               src={article.thumbnail}
@@ -93,6 +101,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto relative">
 
+          </AnimateIn>
+
+          <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto relative px-4">
+
+            <AnimateIn direction="left" delay={0.3}>
             {/* Table of Contents Sidebar */}
             {article.toc && article.toc.length > 0 && (
               <aside className="lg:w-64 shrink-0 hidden lg:block">
@@ -122,11 +135,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   prose-img:mx-auto prose-img:block
                   prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4
                   prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:font-normal prose-blockquote:not-italic
+            </AnimateIn>
+
+            <AnimateIn direction="up" delay={0.4} className="flex-1 min-w-0">
+            {/* Main Article Content */}
+            <div>
+              <div
+                className="prose prose-lg dark:prose-invert max-w-none
+                  prose-p:leading-loose prose-p:my-8 prose-p:text-lg
+                  prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:mt-16 prose-headings:mb-6
+                  prose-h2:text-3xl prose-h3:text-2xl
+                  prose-img:mx-auto prose-img:block prose-img:rounded-2xl prose-img:my-12 prose-img:shadow-xl
+                  prose-a:text-primary hover:prose-a:text-primary/80 prose-a:underline-offset-4 prose-a:font-medium
+                  prose-blockquote:border-l-4 prose-blockquote:border-l-primary prose-blockquote:bg-muted/40 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-lg prose-blockquote:my-10
+                  prose-ul:my-8 prose-li:my-3 prose-li:leading-relaxed
                   prose-li:marker:text-primary"
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
 
               {/* Tags */}
+              {/* Divider before tags is already handled by border-t in tags div, no need for gradient divider here unless we remove border-t */}
               {article.categories.length > 0 && (
                 <div className="mt-16 pt-8 border-t border-border">
                   <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-muted-foreground">Related Tags</h3>
@@ -144,6 +172,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               )}
             </div>
+            </AnimateIn>
 
           </div>
         </article>
@@ -153,6 +182,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-border">
             <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <AnimateIn direction="up">
+            <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
+            </AnimateIn>
+            <StaggeredGrid className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {suggestions.map(suggest => (
                 <div key={suggest.id} className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-md transition-all flex flex-col h-full">
                   <Link href={`/blog/${suggest.slug}`} className="absolute inset-0 z-10">
@@ -188,6 +221,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               ))}
             </div>
+            </StaggeredGrid>
           </section>
         )}
       </main>
