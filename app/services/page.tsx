@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar"
+import { StaggeredGrid } from "@/components/staggered-grid"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
@@ -71,11 +72,11 @@ export default function ServicesPage() {
             subtext="Discover our core technical competencies used to architect and deploy highly scalable enterprise systems."
           />
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
-          </div>
+          </StaggeredGrid>
 
         </div>
 
