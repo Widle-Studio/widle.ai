@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, Folder, ArrowRight, User } from 'lucide-react'
 import { ReadingProgress } from './reading-progress'
+import { AnimateIn } from '@/components/animate-in'
+import { StaggeredGrid } from '@/components/staggered-grid'
 
 export const revalidate = 3600;
 
@@ -50,6 +52,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <main className="flex-grow pt-24 pb-16 sm:pt-32 sm:pb-20">
         <article className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
+          <AnimateIn direction="up">
           <header className="mb-12 text-center max-w-4xl mx-auto">
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
               <Link
@@ -82,7 +85,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </Link>
           </header>
+          </AnimateIn>
 
+          <AnimateIn direction="up" delay={0.2}>
           <div className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] lg:h-[550px] rounded-2xl overflow-hidden mb-16 bg-muted shadow-lg border border-border">
             <Image
               src={article.thumbnail}
@@ -92,9 +97,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               unoptimized
             />
           </div>
+          </AnimateIn>
 
           <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto relative px-4">
 
+            <AnimateIn direction="left" delay={0.3}>
             {/* Table of Contents Sidebar */}
             {article.toc && article.toc.length > 0 && (
               <aside className="lg:w-64 shrink-0 hidden lg:block">
@@ -115,9 +122,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               </aside>
             )}
+            </AnimateIn>
 
+            <AnimateIn direction="up" delay={0.4} className="flex-1 min-w-0">
             {/* Main Article Content */}
-            <div className="flex-1 min-w-0">
+            <div>
               <div
                 className="prose prose-lg dark:prose-invert max-w-none
                   prose-p:leading-loose prose-p:my-8 prose-p:text-lg
@@ -149,6 +158,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               )}
             </div>
+            </AnimateIn>
 
           </div>
         </article>
@@ -156,8 +166,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Suggestions */}
         {suggestions.length > 0 && (
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-border">
+            <AnimateIn direction="up">
             <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            </AnimateIn>
+            <StaggeredGrid className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {suggestions.map(suggest => (
                 <div key={suggest.id} className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-md transition-all flex flex-col h-full">
                   <Link href={`/blog/${suggest.slug}`} className="absolute inset-0 z-10">
@@ -192,7 +204,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </div>
                 </div>
               ))}
-            </div>
+            </StaggeredGrid>
           </section>
         )}
       </main>
