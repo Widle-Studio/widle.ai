@@ -69,6 +69,13 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
   $('img').first().remove();
 
   // Clean up medium specific classes/styles that might break our layout
+  $('img').removeAttr('width').removeAttr('height').addClass('w-full h-auto rounded-xl shadow-md my-8 object-cover');
+  $('figure').addClass('my-8 flex flex-col items-center justify-center');
+  $('figcaption').addClass('text-center text-sm text-muted-foreground mt-2 italic');
+  $('img').first().closest('figure').remove();
+  $('img').first().remove();
+
+  // Clean up medium specific classes/styles that might break our layout
   $('img').removeAttr('width').removeAttr('height').addClass('w-full h-auto rounded-2xl shadow-xl my-12 object-cover');
   $('figure').addClass('my-12 flex flex-col items-center justify-center');
   $('figcaption').addClass('text-center text-sm text-muted-foreground mt-4 italic');
@@ -121,6 +128,7 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
     // Create an ID from the text (slugify)
     const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     el.attr('id', id);
+    el.addClass('scroll-mt-24'); // Add scroll margin for sticky header offset
     el.addClass('scroll-mt-32 relative group'); // Add scroll margin for sticky header offset
 
     // Add a hoverable anchor link for headers

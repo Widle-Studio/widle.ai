@@ -19,11 +19,13 @@ export function BlogClient({ initialArticles }: { initialArticles: MediumArticle
 
   // Sync state with URL params on load/change
   useEffect(() => {
+    const timer = setTimeout(() => {
     const timeout = setTimeout(() => {
       setSelectedIndustry(searchParams.get('industry'))
       setSelectedTag(searchParams.get('tag'))
       setSelectedAuthor(searchParams.get('author'))
     }, 0)
+    return () => clearTimeout(timer)
     return () => clearTimeout(timeout)
   }, [searchParams])
 
