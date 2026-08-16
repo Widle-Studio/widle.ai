@@ -1,3 +1,6 @@
+import { INDUSTRIES } from '@/lib/constants';
+
+export const industries = INDUSTRIES;
 export const industries = [
   "Healthcare & Life Sciences",
   "Financial Services & Banking",

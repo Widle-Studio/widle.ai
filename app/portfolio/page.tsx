@@ -11,6 +11,7 @@ export const metadata = {
   description: "View our expansive portfolio of custom software, AI implementations, and cloud-native solutions delivered by Widle Studio.",
 }
 
+import { PORTFOLIO_DATA } from '@/lib/portfolio-data'
 const portfolioItems = [
   {
     title: "Xaver Sports",
@@ -126,7 +127,7 @@ export default function PortfolioPage() {
           />
 
           <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioItems.map((item, idx) => (
+            {PORTFOLIO_DATA.map((item, idx) => (
               <Link href={`/portfolio/${item.slug}`} key={idx} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md hover:-translate-y-1 block cursor-pointer">
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center p-6">
                   {/* Many of the extracted logos are transparent PNGs or raw logos, so we use object-contain and a nice background */}

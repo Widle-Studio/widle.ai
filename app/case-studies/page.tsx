@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar"
+import { StaggeredGrid } from "@/components/staggered-grid"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { CaseStudyCard } from "@/components/case-study-card"
@@ -78,7 +79,7 @@ export default function CaseStudiesPage() {
             subtext="Explore real-world examples of how our AI solutions have driven efficiency, innovation, and measurable ROI for our clients."
           />
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {studiesData && studiesData.length > 0 ? (
               studiesData.map((study) => (
                 <CaseStudyCard
@@ -95,7 +96,7 @@ export default function CaseStudiesPage() {
                 <p>New case studies are being documented. Check back soon!</p>
               </div>
             )}
-          </div>
+          </StaggeredGrid>
         </div>
 
         <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:px-8">
@@ -105,7 +106,7 @@ export default function CaseStudiesPage() {
             subtext="Stay up to date with our latest research, thought leadership, and practical guides on implementing AI in the enterprise."
           />
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <StaggeredGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {postsData && postsData.length > 0 ? (
               postsData.map((post) => (
                 <Link key={post.id} href={`/case-studies/${post.slug || post.id}`} className="group flex flex-col justify-between overflow-hidden rounded-2xl border bg-card transition-all hover:border-primary/50 hover:shadow-lg">
@@ -140,7 +141,7 @@ export default function CaseStudiesPage() {
                 <p>New insights are being drafted. Check back soon!</p>
               </div>
             )}
-          </div>
+          </StaggeredGrid>
         </div>
       </main>
 

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
+import { StaggeredGrid } from "@/components/staggered-grid"
 import { Mail, Clock, ShieldCheck, ArrowRight, CalendarDays, FileText, MessageCircle } from "lucide-react"
 
 export default function ContactPage() {
@@ -228,7 +229,7 @@ export default function ContactPage() {
                 <h2 className="text-3xl font-bold tracking-tight">Our Simplest Yet Robust Process To Get Your Project Estimation</h2>
              </div>
              
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<StaggeredGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                {[
                  { step: "01", title: "Send us your requirement", desc: "Put forward your inquiry with us on this page. And one of our representatives will see you in 1 business day, for further communication" },
                  { step: "02", title: "Sign NDA", desc: "We sign NDA with all of our customers and make you feel secure. By doing so we would like to assure you of the privacy of your idea and project." },
@@ -243,7 +244,7 @@ export default function ContactPage() {
                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                  </div>
                ))}
-             </div>
+             </StaggeredGrid>
           </div>
           
           {/* Our Promise Section */}
@@ -252,7 +253,7 @@ export default function ContactPage() {
                 <h2 className="text-3xl font-bold tracking-tight">Our promise</h2>
              </div>
              
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+<StaggeredGrid className="grid grid-cols-1 md:grid-cols-3 gap-8">
                <div className="p-6 bg-card border border-border rounded-xl">
                  <h4 className="text-xl font-semibold mb-3">Quality Deliverance</h4>
                  <p className="text-muted-foreground leading-relaxed">
@@ -271,7 +272,7 @@ export default function ContactPage() {
                    We believe trust and confidence in our team is an engine to a productive and outstanding development lifecycle.
                  </p>
                </div>
-             </div>
+             </StaggeredGrid>
           </div>
 
         </div>

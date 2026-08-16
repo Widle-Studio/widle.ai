@@ -1,8 +1,10 @@
 import { Navbar } from "@/components/navbar"
+import { StaggeredGrid } from "@/components/staggered-grid"
 import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
+import Link from "next/link"
 import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 
 export const metadata = {
@@ -71,11 +73,11 @@ export default function ServicesPage() {
             subtext="Discover our core technical competencies used to architect and deploy highly scalable enterprise systems."
           />
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
-          </div>
+          </StaggeredGrid>
 
         </div>
 
@@ -91,7 +93,43 @@ export default function ServicesPage() {
               <p className="max-w-2xl text-lg text-muted-foreground mb-8">
                 Delivering tailored engineering services across strategy, implementation, and support to provide you with a competitive advantage. Unlock the full potential of your data today.
               </p>
-              <CTABanner
+
+      {/* Industries We Serve Section */}
+      <section className="bg-muted py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeader
+            eyebrow="Industries"
+            headline="Tailored for Your Sector"
+            subtext="We adapt our capabilities to match the nuances of your industry."
+          />
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/industries/healthcare-and-life-sciences" className="bg-background p-6 rounded-2xl border border-border hover:border-primary transition-all hover:-translate-y-1">
+              <h3 className="font-bold text-lg mb-2">Healthcare</h3>
+              <p className="text-muted-foreground text-sm">HIPAA-compliant data pipelines and predictive diagnostics.</p>
+            </Link>
+            <Link href="/industries/financial-services-and-banking" className="bg-background p-6 rounded-2xl border border-border hover:border-primary transition-all hover:-translate-y-1">
+              <h3 className="font-bold text-lg mb-2">Finance</h3>
+              <p className="text-muted-foreground text-sm">Fraud detection and real-time algorithmic trading tools.</p>
+            </Link>
+            <Link href="/industries/software-as-a-service-saas" className="bg-background p-6 rounded-2xl border border-border hover:border-primary transition-all hover:-translate-y-1">
+              <h3 className="font-bold text-lg mb-2">SaaS</h3>
+              <p className="text-muted-foreground text-sm">Scalable LLM integrations and custom Internal Tooling.</p>
+            </Link>
+            <Link href="/industries/manufacturing-and-supply-chain" className="bg-background p-6 rounded-2xl border border-border hover:border-primary transition-all hover:-translate-y-1">
+              <h3 className="font-bold text-lg mb-2">Manufacturing</h3>
+              <p className="text-muted-foreground text-sm">Computer Vision quality control and predictive maintenance.</p>
+            </Link>
+          </div>
+          <div className="mt-12">
+            <Link href="/industries" className="text-primary font-medium hover:underline inline-flex items-center">
+              View all 15 Industries We Serve
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 w-4 h-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <CTABanner
                 headline="Discover Our Engineering Philosophy"
                 description="Get to know us, our leadership, development direction, and why we call ourselves applied AI and Cloud experts."
                 buttonText="Learn More About Us"
