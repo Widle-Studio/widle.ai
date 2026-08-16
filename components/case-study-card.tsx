@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { AnimateIn } from "./animate-in"
 
 interface CaseStudyCardProps {
   image: string
@@ -18,44 +19,34 @@ export function CaseStudyCard({
   href,
 }: CaseStudyCardProps) {
   return (
-    <Link href={href} className="group block">
-      <article className="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
-        {/* Thumbnail */}
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-
-          {/* Tag */}
-          <span className="absolute left-4 top-4 rounded-full bg-accent/90 px-3 py-1 text-xs font-medium text-accent-foreground">
-            {tag}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="p-5">
-          {/* Title */}
-          <h3 className="mb-2 text-lg font-semibold text-card-foreground transition-colors group-hover:text-primary">
-            {title}
-          </h3>
-
-          {/* Description */}
-          <p className="mb-4 line-clamp-2 text-sm text-muted-foreground">
-            {description}
-          </p>
-
-          {/* Arrow CTA */}
-          <div className="flex items-center text-sm font-medium text-accent">
-            <span>View Case Study</span>
-            <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    <AnimateIn direction="up">
+      <Link href={href} className="group block h-full">
+        <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50">
+          <div className="relative aspect-video overflow-hidden bg-muted">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="flex flex-1 flex-col p-6">
+            <div className="mb-4 text-xs font-medium uppercase tracking-wider text-accent">
+              {tag}
+            </div>
+            <h3 className="mb-3 text-xl font-semibold text-card-foreground">
+              {title}
+            </h3>
+            <p className="mb-6 flex-1 text-sm leading-relaxed text-muted-foreground">
+              {description}
+            </p>
+            <div className="mt-auto flex items-center text-sm font-medium text-primary">
+              View Case Study
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
           </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </AnimateIn>
   )
 }
