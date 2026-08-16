@@ -65,11 +65,7 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
   const $ = cheerio.load(rawHtml);
 
   // Medium often includes the hero image inside a <figure> tag right at the top.
-  // We want to remove the very first image because we use it as the main thumbnail on our own layout.
   $('img').first().closest('figure').remove();
-
-  // Sometimes the first img isn't in a figure. Let's ensure the first img is gone if it's identical to the thumbnail.
-  // A simpler approach: just remove the first <img> tag overall to avoid duplication with the hero banner.
   $('img').first().remove();
 
   // Clean up medium specific classes/styles that might break our layout

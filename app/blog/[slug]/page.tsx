@@ -85,6 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </Link>
           </header>
+          </AnimateIn>
 
           </AnimateIn>
 
@@ -98,8 +99,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               unoptimized
             />
           </div>
+          </AnimateIn>
 
-          <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto relative">
+          <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto relative px-4">
 
           </AnimateIn>
 
@@ -126,9 +128,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
               </aside>
             )}
+            </AnimateIn>
 
+            <AnimateIn direction="up" delay={0.4} className="flex-1 min-w-0">
             {/* Main Article Content */}
-            <div className="flex-1 min-w-0">
+            <div>
               <div
                 className="prose prose-lg dark:prose-invert max-w-none
                   prose-headings:scroll-mt-24
@@ -180,6 +184,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Suggestions */}
         {suggestions.length > 0 && (
           <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-border">
+            <AnimateIn direction="up">
             <h2 className="text-3xl font-bold mb-10 text-center">Read Next</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimateIn direction="up">
