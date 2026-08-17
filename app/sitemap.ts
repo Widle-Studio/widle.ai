@@ -41,7 +41,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicCaseStudyRoutes = [
     '/case-studies/medtech-ai-diagnostics',
     '/case-studies/fintech-fraud-detection',
+<<<<<<< HEAD
     '/case-studies/retail-demand-forecasting'
+=======
+    '/case-studies/retail-demand-forecasting',
+    '/case-studies/future-generative-ai',
+    '/case-studies/trust-in-ai',
+    '/case-studies/mlops-guide'
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -49,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+<<<<<<< HEAD
   const dynamicPostRoutes = [
     '/case-studies/future-generative-ai',
     '/case-studies/trust-in-ai',
@@ -60,10 +68,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+=======
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   return [
     ...staticRoutes,
     ...dynamicServiceRoutes,
     ...dynamicCaseStudyRoutes,
+<<<<<<< HEAD
     ...dynamicPostRoutes,
+=======
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   ]
 }
