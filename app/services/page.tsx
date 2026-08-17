@@ -10,9 +10,10 @@ import Link from "next/link"
 >>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 import Link from "next/link"
 import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
+import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 
 export const metadata = {
-  title: "Our Technical Expertise in Applied AI Solutions | Widle Studio",
+  title: "Our Technical Expertise in Applied AI Solutions | Widle",
   description: "Explore all the technology expertise we have to develop custom AI solutions, cloud infrastructures, and internal tooling for your enterprise.",
 }
 
@@ -21,6 +22,7 @@ const services = [
     title: "Generative AI & LLMs",
     description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
     icon: Bot,
+    href: "/services/llms-rag",
     href: "/services/llms-rag",
   },
   {
@@ -54,6 +56,14 @@ const services = [
     description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
     icon: Code2,
     href: "/services/retool-custom-components",
+    badgeImage: "/images/partners/retool-badge.png",
+    badgeText: "Widle Exclusive Partnership",
+  },
+  {
+    title: "Retool Custom Components",
+    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
+    icon: Code2,
+    href: "/services/retool-custom-components",
   },
   {
     title: "Predictive Analytics",
@@ -62,6 +72,8 @@ const services = [
     href: "/services/predictive-analytics",
   }
 ]
+
+export default function ServicesPage() {
 
 export default function ServicesPage() {
   return (
@@ -75,6 +87,7 @@ export default function ServicesPage() {
 =======
                     
 >>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
+
           <SectionHeader
             eyebrow="Tech Expertise"
             headline="Engineering Custom AI & Cloud Solutions"

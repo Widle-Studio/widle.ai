@@ -22,15 +22,24 @@ const companyLinks = [
 =======
   { label: "Blog", href: "/blog" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
+
   
   { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
   { label: "Careers", href: "/careers" },
 >>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ]
 
 const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/widlestudio/", icon: ExternalLink },
+  { label: "GitHub", href: "https://github.com/Widle-Studio", icon: ExternalLink },
+  { label: "X (Twitter)", href: "https://x.com/widle_ai", icon: ExternalLink },
+  { label: "Instagram", href: "https://instagram.com/widle.ai", icon: ExternalLink },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCyD_47xWqS5yV1R45uQzMaw", icon: ExternalLink },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/widlestudio/", icon: ExternalLink },
   { label: "GitHub", href: "https://github.com/Widle-Studio", icon: ExternalLink },
   { label: "X (Twitter)", href: "https://x.com/widle_ai", icon: ExternalLink },
@@ -116,10 +125,12 @@ export function Footer() {
               ))}
             </div>
             <div className="mt-6" id="contact-footer">
+            <div className="mt-6" id="contact-footer">
               <p className="text-sm text-muted-foreground">
                 Contact us at
               </p>
               <a
+                href="mailto:info@widle.ai"
 <<<<<<< HEAD
                 href="mailto:info@widle.studio"
                 className="text-sm font-medium text-accent hover:underline"
@@ -131,6 +142,7 @@ export function Footer() {
               >
                 info@widle.studio
 >>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
+                info@widle.ai
               </a>
             </div>
           </div>
