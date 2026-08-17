@@ -21,7 +21,11 @@ export function ServiceCard({ icon: Icon, title, description, href, badgeImage, 
         {/* Gradient Glow */}
         <div className="absolute -inset-px -z-10 rounded-xl bg-gradient-to-b from-primary/20 to-transparent opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
 
-        
+<<<<<<< HEAD
+
+=======
+                
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
         {/* Partnership Badge */}
         {(badgeImage || badgeText) && (
           <div className="absolute top-6 right-6 flex flex-col items-end gap-2">

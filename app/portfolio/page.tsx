@@ -8,48 +8,76 @@ import Link from "next/link"
 
 export const metadata = {
   title: "Portfolio | Widle.ai",
-  description: "View our expansive portfolio of custom software, AI implementations, and cloud-native solutions delivered by Widle Studio.",
+<<<<<<< HEAD
+  description: "View our expansive portfolio of custom software, AI implementations, and cloud-native solutions delivered by Widle.",
 }
 
 import { PORTFOLIO_DATA } from '@/lib/portfolio-data'
 const portfolioItems = [
   {
     title: "Xaver Sports",
-    category: "RETOOL",
-    image: "/images/portfolio/xaver-sport-retool.png",
+    category: "Retool SaaS Platform",
+    image: "/images/portfolio/Xaver-Sport.png",
     description: "A high-performance sports management platform built for scalability and real-time data tracking.",
     slug: "xaver-sport-retool"
   },
   {
     title: "Scalers",
+<<<<<<< HEAD
+    category: "Internal Tooling & Automation",
+    image: "/images/portfolio/Scalers-Case.png",
+=======
     category: "RETOOL",
     image: "/images/portfolio/scaler-retool.png",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     description: "Cloud-native architecture optimization allowing for elastic scaling during peak user loads.",
     slug: "scaler-retool"
   },
   {
+<<<<<<< HEAD
+    title: "Instacoach Platform",
+    category: "Mobile & Web Booking Platform",
+    image: "/images/portfolio/Instacoach-Case.png",
+=======
     title: "Instacoach",
     category: "RETOOL",
     image: "/images/portfolio/instacoach-retool.png",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     description: "A comprehensive booking and coaching platform integrating complex payment gateways and scheduling algorithms.",
     slug: "instacoach-retool"
   },
   {
     title: "UXDX",
+<<<<<<< HEAD
+    category: "High-Performance ReactJS Website",
+    image: "/images/portfolio/uxdx-g.png",
+=======
     category: "REACT JS, WEBSITE",
     image: "/images/portfolio/uxdx.png",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     description: "A dynamic, high-performance front-end architecture for a premier product design conference.",
     slug: "uxdx"
   },
   {
     title: "Dexter Angels",
+<<<<<<< HEAD
+    category: "Corporate Investment Platform",
+    image: "/images/portfolio/dexterangels-g.png",
+=======
     category: "WEBSITE",
     image: "/images/portfolio/dexter-angels.png",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     description: "Secure, highly-available corporate platform designed for angel investors and syndicates.",
     slug: "dexter-angels"
   },
   {
     title: "YOYPR",
+<<<<<<< HEAD
+    category: "Angular Backend Architecture",
+    image: "/images/portfolio/yoypr-g.png",
+    description: "Enterprise-grade Angular backend architecture built to handle complex, asynchronous data routing.",
+    slug: "yoypr"
+=======
     category: "ANGULAR, BACKEND, WEBSITE",
     image: "/images/portfolio/yoypr.png",
     description: "Enterprise-grade Angular backend architecture built to handle complex, asynchronous data routing.",
@@ -110,6 +138,7 @@ const portfolioItems = [
     image: "/images/portfolio/everknock.png",
     description: "An innovative project leveraging JEKYll, HTML5, SASS technologies to deliver exceptional user experiences.",
     slug: "everknock"
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   }
 ]
 
@@ -122,12 +151,20 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Our Work"
+<<<<<<< HEAD
+            headline="Widle Portfolio"
+=======
             headline="Widle Studio Portfolio"
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
             subtext="Discover a selection of our most impactful projects spanning AI, Cloud Software, and Retool integrations."
           />
 
           <StaggeredGrid className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<<<<<<< HEAD
+            {portfolioItems.map((item, idx) => (
+=======
             {PORTFOLIO_DATA.map((item, idx) => (
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
               <Link href={`/portfolio/${item.slug}`} key={idx} className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md hover:-translate-y-1 block cursor-pointer">
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center p-6">
                   {/* Many of the extracted logos are transparent PNGs or raw logos, so we use object-contain and a nice background */}

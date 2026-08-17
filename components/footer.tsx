@@ -11,6 +11,7 @@ const serviceLinks = [
 
 const companyLinks = [
   { label: "Company", href: "/company" },
+<<<<<<< HEAD
   { label: "Blog", href: "/blog" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
@@ -18,10 +19,22 @@ const companyLinks = [
   { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
   { label: "Careers", href: "/careers" },
+=======
+  { label: "Blog", href: "/blog" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Case Studies", href: "/case-studies" },
+  
+  { label: "Industries", href: "/industries" },
+  { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
+  { label: "Careers", href: "/careers" },
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 ]
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/widlestudio/", icon: ExternalLink },
+  { label: "GitHub", href: "https://github.com/Widle-Studio", icon: ExternalLink },
+  { label: "X (Twitter)", href: "https://x.com/widle_ai", icon: ExternalLink },
+  { label: "Instagram", href: "https://instagram.com/widle.ai", icon: ExternalLink },
   { label: "YouTube", href: "https://www.youtube.com/channel/UCyD_47xWqS5yV1R45uQzMaw", icon: ExternalLink },
 ]
 
@@ -107,10 +120,17 @@ export function Footer() {
                 Contact us at
               </p>
               <a
+<<<<<<< HEAD
                 href="mailto:info@widle.studio"
                 className="text-sm font-medium text-accent hover:underline"
               >
                 info@widle.studio
+=======
+                href="mailto:info@widle.studio"
+                className="text-sm font-medium text-accent hover:underline"
+              >
+                info@widle.studio
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
               </a>
             </div>
           </div>

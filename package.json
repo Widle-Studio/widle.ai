@@ -22,6 +22,10 @@
     "@vercel/analytics": "^2.0.1",
     "ai": "^3.4.33",
     "cheerio": "^1.2.0",
+<<<<<<< HEAD
+=======
+    "cheerio": "^1.2.0",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^13.0.0",
@@ -32,6 +36,10 @@
     "react-hook-form": "^7.80.0",
     "resend": "^6.19.0",
     "rss-parser": "^3.13.0",
+<<<<<<< HEAD
+=======
+    "rss-parser": "^3.13.0",
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
     "shadcn": "^4.11.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7",
@@ -40,6 +48,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
     "@types/react": "^19",

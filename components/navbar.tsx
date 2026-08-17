@@ -9,8 +9,13 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
+<<<<<<< HEAD
+
+=======
   { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/blog" },
   
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
 ]
 

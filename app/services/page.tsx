@@ -4,6 +4,10 @@ import { Footer } from "@/components/footer"
 import { SectionHeader } from "@/components/section-header"
 import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
+<<<<<<< HEAD
+=======
+import Link from "next/link"
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 import Link from "next/link"
 import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 
@@ -66,7 +70,11 @@ export default function ServicesPage() {
 
       <main className="pt-24 pb-16 sm:pt-28 sm:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          
+<<<<<<< HEAD
+
+=======
+                    
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
           <SectionHeader
             eyebrow="Tech Expertise"
             headline="Engineering Custom AI & Cloud Solutions"

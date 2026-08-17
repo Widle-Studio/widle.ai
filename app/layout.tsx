@@ -5,6 +5,10 @@ import './globals.css'
 import { ChatWidget } from '@/components/chat-widget'
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
 

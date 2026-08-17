@@ -13,6 +13,11 @@ import { StatsSection } from "@/components/stats-section"
 import { Bot, Cog, Eye, TrendingUp, Cloud, Code, Code2 } from "lucide-react"
 import { LegacyHero } from "@/components/legacy-hero"
 import { LegacyProcess } from "@/components/legacy-process"
+<<<<<<< HEAD
+=======
+import { LegacyHero } from "@/components/legacy-hero"
+import { LegacyProcess } from "@/components/legacy-process"
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 
 export default function Home() {
   const services = [
@@ -170,7 +175,11 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
+<<<<<<< HEAD
       <LegacyHero />
+=======
+      <LegacyHero />
+>>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 
       {/* Stats Section */}
       <StatsSection />
@@ -220,6 +229,9 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* Our Process */}
+      <LegacyProcess />
 
       {/* Our Process */}
       <LegacyProcess />
