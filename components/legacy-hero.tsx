@@ -30,9 +30,10 @@ export function LegacyHero() {
             </div>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl mb-4 leading-[1.1]">
-              <span className="block">We <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">Build.</span></span>
-              <span className="block">We <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">Scale.</span></span>
-              <span className="block">We <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">Automate!</span></span>
+              <span className="block">Innovative <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">AI</span></span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">Cloud software solutions &</span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">Retool expertise</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2 text-gray-300">to power your business!</span>
             </h1>
 
             <p className="mt-2 text-base text-gray-400 sm:text-lg lg:text-xl mb-8 max-w-xl sm:mx-auto lg:mx-0">
