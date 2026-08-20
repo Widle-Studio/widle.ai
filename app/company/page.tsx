@@ -5,8 +5,8 @@ import { CTABanner } from "@/components/cta-banner"
 import { Cloud, ShieldCheck, Code2, DatabaseZap, Workflow, MessageSquare } from "lucide-react"
 
 export const metadata = {
-  title: "About Widle.ai | Innovative Software Solutions",
-  description: "Widle design, brands, build, deploy, and promotes, offering end-to-end solutions, agility in execution, and depth of specialization.",
+  title: "About Us | Global Tech & Innovation Agency",
+  description: "Learn more about Widle Studio. We design, brand, build, and deploy high-performance enterprise architectures, offering agility in execution and deep technical specialization.",
 }
 
 export default function CompanyPage() {

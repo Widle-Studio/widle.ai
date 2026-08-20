@@ -8,20 +8,6 @@ const nextConfig = {
       }
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/insights',
-        destination: '/case-studies',
-        permanent: true,
-      },
-      {
-        source: '/insights/:slug',
-        destination: '/case-studies/:slug',
-        permanent: true,
-      },
-    ]
-  },
 };
 
 export default nextConfig;

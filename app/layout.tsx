@@ -7,45 +7,40 @@ import { CookieConsent } from '@/components/cookie-consent'
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
-
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'widle.ai | Enterprise AI Solutions',
-    template: '%s | widle.ai',
+    default: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
+    template: '%s | Widle Studio',
   },
-  description: 'Transform your business with cutting-edge AI solutions. widle.ai delivers enterprise-grade artificial intelligence services including LLMs, Computer Vision, and MLOps.',
-  keywords: ['AI', 'Artificial Intelligence', 'Enterprise AI', 'LLM', 'Machine Learning', 'Computer Vision', 'RAG'],
-  authors: [{ name: 'widle.ai' }],
-  creator: 'widle.ai',
+  description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, LLM integration, and custom cloud architectures to scale and automate your business operations.',
+  keywords: ['Enterprise AI', 'Machine Learning Consulting', 'LLM Integration', 'Tech Agency', 'Cloud Software Architecture', 'Custom Retool Dashboard', 'Global IT Consulting', 'Widle'],
+  authors: [{ name: 'Widle Studio' }],
+  creator: 'Widle Studio',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: baseUrl,
-    title: 'widle.ai | Enterprise AI Solutions',
-    description: 'Transform your business with cutting-edge AI solutions. widle.ai delivers enterprise-grade artificial intelligence services.',
-    siteName: 'widle.ai',
+    title: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
+    description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, LLM integration, and custom cloud architectures to scale and automate your business operations.',
+    siteName: 'Widle Studio',
     images: [
       {
-        url: '/og-image.png', // We'll assume this image exists or will be added
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'widle.ai - Enterprise AI Solutions',
+        alt: 'Widle Studio - Enterprise AI Solutions',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'widle.ai | Enterprise AI Solutions',
-    description: 'Transform your business with cutting-edge AI solutions.',
+    title: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
+    description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, and custom cloud architectures.',
     images: ['/og-image.png'],
-    creator: '@widleai',
+    creator: '@widlestudio',
   },
   robots: {
     index: true,

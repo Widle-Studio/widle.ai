@@ -5,8 +5,8 @@ import { CTABanner } from "@/components/cta-banner"
 import { ArrowRight, MapPin } from "lucide-react"
 
 export const metadata = {
-  title: "Careers at Widle",
-  description: "Join us in building the future of enterprise AI. View open positions.",
+  title: "Careers | Join Our Tech Agency",
+  description: "Join Widle Studio in building the future of enterprise software, cloud architecture, and predictive analytics. View our open remote and global positions.",
 }
 
 const positions = [

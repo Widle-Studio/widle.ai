@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/careers',
     '/contact',
     '/ai-readiness-quiz',
+    '/blog',
+    '/insights',
     '/privacy-policy',
     '/disclaimer',
   ].map((route) => ({
@@ -41,14 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicCaseStudyRoutes = [
     '/case-studies/medtech-ai-diagnostics',
     '/case-studies/fintech-fraud-detection',
-<<<<<<< HEAD
     '/case-studies/retail-demand-forecasting'
-=======
-    '/case-studies/retail-demand-forecasting',
-    '/case-studies/future-generative-ai',
-    '/case-studies/trust-in-ai',
-    '/case-studies/mlops-guide'
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -56,11 +51,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-<<<<<<< HEAD
   const dynamicPostRoutes = [
-    '/case-studies/future-generative-ai',
-    '/case-studies/trust-in-ai',
-    '/case-studies/mlops-guide'
+    '/blog/future-generative-ai',
+    '/blog/trust-in-ai',
+    '/blog/mlops-guide'
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -68,15 +62,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-=======
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
+  const dynamicPortfolioRoutes = [
+    '/portfolio/xaver-sport-retool',
+    '/portfolio/scaler-retool',
+    '/portfolio/instacoach-retool',
+    '/portfolio/uxdx',
+    '/portfolio/dexter-angels',
+    '/portfolio/yoypr'
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     ...staticRoutes,
     ...dynamicServiceRoutes,
     ...dynamicCaseStudyRoutes,
-<<<<<<< HEAD
     ...dynamicPostRoutes,
-=======
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
+    ...dynamicPortfolioRoutes
   ]
 }
