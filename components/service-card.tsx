@@ -53,11 +53,6 @@ export function ServiceCard({ icon: Icon, title, description, href, badgeImage, 
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
           <Icon className="h-6 w-6" />
         </div>
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
         {/* Partnership Badge */}
         {(badgeImage || badgeText) && (
           <div className="absolute top-6 right-6 flex flex-col items-end gap-2">

@@ -11,11 +11,7 @@ import { ArrowRight, Calendar } from "lucide-react"
 
 export const metadata = {
   title: "Case Studies & Insights",
-<<<<<<< HEAD
   description: "Read how Widle has helped enterprises across industries implement AI solutions for measurable business impact, and discover our latest insights.",
-=======
-  description: "Read how Widle Studio has helped enterprises across industries implement AI solutions for measurable business impact, and discover our latest insights.",
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
 }
 
 export default function CaseStudiesPage() {
