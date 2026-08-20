@@ -157,9 +157,29 @@ function processMediumHtml(rawHtml: string): { cleanHtml: string, toc: TocItem[]
 
 export async function fetchMediumArticles(): Promise<MediumArticle[]> {
   try {
-    const feed = await parser.parseURL('https://medium.com/feed/widle-studio');
+    const feed1 = await parser.parseURL('https://medium.com/feed/widle-studio');
+    const feed2 = await parser.parseURL('https://medium.com/feed/@suranisaunak');
 
-    return feed.items.map(item => {
+    // Combine items and remove duplicates based on link or title
+    const allItems = [...feed1.items, ...feed2.items];
+    const uniqueItemsMap = new Map();
+    allItems.forEach(item => {
+      const key = item.link || item.title;
+      if (key && !uniqueItemsMap.has(key)) {
+        uniqueItemsMap.set(key, item);
+      }
+    });
+
+    const uniqueItems = Array.from(uniqueItemsMap.values());
+
+    // Sort items by pubDate descending (newest first)
+    uniqueItems.sort((a, b) => {
+      const dateA = new Date(a.pubDate || 0).getTime();
+      const dateB = new Date(b.pubDate || 0).getTime();
+      return dateB - dateA;
+    });
+
+    return uniqueItems.map(item => {
       // Extract slug from link
       let slug = '';
       if (item.link) {
@@ -191,5 +211,6 @@ export async function fetchMediumArticles(): Promise<MediumArticle[]> {
   } catch (error) {
     console.error("Error fetching Medium articles:", error);
     return [];
+
   }
 }
