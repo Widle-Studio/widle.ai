@@ -9,7 +9,6 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
-
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
 ]
 

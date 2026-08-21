@@ -62,25 +62,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const dynamicPortfolioRoutes = [
-    '/portfolio/xaver-sport-retool',
-    '/portfolio/scaler-retool',
-    '/portfolio/instacoach-retool',
-    '/portfolio/uxdx',
-    '/portfolio/dexter-angels',
-    '/portfolio/yoypr'
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
-
   return [
     ...staticRoutes,
     ...dynamicServiceRoutes,
     ...dynamicCaseStudyRoutes,
     ...dynamicPostRoutes,
-    ...dynamicPortfolioRoutes
   ]
 }

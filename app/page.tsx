@@ -11,6 +11,8 @@ import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { BlogCard } from "@/components/blog-card"
 import { StatsSection } from "@/components/stats-section"
 import { Bot, Cog, Eye, TrendingUp, Cloud, Code, Code2 } from "lucide-react"
+import { LegacyHero } from "@/components/legacy-hero"
+import { LegacyProcess } from "@/components/legacy-process"
 
 export default function Home() {
   const services = [
@@ -168,14 +170,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <HeroSection
-        headline="Engineering Custom AI & Cloud"
-        highlightedText="Software Solutions"
-        subheadline="We specialize in LLMs, MLOps, computer vision, and AI-powered automation to drive business growth. Partner with Widle to architect and deploy highly scalable enterprise systems."
-        primaryCTA={{ text: "Schedule Technical Discovery", href: "/contact" }}
-        secondaryCTA={{ text: "View Success Stories", href: "/case-studies" }}
-        eyebrow="Widle"
-      />
+      <LegacyHero />
 
       {/* Stats Section */}
       <StatsSection />

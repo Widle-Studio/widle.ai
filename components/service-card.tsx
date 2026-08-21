@@ -42,6 +42,26 @@ export function ServiceCard({ icon: Icon, title, description, href, badgeImage, 
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
           <Icon className="h-6 w-6" />
         </div>
+        {/* Partnership Badge */}
+        {(badgeImage || badgeText) && (
+          <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+             {badgeImage && (
+               <div className="relative h-10 w-24">
+                 <Image src={badgeImage} alt={badgeText || "Partner Badge"} fill className="object-contain object-right opacity-90 transition-opacity group-hover:opacity-100" />
+               </div>
+             )}
+             {badgeText && (
+               <span className="text-[10px] font-bold uppercase tracking-wider text-primary/80">
+                 {badgeText}
+               </span>
+             )}
+          </div>
+        )}
+
+        {/* Icon */}
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+          <Icon className="h-6 w-6" />
+        </div>
 
         {/* Title */}
         <h3 className="mb-2 text-lg font-semibold text-card-foreground">

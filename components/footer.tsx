@@ -11,9 +11,10 @@ const serviceLinks = [
 
 const companyLinks = [
   { label: "Company", href: "/company" },
+  { label: "Blog", href: "/blog" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
-
+  
   { label: "Industries", href: "/industries" },
   { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
   { label: "Careers", href: "/careers" },
@@ -114,6 +115,7 @@ export function Footer() {
                 href="mailto:info@widle.ai"
                 className="text-sm font-medium text-accent hover:underline"
               >
+                info@widle.studio
                 info@widle.ai
               </a>
             </div>

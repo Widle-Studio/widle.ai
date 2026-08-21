@@ -5,8 +5,6 @@ import './globals.css'
 import { ChatWidget } from '@/components/chat-widget'
 import { CookieConsent } from '@/components/cookie-consent'
 
-
-
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
 
 export const metadata: Metadata = {
