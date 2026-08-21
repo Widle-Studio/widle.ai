@@ -1,44 +1,40 @@
-import type { Metadata } from 'next'
-
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-import { ChatWidget } from '@/components/chat-widget'
-import { CookieConsent } from '@/components/cookie-consent'
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wide.ai'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
-    template: '%s | Widle Studio',
+    default: 'wide.ai | Custom AI & LLM Development Agency',
+    template: '%s | wide.ai - Enterprise AI Solutions',
   },
-  description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, LLM integration, and custom cloud architectures to scale and automate your business operations.',
-  keywords: ['Enterprise AI', 'Machine Learning Consulting', 'LLM Integration', 'Tech Agency', 'Cloud Software Architecture', 'Custom Retool Dashboard', 'Global IT Consulting', 'Widle'],
-  authors: [{ name: 'Widle Studio' }],
-  creator: 'Widle Studio',
+  description: 'wide.ai is a premier AI and tech service agency specializing in custom LLM development, AI consulting, machine learning solutions, and workflow automation for global B2B enterprises.',
+  keywords: ['AI Agency', 'Custom LLM Development', 'AI Consulting', 'Machine Learning Solutions', 'AI Workflow Automation', 'Enterprise AI Services', 'B2B Tech Agency'],
+  authors: [{ name: 'wide.ai Team' }],
+  creator: 'wide.ai',
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: baseUrl,
-    title: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
-    description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, LLM integration, and custom cloud architectures to scale and automate your business operations.',
-    siteName: 'Widle Studio',
+    title: 'wide.ai | Custom AI & LLM Development Agency',
+    description: 'Transform your business with cutting-edge AI solutions. wide.ai delivers enterprise-grade artificial intelligence services including custom LLMs, Computer Vision, and MLOps.',
+    siteName: 'wide.ai',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Widle Studio - Enterprise AI Solutions',
+        alt: 'wide.ai - Enterprise AI Solutions',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Widle Studio | Enterprise AI & Tech Innovation Agency',
-    description: 'Global tech agency specializing in Enterprise AI, Machine Learning consulting, and custom cloud architectures.',
+    title: 'wide.ai | Custom AI & LLM Development Agency',
+    description: 'Transform your business with cutting-edge AI solutions. wide.ai delivers enterprise-grade artificial intelligence services.',
     images: ['/og-image.png'],
-    creator: '@widlestudio',
+    creator: '@wideai',
   },
   robots: {
     index: true,
@@ -52,37 +48,3 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en" className="bg-background">
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-        <ChatWidget />
-        <CookieConsent />
-      </body>
-    </html>
-  )
-}

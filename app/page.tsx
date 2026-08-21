@@ -1,26 +1,13 @@
+
+import { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { HeroSection } from "@/components/hero-section"
-import { ServiceCard } from "@/components/service-card"
-import { SolutionCard } from "@/components/solution-card"
-import { FAQAccordion } from "@/components/faq-accordion"
-import { SectionHeader } from "@/components/section-header"
-import { CTABanner } from "@/components/cta-banner"
-import { LogoMarquee } from "@/components/logo-marquee"
-import { TestimonialsCarousel } from "@/components/testimonials-carousel"
-import { BlogCard } from "@/components/blog-card"
-import { StatsSection } from "@/components/stats-section"
-import { Bot, Cog, Eye, TrendingUp, Cloud, Code, Code2 } from "lucide-react"
-import { LegacyHero } from "@/components/legacy-hero"
-import { LegacyProcess } from "@/components/legacy-process"
 
-export default function Home() {
-  const services = [
-  {
-    title: "Generative AI & LLMs",
-    description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
-    icon: Bot,
-    href: "/services/llms-rag",
+export const metadata: Metadata = {
+  title: "wide.ai | Custom AI & LLM Development Agency for Enterprise",
+  description: "wide.ai helps global B2B enterprises automate workflows and build custom LLM solutions. Book a discovery call today with our expert AI consultants.",
+  alternates: {
+    canonical: "/",
   },
   {
     title: "MLOps & AI Infrastructure",
