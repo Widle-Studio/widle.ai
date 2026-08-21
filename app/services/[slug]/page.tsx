@@ -1,19 +1,3 @@
-<<<<<<< SEARCH
-// Generate metadata for each service page
-export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params
-  const service = servicesData[slug]
-
-  if (!service) {
-    return { title: "Service Not Found | widle.ai" }
-  }
-
-  return {
-    title: `${service.title} | widle.ai Services`,
-    description: service.overview.slice(0, 160),
-  }
-}
-=======
 // Generate metadata for each service page
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
@@ -32,4 +16,3 @@ export async function generateMetadata({ params }: PageProps) {
     }
   }
 }
->>>>>>> REPLACE

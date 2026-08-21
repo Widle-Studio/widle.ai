@@ -2,13 +2,8 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { StaggeredGrid } from "./staggered-grid"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { StaggeredGrid } from "./staggered-grid"
 
 interface HeroSectionProps {
-  headline: string
   headline: string
   highlightedText?: string
   subheadline: string
@@ -20,28 +15,11 @@ interface HeroSectionProps {
     text: string
     href: string
   }
-  subheadline: string
-  primaryCTA: {
-    text: string
-    href: string
-  }
-  secondaryCTA?: {
-    text: string
-    href: string
-  }
   eyebrow?: string
-  className?: string
   className?: string
 }
 
 export function HeroSection({
-  headline,
-  highlightedText,
-  subheadline,
-  primaryCTA,
-  secondaryCTA,
-  eyebrow,
-  className,
   headline,
   highlightedText,
   subheadline,
@@ -116,28 +94,7 @@ export function HeroSection({
             <p className="mt-6 text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
               {subheadline}
             </p>
-            <p className="mt-6 text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
-              {subheadline}
-            </p>
 
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href={primaryCTA.href}
-                className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200 hover:-translate-y-1"
-              >
-                {primaryCTA.text}
-              </Link>
-              {secondaryCTA && (
-                <Link
-                  href={secondaryCTA.href}
-                  className="group text-sm font-semibold leading-6 text-foreground flex items-center gap-2 hover:text-primary transition-colors"
-                >
-                  {secondaryCTA.text}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              )}
-            </div>
-          </StaggeredGrid>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 href={primaryCTA.href}
@@ -158,7 +115,6 @@ export function HeroSection({
           </StaggeredGrid>
         </div>
       </div>
-    </div>
     </div>
   )
 }

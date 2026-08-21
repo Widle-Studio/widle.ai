@@ -11,7 +11,6 @@ export const metadata = {
   description: "View our expansive portfolio of custom software, AI implementations, and cloud-native solutions delivered by Widle.",
 }
 
-import { PORTFOLIO_DATA } from '@/lib/portfolio-data'
 const portfolioItems = [
   {
     title: "Xaver Sports",

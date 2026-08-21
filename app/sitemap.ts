@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/careers',
     '/contact',
     '/ai-readiness-quiz',
+    '/blog',
+    '/insights',
     '/privacy-policy',
     '/disclaimer',
   ].map((route) => ({
@@ -50,9 +52,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const dynamicPostRoutes = [
-    '/case-studies/future-generative-ai',
-    '/case-studies/trust-in-ai',
-    '/case-studies/mlops-guide'
+    '/blog/future-generative-ai',
+    '/blog/trust-in-ai',
+    '/blog/mlops-guide'
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
