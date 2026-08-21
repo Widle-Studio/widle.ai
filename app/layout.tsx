@@ -7,11 +7,6 @@ import { CookieConsent } from '@/components/cookie-consent'
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f9e3c0d4346569bd0ae0be3564ebdd45f623edbd
-
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://widle.ai'
 
 export const metadata: Metadata = {
