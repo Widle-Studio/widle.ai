@@ -1,11 +1,10 @@
-// Generate metadata for each service page
-
 interface PageProps {
   params: Promise<{ slug: string }>
 }
 
 const servicesData: Record<string, any> = {}
 
+// Generate metadata for each service page
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const service = servicesData[slug]

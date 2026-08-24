@@ -32,6 +32,7 @@ export function StaggeredGrid({
   // To support conditional rendering or single children correctly:
   const arrayChildren = Children.toArray(children).filter(Boolean);
 
+  // To support conditional rendering or single children correctly:
 
   return (
     <motion.div

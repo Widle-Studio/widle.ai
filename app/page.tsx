@@ -1,4 +1,3 @@
-
 import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 import { LegacyHero } from "@/components/legacy-hero"
 import { StatsSection } from "@/components/stats-section"
