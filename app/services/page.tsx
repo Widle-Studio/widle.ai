@@ -5,7 +5,6 @@ import { ServiceCard } from "@/components/service-card"
 import { CTABanner } from "@/components/cta-banner"
 import Link from "next/link"
 import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
-import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
 
 export const metadata = {
   title: "Our Technical Expertise in Applied AI Solutions | Widle",

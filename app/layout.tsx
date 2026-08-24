@@ -1,3 +1,5 @@
+import { Metadata } from "next"
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wide.ai'
 
 export const metadata: Metadata = {
@@ -48,3 +50,20 @@ export const metadata: Metadata = {
     },
   },
   icons: {
+    icon: '/favicon.ico',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        {children}
+      </body>
+    </html>
+  )
+}

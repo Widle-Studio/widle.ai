@@ -21,8 +21,6 @@ const portfolioItems = [
   },
   {
     title: "Scalers",
-    category: "Internal Tooling & Automation",
-    image: "/images/portfolio/Scalers-Case.png",
     category: "RETOOL",
     image: "/images/portfolio/scaler-retool.png",
 
@@ -30,9 +28,6 @@ const portfolioItems = [
     slug: "scaler-retool"
   },
   {
-    title: "Instacoach Platform",
-    category: "Mobile & Web Booking Platform",
-    image: "/images/portfolio/Instacoach-Case.png",
     title: "Instacoach",
     category: "RETOOL",
     image: "/images/portfolio/instacoach-retool.png",
@@ -41,8 +36,6 @@ const portfolioItems = [
   },
   {
     title: "UXDX",
-    category: "High-Performance ReactJS Website",
-    image: "/images/portfolio/uxdx-g.png",
     category: "REACT JS, WEBSITE",
     image: "/images/portfolio/uxdx.png",
     description: "A dynamic, high-performance front-end architecture for a premier product design conference.",
@@ -50,8 +43,6 @@ const portfolioItems = [
   },
   {
     title: "Dexter Angels",
-    category: "Corporate Investment Platform",
-    image: "/images/portfolio/dexterangels-g.png",
     category: "WEBSITE",
     image: "/images/portfolio/dexter-angels.png",
     description: "Secure, highly-available corporate platform designed for angel investors and syndicates.",
