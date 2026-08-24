@@ -1,4 +1,11 @@
 // Generate metadata for each service page
+
+interface PageProps {
+  params: Promise<{ slug: string }>
+}
+
+const servicesData: Record<string, any> = {}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const service = servicesData[slug]
@@ -15,4 +22,8 @@ export async function generateMetadata({ params }: PageProps) {
       canonical: `/services/${slug}`,
     }
   }
+}
+
+export default function Page() {
+    return <div>Service</div>
 }

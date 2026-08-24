@@ -1,4 +1,17 @@
 
+import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
+import { LegacyHero } from "@/components/legacy-hero"
+import { StatsSection } from "@/components/stats-section"
+import { LogoMarquee } from "@/components/logo-marquee"
+import { SectionHeader } from "@/components/section-header"
+import { ServiceCard } from "@/components/service-card"
+import { SolutionCard } from "@/components/solution-card"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
+import { BlogCard } from "@/components/blog-card"
+import { FAQAccordion } from "@/components/faq-accordion"
+import { CTABanner } from "@/components/cta-banner"
+
+
 import { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -8,7 +21,11 @@ export const metadata: Metadata = {
   description: "wide.ai helps global B2B enterprises automate workflows and build custom LLM solutions. Book a discovery call today with our expert AI consultants.",
   alternates: {
     canonical: "/",
-  },
+  }
+};
+
+export default function Home() {
+  const services = [
   {
     title: "MLOps & AI Infrastructure",
     description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
