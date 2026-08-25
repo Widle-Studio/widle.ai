@@ -1,290 +1,69 @@
+import type { LucideIcon } from "lucide-react"
+import {
+  ArrowRight,
+  Bot,
+  BrainCircuit,
+  Check,
+  ChevronDown,
+  Cloud,
+  Code2,
+  Eye,
+  Gauge,
+  Menu,
+  Network,
+  Sparkles,
+  TrendingUp,
+  Workflow,
+  X,
+} from "lucide-react"
 
-import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
-import { LegacyHero } from "@/components/legacy-hero"
-import { StatsSection } from "@/components/stats-section"
-import { LogoMarquee } from "@/components/logo-marquee"
-import { SectionHeader } from "@/components/section-header"
-import { ServiceCard } from "@/components/service-card"
-import { SolutionCard } from "@/components/solution-card"
-import { TestimonialsCarousel } from "@/components/testimonials-carousel"
-import { BlogCard } from "@/components/blog-card"
-import { FAQAccordion } from "@/components/faq-accordion"
-import { CTABanner } from "@/components/cta-banner"
-
-
-import { Metadata } from "next"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-
-export const metadata: Metadata = {
-  title: "wide.ai | Custom AI & LLM Development Agency for Enterprise",
-  description: "wide.ai helps global B2B enterprises automate workflows and build custom LLM solutions. Book a discovery call today with our expert AI consultants.",
-  alternates: {
-    canonical: "/",
-  }
-};
-
-export default function Home() {
-  const services = [
-  {
-    title: "MLOps & AI Infrastructure",
-    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
-    icon: Cog,
-    href: "/services/mlops",
-  },
-  {
-    title: "Computer Vision & Edge AI",
-    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
-    icon: Eye,
-    href: "/services/computer-vision",
-  },
-  {
-    title: "Cloud-Native Software Engineering",
-    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
-    icon: Cloud,
-    href: "/services/cloud-software",
-  },
-  {
-    title: "Internal Tooling & Retool",
-    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
-    icon: Code,
-    href: "/services/internal-tooling",
-    badgeImage: "/images/partners/retool-badge.png",
-    badgeText: "Widle Exclusive Partnership",
-  },
-  {
-    title: "Retool Custom Components",
-    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
-    icon: Code2,
-    href: "/services/retool-custom-components",
-  },
-  {
-    title: "Predictive Analytics",
-    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
-    icon: TrendingUp,
-    href: "/services/predictive-analytics",
-  }
+const services: { title: string; description: string; icon: LucideIcon }[] = [
+  { title: "MLOps & AI Infrastructure", description: "Production-grade pipelines that keep every model observable, resilient, and ready to scale.", icon: Gauge },
+  { title: "Computer Vision & Edge AI", description: "Real-time visual intelligence, optimized for your cameras, devices, and operating environment.", icon: Eye },
+  { title: "Cloud-Native Engineering", description: "Fault-tolerant systems on AWS, GCP, and Azure, shaped around how your business actually works.", icon: Cloud },
+  { title: "Internal Tooling", description: "Secure operational dashboards that turn complex data and APIs into clear decisions.", icon: Code2 },
+  { title: "Custom AI Components", description: "Flexible React building blocks that make your internal products faster and more capable.", icon: Network },
+  { title: "Predictive Analytics", description: "Forecast demand, risk, and performance with models built for deterministic business outcomes.", icon: TrendingUp },
 ]
 
-  const testimonials = [
-    {
-      quote: "Widle.ai transformed our customer service operations with their custom NLP solution. We've seen a 40% reduction in response times and a significant boost in customer satisfaction.",
-      clientName: "Sarah Jenkins",
-      role: "VP of Customer Success",
-      companyName: "TechFlow Solutions",
-      companyLogo: "/images/Widle-Logo.jpg"
-    },
-    {
-      quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
-      clientName: "David Chen",
-      role: "COO",
-      companyName: "Global Logistics Inc.",
-      companyLogo: "/images/Widle-Logo.jpg"
-    },
-    {
-      quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
-      clientName: "Elena Rodriguez",
-      role: "CTO",
-      companyName: "Manufacturing Dynamics",
-      companyLogo: "/images/Widle-Logo.jpg"
-    }
-  ]
+const solutions = ["Predictive maintenance", "Document automation", "Demand forecasting", "Fraud detection"]
 
-  const insights = [
-    {
-      title: "The Future of Generative AI in the Enterprise",
-      category: "Trends",
-      date: "Oct 12, 2023",
-      excerpt: "Explore how generative models are moving from novelties to core business tools.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/future-generative-ai"
-    },
-    {
-      title: "Building Trust in AI Systems",
-      category: "Ethics",
-      date: "Sep 28, 2023",
-      excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/trust-in-ai"
-    },
-    {
-      title: "A Guide to MLOps for Scale",
-      category: "Engineering",
-      date: "Sep 15, 2023",
-      excerpt: "Best practices for deploying and monitoring machine learning models in production.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/mlops-guide"
-    }
-  ]
-
-  const partners = [
-    { src: "/images/partners/microsoft.svg", alt: "Microsoft" },
-    { src: "/images/partners/google.svg", alt: "Google" },
-    { src: "/images/partners/aws.svg", alt: "AWS" },
-    { src: "/images/partners/nvidia.svg", alt: "NVIDIA" },
-    { src: "/images/partners/ibm.svg", alt: "IBM" },
-    { src: "/images/partners/snowflake.svg", alt: "Snowflake" },
-    { src: "/images/partners/retool.svg", alt: "Retool" },
-  ]
-
-  const solutions = [
-    {
-      title: "Predictive Maintenance",
-      description: "AI-driven insights to predict equipment failures before they happen, reducing downtime and costs.",
-      icon: Cog
-    },
-    {
-      title: "Document Automation",
-      description: "Extract data and process complex documents automatically using advanced optical character recognition.",
-      icon: Bot
-    },
-    {
-      title: "Demand Forecasting",
-      description: "Accurately predict customer demand to optimize inventory and supply chain operations.",
-      icon: TrendingUp
-    },
-    {
-      title: "Fraud Detection",
-      description: "Real-time anomaly detection systems that identify and prevent fraudulent transactions.",
-      icon: Eye
-    }
-  ]
-
-  const faqs = [
-    {
-      question: "How long does a typical AI implementation take?",
-      answer: "A standard implementation typically takes 3-6 months from strategy to initial deployment, depending on data readiness and project complexity."
-    },
-    {
-      question: "Do we need in-house AI expertise to use your solutions?",
-      answer: "No. We build turnkey solutions that integrate smoothly with your existing systems. We also provide training and ongoing support for your team."
-    },
-    {
-      question: "How do you ensure data privacy and security?",
-      answer: "Security is built-in. We employ enterprise-grade encryption, role-based access control, and comply with SOC2, GDPR, and other relevant regulatory standards."
-    },
-    {
-      question: "Can your AI solutions integrate with our legacy software?",
-      answer: "Yes. Our architecture is designed to be highly interoperable, utilizing custom APIs and middleware to communicate with legacy systems seamlessly."
-    }
-  ]
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="fixed inset-0 -z-10 bg-grid opacity-40" />
+      <div className="fixed left-1/2 top-[-18rem] -z-10 h-[36rem] w-[48rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
-      {/* Hero Section */}
-      <LegacyHero />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 lg:px-8">
+        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight"><span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Sparkles className="size-4" /></span><span className="text-lg">w<span className="text-primary">i</span>dle.ai</span></a>
+        <div className="hidden items-center gap-8 text-sm text-muted-foreground md:flex"><a href="#services" className="transition hover:text-foreground">Expertise</a><a href="#solutions" className="transition hover:text-foreground">Solutions</a><a href="#insights" className="transition hover:text-foreground">Insights</a><a href="#faq" className="transition hover:text-foreground">FAQ</a></div>
+        <a href="#contact" className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:bg-primary hover:text-primary-foreground sm:block">Start a conversation <ArrowRight className="ml-2 inline size-4" /></a>
+        <button className="rounded-full border border-border/70 p-2 md:hidden" aria-label="Open navigation"><Menu className="size-5" /></button>
+      </nav>
 
-      {/* Stats Section */}
-      <StatsSection />
+      <section id="top" className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-24 pt-16 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:pb-32 lg:pt-24">
+        <div><div className="mb-7 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary"><span className="size-1.5 rounded-full bg-primary" /> Intelligence, engineered for impact</div><h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[1.03] tracking-[-0.06em] sm:text-7xl">Make complexity <span className="text-primary">work for you.</span></h1><p className="mt-7 max-w-xl text-pretty text-lg leading-8 text-muted-foreground">We build custom AI systems for ambitious enterprises — from the first useful insight to infrastructure that performs at scale.</p><div className="mt-9 flex flex-wrap gap-3"><a href="#contact" className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition hover:-translate-y-0.5">Build with widle <ArrowRight className="ml-2 inline size-4" /></a><a href="#services" className="rounded-full border border-border/80 bg-card/40 px-6 py-3.5 text-sm font-semibold transition hover:bg-card">Explore expertise</a></div><div className="mt-12 flex items-center gap-8 text-sm text-muted-foreground"><span><strong className="text-2xl font-semibold text-foreground">40%</strong><br />faster response times</span><span className="h-10 w-px bg-border" /><span><strong className="text-2xl font-semibold text-foreground">3–6 mo</strong><br />to initial deployment</span></div></div>
+        <div className="relative"><div className="glass-panel relative min-h-[26rem] overflow-hidden p-6 sm:p-8"><div className="flex items-center justify-between text-xs text-muted-foreground"><span className="flex items-center gap-2"><span className="size-2 rounded-full bg-primary" /> widle / intelligence layer</span><span>LIVE SYSTEM</span></div><div className="mt-14"><BrainCircuit className="size-12 text-primary" /><h2 className="mt-6 text-3xl font-semibold tracking-tight">From raw signal<br />to <span className="text-primary">clear action.</span></h2><p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">A connected intelligence layer for your people, processes, and products.</p></div><div className="absolute bottom-6 left-6 right-6 flex items-end gap-2 sm:left-8 sm:right-8"><div className="h-12 flex-1 rounded-t-lg bg-primary/20" /><div className="h-20 flex-1 rounded-t-lg bg-primary/35" /><div className="h-28 flex-1 rounded-t-lg bg-primary/55" /><div className="h-40 flex-1 rounded-t-lg bg-primary" /></div></div><div className="glass-panel absolute -bottom-5 -left-5 flex items-center gap-3 px-4 py-3 shadow-xl"><span className="grid size-9 place-items-center rounded-full bg-primary/15 text-primary"><Check className="size-4" /></span><span className="text-xs font-medium">Model health<br /><span className="text-primary">All systems nominal</span></span></div></div>
+      </section>
 
-      {/* Official Partners / Clients Logos Marquee */}
-      {partners.length > 0 && (
-        <div className="pt-16 pb-8 text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          TECHNOLOGY PARTNERS & PLATFORMS WE WORK WITH
-        </div>
-      )}
-      {partners.length > 0 && (
-        <LogoMarquee logos={partners} speed="normal" />
-      )}
+      <section className="border-y border-border/60 bg-card/20 py-6"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 text-xs font-medium uppercase tracking-[.18em] text-muted-foreground lg:justify-between lg:px-8"><span>Trusted technology</span><span>Microsoft</span><span>Google Cloud</span><span>AWS</span><span>NVIDIA</span><span>Snowflake</span><span>Retool</span></div></section>
 
-      {/* Services Grid */}
-      {services.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Our Technical Expertise"
-              headline="Custom Enterprise AI Services"
-              subtext="From predictive analytics to multi-agent LLM systems, we build resilient, secure solutions."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-              {services.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <section id="services" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32"><div className="max-w-2xl"><p className="eyebrow">What we do</p><h2 className="section-title">The hard parts, handled.</h2><p className="section-copy">Deep technical expertise, translated into systems your team can trust and use every day.</p></div><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(({ title, description, icon: Icon }) => <article key={title} className="glass-panel group p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40"><div className="mb-12 flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></div><h3 className="text-lg font-semibold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{description}</p><ArrowRight className="mt-6 size-4 text-primary opacity-0 transition group-hover:opacity-100" /></article>)}</div></section>
 
-      {/* Solutions Tailored To Your Needs */}
-      {solutions.length > 0 && (
-        <section className="bg-secondary/20 py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Solutions"
-              headline="Solutions Tailored To Your Needs"
-              subtext="Powerful capabilities designed to solve complex challenges across industries."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
-              {solutions.map((solution, idx) => (
-                <SolutionCard key={idx} {...solution} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <section id="solutions" className="bg-foreground py-24 text-background lg:py-32"><div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="eyebrow text-primary">Built around outcomes</p><h2 className="section-title">AI that earns its place in the room.</h2><p className="mt-6 text-base leading-7 text-background/60">We don&apos;t ship experiments. We partner with your team to create measurable advantage, with the guardrails to make it last.</p><a href="#contact" className="mt-8 inline-block rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Talk to an expert <ArrowRight className="ml-2 inline size-4" /></a></div><div className="grid gap-3 sm:grid-cols-2">{solutions.map((solution, i) => <div key={solution} className="flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5"><span className="font-mono text-xs text-primary">0{i + 1}</span><span className="font-medium">{solution}</span></div>)}</div></div></section>
 
-      {/* Testimonials Carousel */}
-      {testimonials.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Testimonials"
-              headline="Trusted by Industry Leaders"
-              subtext="Hear what our clients have to say about working with widle.ai."
-            />
-            <div className="mt-12 lg:mt-16">
-              <TestimonialsCarousel testimonials={testimonials} />
-            </div>
-          </div>
-        </section>
-      )}
+      <section id="insights" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow">Our perspective</p><h2 className="section-title">Signals worth sharing.</h2></div><a href="#contact" className="text-sm font-medium text-primary">View all insights <ArrowRight className="ml-1 inline size-4" /></a></div><div className="mt-12 grid gap-4 md:grid-cols-3">{["The future of generative AI in the enterprise", "Building trust in intelligent systems", "A practical guide to MLOps at scale"].map((title, i) => <article key={title} className="glass-panel p-6"><div className="mb-14 flex justify-between text-xs text-muted-foreground"><span className="text-primary">0{i + 1} / INSIGHT</span><span>2026</span></div><h3 className="text-xl font-semibold leading-7 tracking-tight">{title}</h3><p className="mt-4 text-sm leading-6 text-muted-foreground">Ideas and field notes for teams building what&apos;s next.</p><ArrowRight className="mt-7 size-4 text-primary" /></article>)}</div></section>
 
-      {/* Blog Posts */}
-      {insights.length > 0 && (
-        <section className="bg-secondary/20 py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Insights"
-              headline="Latest from Our Blog"
-              subtext="Stay informed with our latest articles on AI trends, best practices, and industry insights."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-              {insights.map((post) => (
-                <BlogCard key={post.title} {...post} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <section id="faq" className="mx-auto max-w-3xl px-5 py-16 lg:py-24"><p className="eyebrow text-center">Good questions</p><h2 className="section-title text-center">Before we begin.</h2><div className="mt-10 divide-y divide-border/70 border-y border-border/70">{["How long does a typical AI implementation take?", "Do we need in-house AI expertise?", "How do you ensure data privacy and security?", "Can you integrate with legacy software?"].map(q => <details key={q} className="group py-5"><summary className="flex cursor-pointer list-none items-center justify-between font-medium"><span>{q}</span><ChevronDown className="size-4 text-muted-foreground transition group-open:rotate-180" /></summary><p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">We shape the engagement around your data readiness, systems, and goals, with security and knowledge transfer built in from day one.</p></details>)}</div></section>
 
-      {/* FAQs */}
-      {faqs.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="FAQ"
-              headline="Frequently Asked Questions"
-              subtext="Find answers to common questions about our services and processes."
-            />
-            <div className="mt-12 lg:mt-16">
-              <FAQAccordion faqs={faqs} />
-            </div>
-          </div>
-        </section>
-      )}
+      <section id="contact" className="mx-5 mb-12 overflow-hidden rounded-3xl bg-primary px-6 py-16 text-primary-foreground sm:px-12 lg:mx-auto lg:max-w-7xl lg:py-20"><div className="flex flex-col justify-between gap-10 md:flex-row md:items-end"><div><p className="mb-5 text-xs font-semibold uppercase tracking-[.2em] text-primary-foreground/70">Make the next move</p><h2 className="max-w-2xl text-balance text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Ready to make AI useful?</h2><p className="mt-5 max-w-lg leading-7 text-primary-foreground/75">Tell us where you&apos;re headed. We&apos;ll help you find the most intelligent way there.</p></div><a href="mailto:hello@widle.ai" className="shrink-0 rounded-full bg-foreground px-6 py-3.5 text-sm font-semibold text-background">Start a conversation <ArrowRight className="ml-2 inline size-4" /></a></div></section>
 
-      {/* CTA Banner */}
-      <CTABanner
-        headline="Ready to build with AI?"
-        description="Schedule a free consultation with our experts and discover how AI can accelerate your business growth."
-        buttonText="Contact Us"
-        buttonHref="/contact"
-        variant="primary"
-      />
-
-      <Footer />
-    </div>
+      <footer className="mx-auto flex max-w-7xl flex-col gap-4 px-5 pb-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2026 widle.ai</span><span>Intelligence, engineered for impact.</span></footer>
+    </main>
   )
 }
+
+// hidden import guard for design-system icon bundlers
+void Bot
+void Workflow
+void X
