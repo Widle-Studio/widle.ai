@@ -1,68 +1,44 @@
-import { Metadata } from "next"
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wide.ai'
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: 'wide.ai | Custom AI & LLM Development Agency',
-    template: '%s | wide.ai - Enterprise AI Solutions',
-  },
-  description: 'wide.ai is a premier AI and tech service agency specializing in custom LLM development, AI consulting, machine learning solutions, and workflow automation for global B2B enterprises.',
-  keywords: ['AI Agency', 'Custom LLM Development', 'AI Consulting', 'Machine Learning Solutions', 'AI Workflow Automation', 'Enterprise AI Services', 'B2B Tech Agency'],
-  authors: [{ name: 'wide.ai Team' }],
-  creator: 'wide.ai',
-  alternates: {
-    canonical: baseUrl,
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: baseUrl,
-    title: 'wide.ai | Custom AI & LLM Development Agency',
-    description: 'Transform your business with cutting-edge AI solutions. wide.ai delivers enterprise-grade artificial intelligence services including custom LLMs, Computer Vision, and MLOps.',
-    siteName: 'wide.ai',
-    images: [
+  title: 'widle.ai | Intelligence, engineered for impact',
+  description: 'Custom AI systems and cloud-native engineering for ambitious enterprises.',
+  generator: 'v0.app',
+  icons: {
+    icon: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'wide.ai - Enterprise AI Solutions',
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'wide.ai | Custom AI & LLM Development Agency',
-    description: 'Transform your business with cutting-edge AI solutions. wide.ai delivers enterprise-grade artificial intelligence services.',
-    images: ['/og-image.png'],
-    creator: '@wideai',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: {
-    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <html lang="en" className="bg-background">
+      <body className="font-sans antialiased">
         {children}
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

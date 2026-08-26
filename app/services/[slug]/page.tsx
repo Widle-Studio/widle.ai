@@ -1,29 +1,21 @@
-// Generate metadata for each service page
+import { notFound } from "next/navigation"
 
-interface PageProps {
-  params: Promise<{ slug: string }>
-}
-
-const servicesData: Record<string, any> = {}
-
-export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params
-  const service = servicesData[slug]
-
-  if (!service) {
-    return { title: "Service Not Found | wide.ai" }
+export default function ServicePage({ params }: { params: { slug: string } }) {
+  // Use slug dynamically but for now fallback
+  if (!params.slug) {
+    notFound()
   }
 
-  return {
-    title: `${service.title} Consulting & Development Services | wide.ai`,
-    description: service.overview.length > 155 ? `${service.overview.slice(0, 155)}...` : service.overview,
-    keywords: [`${service.title} Agency`, `${service.title} Consulting`, 'Enterprise AI Services', 'B2B AI Development'],
-    alternates: {
-      canonical: `/services/${slug}`,
-    }
-  }
-}
-
-export default function Page() {
-    return <div>Service</div>
+  return (
+    <div className="py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          {params.slug.replace(/-/g, ' ')}
+        </h1>
+        <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
+          Service details and configuration for {params.slug}.
+        </p>
+      </div>
+    </div>
+  )
 }
