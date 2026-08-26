@@ -79,7 +79,7 @@ export default function Home() {
       <HeroClient />
 
       {/* DeepSense-style Trust/Stats Banner */}
-      <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-12">
+      <section className="border-y glass-panel-strong py-12">
         <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-center gap-12 sm:gap-24 px-5 text-center lg:px-8">
           <div>
             <div className="text-4xl font-bold text-primary mb-2">200+</div>
@@ -118,7 +118,7 @@ export default function Home() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {coreServices.map((service) => (
             <Link key={service.title} href={service.href} className="group outline-none">
-              <article className="glass-card h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary">
+              <article className="glass-panel h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary">
                 <div className="mb-6 inline-flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
                   <service.icon className="size-6" />
                 </div>
@@ -166,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* Credentials Banner */}
-      <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-12">
+      <section className="border-y glass-panel-strong py-12">
         <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-between gap-8 px-5 lg:px-8">
           <div className="max-w-xl">
             <h3 className="text-2xl font-bold tracking-tight mb-2">Our Credentials</h3>
