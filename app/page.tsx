@@ -1,8 +1,8 @@
 import { ArrowRight, Brain, Database, Eye, Network, Sparkles, BarChart, Stethoscope, Factory, Briefcase } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
+import { HeroClient } from "@/components/hero-client"
 
 const coreServices = [
   {
@@ -75,39 +75,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative mx-auto max-w-7xl px-5 pt-28 pb-20 sm:pt-32 sm:pb-28 lg:px-8 lg:pt-40 lg:pb-32 overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
-          <div className="flex flex-col items-start text-left max-w-2xl mx-auto lg:mx-0 w-full">
-            <div className="mb-8 inline-flex items-center gap-2 text-sm sm:text-base font-medium tracking-wide text-muted-foreground border-b border-muted-foreground/30 pb-2">
-              A Creative Software Engineering Agency!
-            </div>
-
-            <h1 className="text-balance text-5xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl leading-[1.05] text-[#3b6df8]">
-              We Build.<br />We Scale.<br />We Automate!
-            </h1>
-
-            <p className="mt-8 text-balance text-2xl sm:text-3xl lg:text-4xl leading-tight text-foreground font-bold max-w-lg lg:max-w-none">
-              Innovative software solutions & Retool expertise to power your business!
-            </p>
-
-            <div className="mt-12 flex flex-wrap items-center gap-4">
-              <Button variant="outline" asChild className="h-14 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-white/10 transition-all hover:scale-105 active:scale-95 px-10 text-lg font-semibold">
-                <Link href="/case-studies">
-                  View Projects
-                </Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center mt-4 lg:mt-0">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-[#3b6df8]/15 blur-[80px] lg:blur-[120px] rounded-full -z-10" />
-            <div className="relative w-full h-full max-h-[320px] sm:max-h-[400px] lg:max-h-[550px] max-w-[320px] sm:max-w-[400px] lg:max-w-[550px]">
-              <Image src="/hero-image.png" alt="Hero Graphic" fill className="object-contain drop-shadow-[0_15px_35px_rgba(59,109,248,0.2)]" priority />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section (Animated Client Component) */}
+      <HeroClient />
 
       {/* DeepSense-style Trust/Stats Banner */}
       <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-12">
