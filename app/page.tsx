@@ -263,7 +263,3 @@ export default function Home() {
   )
 }
 
-// hidden import guard for design-system icon bundlers
-void Bot
-void Workflow
-void X
