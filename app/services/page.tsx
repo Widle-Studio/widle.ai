@@ -1,163 +1,152 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { SectionHeader } from "@/components/section-header"
-import { ServiceCard } from "@/components/service-card"
-import { CTABanner } from "@/components/cta-banner"
+import { ArrowRight, Brain, Database, Eye, LineChart, Network, Sparkles } from "lucide-react"
 import Link from "next/link"
-import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
-
-export const metadata = {
-  title: "Our Technical Expertise in Applied AI Solutions | Widle",
-  description: "Explore all the technology expertise we have to develop custom AI solutions, cloud infrastructures, and internal tooling for your enterprise.",
-}
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const services = [
   {
-    title: "Generative AI & LLMs",
-    description: "Design and deploy enterprise-grade Large Language Models and custom RAG architectures to automate reasoning, content generation, and semantic data retrieval with zero-hallucination guarantees.",
-    icon: Bot,
-    href: "/services/llms-rag",
+    title: "Generative AI",
+    slug: "generative-ai",
+    icon: Sparkles,
+    description: "Unlock the potential of Large Language Models (LLMs) and custom foundation models.",
+    details: [
+      "Custom LLM fine-tuning and deployment",
+      "Retrieval-Augmented Generation (RAG) systems",
+      "Multi-agent autonomous workflows",
+      "Content and code generation pipelines"
+    ]
   },
   {
-    title: "MLOps & AI Infrastructure",
-    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
-    icon: Cog,
-    href: "/services/mlops",
-  },
-  {
-    title: "Computer Vision & Edge AI",
-    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
+    title: "Computer Vision",
+    slug: "computer-vision",
     icon: Eye,
-    href: "/services/computer-vision",
+    description: "Transform visual data into actionable intelligence across your operations.",
+    details: [
+      "Real-time object detection and tracking",
+      "Facial recognition and biometric analysis",
+      "Defect detection for manufacturing",
+      "Edge AI optimization"
+    ]
   },
   {
-    title: "Cloud-Native Software Engineering",
-    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
-    icon: Cloud,
-    href: "/services/cloud-software",
+    title: "Predictive AI",
+    slug: "predictive-ai",
+    icon: LineChart,
+    description: "Forecast future outcomes and optimize decision-making using historical data.",
+    details: [
+      "Demand forecasting and supply chain optimization",
+      "Predictive maintenance for industrial IoT",
+      "Customer churn prediction",
+      "Algorithmic trading and risk assessment"
+    ]
   },
   {
-    title: "Internal Tooling & Retool",
-    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
-    icon: Code,
-    href: "/services/internal-tooling",
-    badgeImage: "/images/partners/retool-badge.png",
-    badgeText: "Widle Exclusive Partnership",
+    title: "Natural Language Processing",
+    slug: "nlp",
+    icon: Brain,
+    description: "Extract meaning, sentiment, and structured data from unstructured text.",
+    details: [
+      "Semantic search and enterprise knowledge bases",
+      "Automated document processing (OCR & NLP)",
+      "Sentiment analysis and social listening",
+      "Conversational AI and virtual assistants"
+    ]
   },
   {
-    title: "Retool Custom Components",
-    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
-    icon: Code2,
-    href: "/services/retool-custom-components",
+    title: "Data Engineering",
+    slug: "data-engineering",
+    icon: Database,
+    description: "Architect robust, scalable data infrastructure to power your AI initiatives.",
+    details: [
+      "Data lake and warehouse architecture",
+      "Real-time streaming pipelines (Kafka, Flink)",
+      "ETL/ELT process automation",
+      "Data governance and quality assurance"
+    ]
   },
   {
-    title: "Predictive Analytics",
-    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
-    icon: TrendingUp,
-    href: "/services/predictive-analytics",
+    title: "AI Infrastructure & MLOps",
+    slug: "mlops",
+    icon: Network,
+    description: "Deploy, monitor, and scale machine learning models reliably in production.",
+    details: [
+      "CI/CD pipelines for machine learning",
+      "Model monitoring and drift detection",
+      "Cloud-native deployment (AWS, GCP, Azure)",
+      "Cost optimization for AI workloads"
+    ]
   }
 ]
 
-export default function ServicesPage() {
+export default function ServicesIndex() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <main className="min-h-screen relative overflow-hidden bg-background text-foreground flex flex-col">
+      {/* Background Decorators */}
+      <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
+      <div className="fixed top-[20%] left-[50%] -z-10 w-[80%] h-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px] mix-blend-screen" />
 
-      <main className="pt-24 pb-16 sm:pt-28 sm:pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <SectionHeader
-            eyebrow="Tech Expertise"
-            headline="Engineering Custom AI & Cloud Solutions"
-            subtext="Discover our core technical competencies used to architect and deploy highly scalable enterprise systems."
-          />
-
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
-            ))}
+      {/* Minimal Nav */}
+      <nav className="glass-nav sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
+            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
+          </Link>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           </div>
+        </div>
+      </nav>
 
+      <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
+        <div className="max-w-3xl mb-16">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
+            Comprehensive <span className="text-gradient">AI Services</span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We deliver end-to-end artificial intelligence solutions. From foundational data engineering to deploying advanced generative models, our full-stack expertise ensures your AI initiatives drive real business value.
+          </p>
         </div>
 
-        <section className="mt-32 border-t border-border bg-muted/30 py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <Workflow className="h-8 w-8" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                Deploy Agentic RAG Pipelines & Scalable Architectures
-              </h2>
-              <p className="max-w-2xl text-lg text-muted-foreground mb-8">
-                Delivering tailored engineering services across strategy, implementation, and support to provide you with a competitive advantage. Unlock the full potential of your data today.
-              </p>
-              <CTABanner
-                headline="Discover Our Engineering Philosophy"
-                description="Get to know us, our leadership, development direction, and why we call ourselves applied AI and Cloud experts."
-                buttonText="Learn More About Us"
-                buttonHref="/company"
-                variant="accent"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div>
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
-                  <Building2 className="h-6 w-6" />
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <Link key={service.slug} href={`/services/${service.slug}`} className="group outline-none block h-full">
+              <article className="glass-card h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <service.icon className="size-6" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h2>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tight mb-4">
-                  Experience Across Industries
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  With deep domain knowledge across multiple sectors, we engineer solutions tailored to your specific regulatory, computational, and operational needs.
+
+                <p className="text-sm text-muted-foreground mb-6">
+                  {service.description}
                 </p>
-                <a href="/industries" className="text-primary font-medium hover:underline inline-flex items-center">
-                  Explore our industry expertise →
-                </a>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                 <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Finance & FinTech</p>
-                 </div>
-                 <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Healthcare & MedTech</p>
-                 </div>
-                 <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Manufacturing</p>
-                 </div>
-                 <div className="rounded-xl border bg-card p-6 text-center">
-                   <p className="font-semibold">Logistics & Retail</p>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="border-t border-border bg-muted py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-             <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Users className="h-6 w-6" />
-              </div>
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Join the Applied Engineering Revolution!
-            </h2>
-            <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-8">
-              Look at our open positions and join a team that is delivering real, measurable business impact through software and AI across the globe.
-            </p>
-             <a href="/careers" className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                View Open Positions
-            </a>
-          </div>
-        </section>
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {service.details.map((detail, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-foreground/80">
+                      <div className="mt-1 size-1.5 rounded-full bg-primary/50 shrink-0" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
 
-      </main>
+                <div className="mt-auto flex items-center font-semibold text-sm text-primary">
+                  View full service details <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-      <Footer />
-    </div>
+      {/* Footer */}
+      <footer className="border-t border-border/40 bg-background/50 backdrop-blur-md py-8 mt-auto">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} widle.ai. Intelligence engineered.</p>
+        </div>
+      </footer>
+    </main>
   )
 }
