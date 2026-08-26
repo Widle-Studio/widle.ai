@@ -44,6 +44,7 @@ export function HeroSection({
         />
       </div>
 
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
           <StaggeredGrid>
@@ -61,6 +62,7 @@ export function HeroSection({
                 </span>
               )}
             </h1>
+
 
             <p className="mt-6 text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
               {subheadline}
