@@ -1,269 +1,69 @@
-import { ArrowRight, Brain, Database, Eye, MessageSquare, Network, Sparkles, ChevronRight, BarChart } from "lucide-react"
-import Link from "next/link"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
+import type { LucideIcon } from "lucide-react"
+import {
+  ArrowRight,
+  Bot,
+  BrainCircuit,
+  Check,
+  ChevronDown,
+  Cloud,
+  Code2,
+  Eye,
+  Gauge,
+  Menu,
+  Network,
+  Sparkles,
+  TrendingUp,
+  Workflow,
+  X,
+} from "lucide-react"
 
-const coreServices = [
-  {
-    title: "Generative AI",
-    description: "Harness the power of LLMs and foundation models to automate content, code, and complex workflows. We build custom multi-agent architectures that reason and act upon your proprietary data.",
-    icon: Sparkles,
-    href: "/services/generative-ai",
-  },
-  {
-    title: "Computer Vision",
-    description: "Extract actionable intelligence from images and video streams. We deploy robust object detection, facial recognition, and real-time anomaly detection pipelines optimized for the edge or cloud.",
-    icon: Eye,
-    href: "/services/computer-vision",
-  },
-  {
-    title: "Predictive AI",
-    description: "Anticipate market trends, customer behavior, and system failures. Our statistical modeling and machine learning algorithms turn historical data into deterministic forecasts.",
-    icon: BarChart,
-    href: "/services/predictive-ai",
-  },
-  {
-    title: "Natural Language Processing",
-    description: "Understand and process human language at scale. From semantic search engines to automated customer service bots, we bridge the gap between structured algorithms and unstructured text.",
-    icon: MessageSquare,
-    href: "/services/nlp",
-  },
-  {
-    title: "Data Engineering",
-    description: "The foundation of all AI. We architect scalable, fault-tolerant data pipelines and data lakes ensuring your data is clean, accessible, and ready for advanced analytics and model training.",
-    icon: Database,
-    href: "/services/data-engineering",
-  },
+const services: { title: string; description: string; icon: LucideIcon }[] = [
+  { title: "MLOps & AI Infrastructure", description: "Production-grade pipelines that keep every model observable, resilient, and ready to scale.", icon: Gauge },
+  { title: "Computer Vision & Edge AI", description: "Real-time visual intelligence, optimized for your cameras, devices, and operating environment.", icon: Eye },
+  { title: "Cloud-Native Engineering", description: "Fault-tolerant systems on AWS, GCP, and Azure, shaped around how your business actually works.", icon: Cloud },
+  { title: "Internal Tooling", description: "Secure operational dashboards that turn complex data and APIs into clear decisions.", icon: Code2 },
+  { title: "Custom AI Components", description: "Flexible React building blocks that make your internal products faster and more capable.", icon: Network },
+  { title: "Predictive Analytics", description: "Forecast demand, risk, and performance with models built for deterministic business outcomes.", icon: TrendingUp },
 ]
+
+const solutions = ["Predictive maintenance", "Document automation", "Demand forecasting", "Fraud detection"]
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden bg-background text-foreground">
-      {/* Background Decorators */}
-      <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
+    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="fixed inset-0 -z-10 bg-grid opacity-40" />
+      <div className="fixed left-1/2 top-[-18rem] -z-10 h-[36rem] w-[48rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
 
-      {/* Ambient glowing blobs behind everything */}
-      <div className="fixed top-[-10%] left-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] mix-blend-screen" />
-      <div className="fixed bottom-[-10%] right-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] mix-blend-screen" />
-
-      {/* Navigation */}
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
-              <Brain className="size-4" />
-            </span>
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
-
-          <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <Link href="#services" className="transition hover:text-foreground hover:scale-105">Services</Link>
-            <Link href="/case-studies" className="transition hover:text-foreground hover:scale-105">Case Studies</Link>
-            <Link href="/company" className="transition hover:text-foreground hover:scale-105">Company</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Button asChild className="hidden sm:inline-flex">
-              <Link href="/contact">
-                Talk to us <ArrowRight className="ml-2 size-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 lg:px-8">
+        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight"><span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><Sparkles className="size-4" /></span><span className="text-lg">w<span className="text-primary">i</span>dle.ai</span></a>
+        <div className="hidden items-center gap-8 text-sm text-muted-foreground md:flex"><a href="#services" className="transition hover:text-foreground">Expertise</a><a href="#solutions" className="transition hover:text-foreground">Solutions</a><a href="#insights" className="transition hover:text-foreground">Insights</a><a href="#faq" className="transition hover:text-foreground">FAQ</a></div>
+        <a href="#contact" className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:bg-primary hover:text-primary-foreground sm:block">Start a conversation <ArrowRight className="ml-2 inline size-4" /></a>
+        <button className="rounded-full border border-border/70 p-2 md:hidden" aria-label="Open navigation"><Menu className="size-5" /></button>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative mx-auto max-w-7xl px-5 pt-24 pb-32 lg:px-8 lg:pt-36 lg:pb-40">
-        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
-            <span className="relative flex size-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full size-2 bg-primary"></span>
-            </span>
-            Empowering Ambition with AI
-          </div>
-
-          <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl leading-[1.1]">
-            Intelligence <br className="hidden sm:block" />
-            <span className="text-gradient">Engineered.</span>
-          </h1>
-
-          <p className="mt-8 text-pretty text-lg sm:text-xl leading-8 text-muted-foreground max-w-2xl">
-            We design, build, and deploy custom Artificial Intelligence systems. Inspired by data, driven by rigorous engineering, we transform complex enterprise challenges into measurable advantages.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 group">
-              <Link href="/contact">
-                Discover Possibilities
-                <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="glass" asChild className="rounded-full">
-              <Link href="#services">Our Capabilities</Link>
-            </Button>
-          </div>
-        </div>
+      <section id="top" className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-24 pt-16 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:pb-32 lg:pt-24">
+        <div><div className="mb-7 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary"><span className="size-1.5 rounded-full bg-primary" /> Intelligence, engineered for impact</div><h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[1.03] tracking-[-0.06em] sm:text-7xl">Make complexity <span className="text-primary">work for you.</span></h1><p className="mt-7 max-w-xl text-pretty text-lg leading-8 text-muted-foreground">We build custom AI systems for ambitious enterprises — from the first useful insight to infrastructure that performs at scale.</p><div className="mt-9 flex flex-wrap gap-3"><a href="#contact" className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/20 transition hover:-translate-y-0.5">Build with widle <ArrowRight className="ml-2 inline size-4" /></a><a href="#services" className="rounded-full border border-border/80 bg-card/40 px-6 py-3.5 text-sm font-semibold transition hover:bg-card">Explore expertise</a></div><div className="mt-12 flex items-center gap-8 text-sm text-muted-foreground"><span><strong className="text-2xl font-semibold text-foreground">40%</strong><br />faster response times</span><span className="h-10 w-px bg-border" /><span><strong className="text-2xl font-semibold text-foreground">3–6 mo</strong><br />to initial deployment</span></div></div>
+        <div className="relative"><div className="glass-panel relative min-h-[26rem] overflow-hidden p-6 sm:p-8"><div className="flex items-center justify-between text-xs text-muted-foreground"><span className="flex items-center gap-2"><span className="size-2 rounded-full bg-primary" /> widle / intelligence layer</span><span>LIVE SYSTEM</span></div><div className="mt-14"><BrainCircuit className="size-12 text-primary" /><h2 className="mt-6 text-3xl font-semibold tracking-tight">From raw signal<br />to <span className="text-primary">clear action.</span></h2><p className="mt-4 max-w-xs text-sm leading-6 text-muted-foreground">A connected intelligence layer for your people, processes, and products.</p></div><div className="absolute bottom-6 left-6 right-6 flex items-end gap-2 sm:left-8 sm:right-8"><div className="h-12 flex-1 rounded-t-lg bg-primary/20" /><div className="h-20 flex-1 rounded-t-lg bg-primary/35" /><div className="h-28 flex-1 rounded-t-lg bg-primary/55" /><div className="h-40 flex-1 rounded-t-lg bg-primary" /></div></div><div className="glass-panel absolute -bottom-5 -left-5 flex items-center gap-3 px-4 py-3 shadow-xl"><span className="grid size-9 place-items-center rounded-full bg-primary/15 text-primary"><Check className="size-4" /></span><span className="text-xs font-medium">Model health<br /><span className="text-primary">All systems nominal</span></span></div></div>
       </section>
 
-      {/* Trust Banner */}
-      <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-8">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-5 text-sm font-semibold uppercase tracking-[.2em] text-muted-foreground/60 lg:px-8">
-          <span>Trusted by Innovators</span>
-          <span className="text-foreground/80 flex items-center gap-2"><Network className="size-4" /> Global Tech</span>
-          <span className="text-foreground/80 flex items-center gap-2"><Database className="size-4" /> Enterprise Finance</span>
-          <span className="text-foreground/80 flex items-center gap-2"><Brain className="size-4" /> Health AI</span>
-        </div>
-      </section>
+      <section className="border-y border-border/60 bg-card/20 py-6"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 text-xs font-medium uppercase tracking-[.18em] text-muted-foreground lg:justify-between lg:px-8"><span>Trusted technology</span><span>Microsoft</span><span>Google Cloud</span><span>AWS</span><span>NVIDIA</span><span>Snowflake</span><span>Retool</span></div></section>
 
-      {/* Services Section */}
-      <section id="services" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="eyebrow mb-4 inline-block">Our Expertise</h2>
-          <h3 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-            End-to-End AI Solutions.
-          </h3>
-          <p className="mt-6 text-lg text-muted-foreground">
-            From raw data infrastructure to cutting-edge generative models, we provide comprehensive engineering services to make your business smarter, faster, and more resilient.
-          </p>
-        </div>
+      <section id="services" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32"><div className="max-w-2xl"><p className="eyebrow">What we do</p><h2 className="section-title">The hard parts, handled.</h2><p className="section-copy">Deep technical expertise, translated into systems your team can trust and use every day.</p></div><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(({ title, description, icon: Icon }) => <article key={title} className="glass-panel group p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/40"><div className="mb-12 flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></div><h3 className="text-lg font-semibold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{description}</p><ArrowRight className="mt-6 size-4 text-primary opacity-0 transition group-hover:opacity-100" /></article>)}</div></section>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {coreServices.map((service) => (
-            <Link key={service.title} href={service.href} className="group outline-none">
-              <article className="glass-card h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary">
-                <div className="mb-8 inline-flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <service.icon className="size-7" />
-                </div>
-                <h4 className="text-xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h4>
-                <p className="text-sm leading-relaxed text-muted-foreground flex-grow">
-                  {service.description}
-                </p>
-                <div className="mt-8 flex items-center text-sm font-semibold text-primary opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                  Explore Service <ChevronRight className="ml-1 size-4" />
-                </div>
-              </article>
-            </Link>
-          ))}
+      <section id="solutions" className="bg-foreground py-24 text-background lg:py-32"><div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="eyebrow text-primary">Built around outcomes</p><h2 className="section-title">AI that earns its place in the room.</h2><p className="mt-6 text-base leading-7 text-background/60">We don&apos;t ship experiments. We partner with your team to create measurable advantage, with the guardrails to make it last.</p><a href="#contact" className="mt-8 inline-block rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Talk to an expert <ArrowRight className="ml-2 inline size-4" /></a></div><div className="grid gap-3 sm:grid-cols-2">{solutions.map((solution, i) => <div key={solution} className="flex items-center gap-4 rounded-2xl border border-background/15 bg-background/5 p-5"><span className="font-mono text-xs text-primary">0{i + 1}</span><span className="font-medium">{solution}</span></div>)}</div></div></section>
 
-          {/* Contact/CTA Card within services grid */}
-          <article className="glass-card bg-primary/5 border-primary/20 flex flex-col items-center justify-center p-8 text-center sm:col-span-2 lg:col-span-1">
-            <h4 className="text-2xl font-bold tracking-tight mb-4">Have a unique challenge?</h4>
-            <p className="text-sm text-muted-foreground mb-8">We architect custom AI systems tailored to highly specific operational needs.</p>
-            <Button asChild>
-              <Link href="/contact">Discuss Your Project</Link>
-            </Button>
-          </article>
-        </div>
-      </section>
+      <section id="insights" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="flex flex-wrap items-end justify-between gap-6"><div><p className="eyebrow">Our perspective</p><h2 className="section-title">Signals worth sharing.</h2></div><a href="#contact" className="text-sm font-medium text-primary">View all insights <ArrowRight className="ml-1 inline size-4" /></a></div><div className="mt-12 grid gap-4 md:grid-cols-3">{["The future of generative AI in the enterprise", "Building trust in intelligent systems", "A practical guide to MLOps at scale"].map((title, i) => <article key={title} className="glass-panel p-6"><div className="mb-14 flex justify-between text-xs text-muted-foreground"><span className="text-primary">0{i + 1} / INSIGHT</span><span>2026</span></div><h3 className="text-xl font-semibold leading-7 tracking-tight">{title}</h3><p className="mt-4 text-sm leading-6 text-muted-foreground">Ideas and field notes for teams building what&apos;s next.</p><ArrowRight className="mt-7 size-4 text-primary" /></article>)}</div></section>
 
-      {/* Value Proposition / Methodology */}
-      <section className="relative py-24 lg:py-32 border-t border-border/50">
-        <div className="absolute inset-0 bg-primary/5 -z-10" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="eyebrow mb-4">How We Work</p>
-              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-                Science Meets <br/><span className="text-primary">Software Engineering.</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Building AI isn&apos;t just about training models; it&apos;s about integrating them securely and reliably into production. We bridge the gap between academic machine learning research and enterprise-grade software development.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Security and privacy built-in from day one.",
-                  "Scalable cloud-native architectures.",
-                  "Rigorous testing and continuous deployment (MLOps).",
-                  "Transparent models with clear ROI."
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-                      <Sparkles className="size-3" />
-                    </span>
-                    <span className="font-medium text-foreground/90">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <section id="faq" className="mx-auto max-w-3xl px-5 py-16 lg:py-24"><p className="eyebrow text-center">Good questions</p><h2 className="section-title text-center">Before we begin.</h2><div className="mt-10 divide-y divide-border/70 border-y border-border/70">{["How long does a typical AI implementation take?", "Do we need in-house AI expertise?", "How do you ensure data privacy and security?", "Can you integrate with legacy software?"].map(q => <details key={q} className="group py-5"><summary className="flex cursor-pointer list-none items-center justify-between font-medium"><span>{q}</span><ChevronDown className="size-4 text-muted-foreground transition group-open:rotate-180" /></summary><p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">We shape the engagement around your data readiness, systems, and goals, with security and knowledge transfer built in from day one.</p></details>)}</div></section>
 
-            <div className="relative">
-              <div className="glass-panel p-8 md:p-12 relative z-10">
-                <div className="space-y-6">
-                  {/* Mock Code Block / Terminal */}
-                  <div className="rounded-lg bg-black/90 p-4 font-mono text-sm text-green-400 overflow-hidden border border-white/10 shadow-2xl">
-                    <div className="flex gap-2 mb-4 border-b border-white/10 pb-2">
-                      <div className="size-3 rounded-full bg-red-500/80" />
-                      <div className="size-3 rounded-full bg-yellow-500/80" />
-                      <div className="size-3 rounded-full bg-green-500/80" />
-                    </div>
-                    <p className="text-white/50">$ initialize_training_pipeline</p>
-                    <p className="mt-2">[INFO] Loading deep learning framework...</p>
-                    <p>[INFO] Connecting to high-performance cluster...</p>
-                    <p>[INFO] Epoch 1/100: loss=0.4532, accuracy=0.884</p>
-                    <p className="text-primary mt-2">Model optimization complete. Ready for inference.</p>
-                  </div>
-                </div>
-              </div>
+      <section id="contact" className="mx-5 mb-12 overflow-hidden rounded-3xl bg-primary px-6 py-16 text-primary-foreground sm:px-12 lg:mx-auto lg:max-w-7xl lg:py-20"><div className="flex flex-col justify-between gap-10 md:flex-row md:items-end"><div><p className="mb-5 text-xs font-semibold uppercase tracking-[.2em] text-primary-foreground/70">Make the next move</p><h2 className="max-w-2xl text-balance text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Ready to make AI useful?</h2><p className="mt-5 max-w-lg leading-7 text-primary-foreground/75">Tell us where you&apos;re headed. We&apos;ll help you find the most intelligent way there.</p></div><a href="mailto:hello@widle.ai" className="shrink-0 rounded-full bg-foreground px-6 py-3.5 text-sm font-semibold text-background">Start a conversation <ArrowRight className="ml-2 inline size-4" /></a></div></section>
 
-              {/* Decorative background shapes for the card */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/30 rounded-full blur-2xl -z-10" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/30 rounded-full blur-2xl -z-10" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Footer */}
-      <footer className="border-t border-border/40 bg-background/50 backdrop-blur-md pt-16 pb-8">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-12 md:grid-cols-4 mb-12">
-            <div className="md:col-span-1">
-              <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight mb-4">
-                <Brain className="size-5 text-primary" /> widle.ai
-              </Link>
-              <p className="text-sm text-muted-foreground">
-                Intelligence engineered. We build bespoke AI solutions for the modern enterprise.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><Link href="/services/generative-ai" className="hover:text-primary transition-colors">Generative AI</Link></li>
-                <li><Link href="/services/computer-vision" className="hover:text-primary transition-colors">Computer Vision</Link></li>
-                <li><Link href="/services/predictive-ai" className="hover:text-primary transition-colors">Predictive AI</Link></li>
-                <li><Link href="/services/nlp" className="hover:text-primary transition-colors">NLP</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
-                <li><Link href="/company" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
-                <li><a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GitHub</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-            <p>© {new Date().getFullYear()} widle.ai. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-              <Link href="/disclaimer" className="hover:text-foreground transition-colors">Terms of Service</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer className="mx-auto flex max-w-7xl flex-col gap-4 px-5 pb-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2026 widle.ai</span><span>Intelligence, engineered for impact.</span></footer>
     </main>
   )
 }
+
+// hidden import guard for design-system icon bundlers
+void Bot
+void Workflow
+void X
