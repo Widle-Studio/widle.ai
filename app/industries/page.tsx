@@ -1,88 +1,107 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { SectionHeader } from "@/components/section-header"
-import { CTABanner } from "@/components/cta-banner"
-import { Activity, Building2, Landmark, Plane, ShoppingCart, Truck } from "lucide-react"
-
-export const metadata = {
-  title: "Industries We Serve | Enterprise AI Integration",
-  description: "Discover how our custom LLM integration and machine learning solutions are transforming global finance, healthcare, retail, manufacturing, and SaaS businesses.",
-}
+import Link from "next/link"
+import { Building2, Stethoscope, Briefcase, Code, Factory, Radio } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const industries = [
   {
-    name: "Finance & Banking",
-    icon: Landmark,
-    description: "Automate fraud detection, optimize algorithmic trading, and personalize customer banking experiences with predictive AI.",
+    title: "Healthcare & Life Sciences",
+    slug: "healthcare",
+    icon: Stethoscope,
+    description: "Accelerate clinical trials, optimize patient care, and automate medical imaging analysis using advanced AI models."
   },
   {
-    name: "Healthcare",
-    icon: Activity,
-    description: "Enhance diagnostic accuracy, accelerate drug discovery, and streamline patient data management using advanced machine learning models.",
+    title: "Financial & Insurance",
+    slug: "finance",
+    icon: Briefcase,
+    description: "Detect fraud in real-time, automate claims processing, and build robust algorithmic trading strategies."
   },
   {
-    name: "Retail & E-commerce",
-    icon: ShoppingCart,
-    description: "Boost sales with intelligent recommendation engines, optimize pricing dynamically, and forecast inventory demand accurately.",
+    title: "Manufacturing",
+    slug: "manufacturing",
+    icon: Factory,
+    description: "Implement predictive maintenance and edge-deployed computer vision for defect detection on the factory floor."
   },
   {
-    name: "Manufacturing",
+    title: "Software & Technology",
+    slug: "technology",
+    icon: Code,
+    description: "Enhance your SaaS products with embedded AI agents, LLM integrations, and robust MLOps infrastructure."
+  },
+  {
+    title: "Telecoms & Media",
+    slug: "telecom",
+    icon: Radio,
+    description: "Analyze network anomalies in real-time and hyper-personalize content delivery at scale."
+  },
+  {
+    title: "Private Equity & VC",
+    slug: "pe-vc",
     icon: Building2,
-    description: "Implement predictive maintenance, optimize supply chain logistics, and ensure rigorous quality control with computer vision.",
-  },
-  {
-    name: "Logistics & Supply Chain",
-    icon: Truck,
-    description: "Optimize routing, manage fleet efficiently, and predict supply chain disruptions before they happen using AI analytics.",
-  },
-  {
-    name: "Travel & Hospitality",
-    icon: Plane,
-    description: "Deliver personalized booking experiences, dynamic pricing strategies, and 24/7 intelligent customer service agents.",
-  },
+    description: "Automate technical due diligence and unlock scalable value creation roadmaps for portfolio companies."
+  }
 ]
 
-export default function IndustriesPage() {
+export default function IndustriesIndex() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <main className="min-h-screen relative overflow-hidden bg-background text-foreground flex flex-col">
+      <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
+      <div className="fixed top-[20%] left-[50%] -z-10 w-[80%] h-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px] mix-blend-screen" />
 
-      <main className="pt-24 pb-16 sm:pt-28 sm:pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Industries"
-            headline="AI Solutions Tailored for Your Sector"
-            subtext="We understand that every industry has unique challenges. Our AI solutions are custom-built to address the specific needs and regulatory requirements of your sector."
-          />
-
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => {
-              const Icon = industry.icon
-              return (
-                <div key={industry.name} className="flex flex-col rounded-2xl border bg-card p-8 transition-colors hover:border-primary/50">
-                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold">{industry.name}</h3>
-                  <p className="text-muted-foreground flex-1">
-                    {industry.description}
-                  </p>
-                </div>
-              )
-            })}
+      <nav className="glass-nav sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
+            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
+          </Link>
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <Link href="/services" className="text-muted-foreground hover:text-foreground">Expertise</Link>
+            <Link href="/industries" className="text-foreground font-semibold">Industries</Link>
+            <Link href="/resources" className="text-muted-foreground hover:text-foreground">Resources</Link>
+          </div>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
           </div>
         </div>
-      </main>
+      </nav>
 
-      <CTABanner
-        headline="Don't see your industry?"
-        description="Our AI capabilities are highly adaptable. Contact us to discuss how we can build a custom solution for your specific niche."
-        buttonText="Discuss Your Needs"
-        buttonHref="/#contact"
-        variant="accent"
-      />
+      <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
+        <div className="max-w-3xl mb-16">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
+            AI for <span className="text-gradient">Every Industry.</span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            With cross-domain expertise, we deliver impactful, production-ready AI projects tailored to the specific regulatory and operational requirements of your sector.
+          </p>
+        </div>
 
-      <Footer />
-    </div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {industries.map((ind) => (
+            <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group outline-none block h-full">
+              <article className="glass-card h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <ind.icon className="size-6" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                    {ind.title}
+                  </h2>
+                </div>
+                <p className="text-sm text-muted-foreground mb-6 flex-grow">
+                  {ind.description}
+                </p>
+                <div className="mt-auto font-semibold text-sm text-primary">
+                  Explore Solutions &rarr;
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <footer className="border-t border-border/40 bg-background/50 backdrop-blur-md py-8 mt-auto">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} widle.ai. Intelligence engineered.</p>
+        </div>
+      </footer>
+    </main>
   )
 }

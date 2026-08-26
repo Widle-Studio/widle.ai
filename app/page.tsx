@@ -1,290 +1,264 @@
+import { ArrowRight, Brain, Database, Eye, Network, Sparkles, BarChart, Stethoscope, Factory, Briefcase } from "lucide-react"
+import Link from "next/link"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "@/components/ui/button"
 
-import { Bot, Cog, Eye, TrendingUp, Workflow, Building2, Users, Cloud, Code, Code2 } from "lucide-react"
-import { LegacyHero } from "@/components/legacy-hero"
-import { StatsSection } from "@/components/stats-section"
-import { LogoMarquee } from "@/components/logo-marquee"
-import { SectionHeader } from "@/components/section-header"
-import { ServiceCard } from "@/components/service-card"
-import { SolutionCard } from "@/components/solution-card"
-import { TestimonialsCarousel } from "@/components/testimonials-carousel"
-import { BlogCard } from "@/components/blog-card"
-import { FAQAccordion } from "@/components/faq-accordion"
-import { CTABanner } from "@/components/cta-banner"
-
-
-import { Metadata } from "next"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-
-export const metadata: Metadata = {
-  title: "wide.ai | Custom AI & LLM Development Agency for Enterprise",
-  description: "wide.ai helps global B2B enterprises automate workflows and build custom LLM solutions. Book a discovery call today with our expert AI consultants.",
-  alternates: {
-    canonical: "/",
-  }
-};
-
-export default function Home() {
-  const services = [
+const coreServices = [
   {
-    title: "MLOps & AI Infrastructure",
-    description: "Automate the entire machine learning lifecycle. We architect resilient CI/CD pipelines for models, ensuring scalable deployment, continuous monitoring, and automated retraining on cloud infrastructure.",
-    icon: Cog,
-    href: "/services/mlops",
+    title: "Generative AI & Agents",
+    description: "Harness LLMs to automate complex reasoning workflows. We build custom multi-agent architectures that act upon your proprietary data securely.",
+    icon: Sparkles,
+    href: "/services/generative-ai",
   },
   {
-    title: "Computer Vision & Edge AI",
-    description: "Develop high-throughput visual processing systems. From CNNs to Vision Transformers, we deploy optimized models for real-time anomaly detection, autonomous tracking, and edge device inference.",
+    title: "Computer Vision",
+    description: "Extract actionable intelligence from visual streams. We deploy robust object detection and real-time anomaly pipelines optimized for the edge.",
     icon: Eye,
     href: "/services/computer-vision",
   },
   {
-    title: "Cloud-Native Software Engineering",
-    description: "Architect scalable, serverless, and microservices-based backend systems on AWS, GCP, and Azure. We build fault-tolerant infrastructures using Terraform for high-availability enterprise applications.",
-    icon: Cloud,
-    href: "/services/cloud-software",
-  },
-  {
-    title: "Internal Tooling & Retool",
-    description: "Accelerate your operational efficiency with highly customized, secure internal dashboards. We integrate complex SQL/NoSQL databases and APIs into unified interfaces using Retool.",
-    icon: Code,
-    href: "/services/internal-tooling",
-    badgeImage: "/images/partners/retool-badge.png",
-    badgeText: "Widle Exclusive Partnership",
-  },
-  {
-    title: "Retool Custom Components",
-    description: "Extend Retool's capabilities with our library of custom-built React components. From advanced data tables to interactive maps, each component is designed to solve real business problems.",
-    icon: Code2,
-    href: "/services/retool-custom-components",
-  },
-  {
     title: "Predictive Analytics",
-    description: "Harness statistical modeling and deep learning to forecast market trends, optimize supply chain operations, and execute real-time fraud detection with deterministic reliability.",
-    icon: TrendingUp,
-    href: "/services/predictive-analytics",
-  }
+    description: "Anticipate market trends and system failures. Our statistical modeling turns historical data into deterministic forecasts.",
+    icon: BarChart,
+    href: "/services/predictive-ai",
+  },
+  {
+    title: "AI Infrastructure & MLOps",
+    description: "The foundation of reliable AI. We architect scalable, fault-tolerant data pipelines and robust model deployment strategies.",
+    icon: Database,
+    href: "/services/data-engineering",
+  },
 ]
 
-  const testimonials = [
-    {
-      quote: "Widle.ai transformed our customer service operations with their custom NLP solution. We've seen a 40% reduction in response times and a significant boost in customer satisfaction.",
-      clientName: "Sarah Jenkins",
-      role: "VP of Customer Success",
-      companyName: "TechFlow Solutions",
-      companyLogo: "/images/Widle-Logo.jpg"
-    },
-    {
-      quote: "Their machine learning models helped us predict supply chain disruptions weeks in advance. It's not just technology; it's a strategic advantage.",
-      clientName: "David Chen",
-      role: "COO",
-      companyName: "Global Logistics Inc.",
-      companyLogo: "/images/Widle-Logo.jpg"
-    },
-    {
-      quote: "The team at widle.ai really understands enterprise constraints. They delivered a secure, scalable computer vision system that integrated flawlessly with our legacy hardware.",
-      clientName: "Elena Rodriguez",
-      role: "CTO",
-      companyName: "Manufacturing Dynamics",
-      companyLogo: "/images/Widle-Logo.jpg"
-    }
-  ]
+const industries = [
+  { title: "Healthcare & Life Sciences", icon: Stethoscope, href: "/industries/healthcare" },
+  { title: "Financial & Insurance", icon: Briefcase, href: "/industries/finance" },
+  { title: "Manufacturing", icon: Factory, href: "/industries/manufacturing" },
+  { title: "Software & Technology", icon: Network, href: "/industries/technology" },
+]
 
-  const insights = [
-    {
-      title: "The Future of Generative AI in the Enterprise",
-      category: "Trends",
-      date: "Oct 12, 2023",
-      excerpt: "Explore how generative models are moving from novelties to core business tools.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/future-generative-ai"
-    },
-    {
-      title: "Building Trust in AI Systems",
-      category: "Ethics",
-      date: "Sep 28, 2023",
-      excerpt: "Why transparency and explainability are crucial for enterprise AI adoption.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/trust-in-ai"
-    },
-    {
-      title: "A Guide to MLOps for Scale",
-      category: "Engineering",
-      date: "Sep 15, 2023",
-      excerpt: "Best practices for deploying and monitoring machine learning models in production.",
-      image: "/images/Widle-Logo.jpg",
-      href: "/case-studies/mlops-guide"
-    }
-  ]
-
-  const partners = [
-    { src: "/images/partners/microsoft.svg", alt: "Microsoft" },
-    { src: "/images/partners/google.svg", alt: "Google" },
-    { src: "/images/partners/aws.svg", alt: "AWS" },
-    { src: "/images/partners/nvidia.svg", alt: "NVIDIA" },
-    { src: "/images/partners/ibm.svg", alt: "IBM" },
-    { src: "/images/partners/snowflake.svg", alt: "Snowflake" },
-    { src: "/images/partners/retool.svg", alt: "Retool" },
-  ]
-
-  const solutions = [
-    {
-      title: "Predictive Maintenance",
-      description: "AI-driven insights to predict equipment failures before they happen, reducing downtime and costs.",
-      icon: Cog
-    },
-    {
-      title: "Document Automation",
-      description: "Extract data and process complex documents automatically using advanced optical character recognition.",
-      icon: Bot
-    },
-    {
-      title: "Demand Forecasting",
-      description: "Accurately predict customer demand to optimize inventory and supply chain operations.",
-      icon: TrendingUp
-    },
-    {
-      title: "Fraud Detection",
-      description: "Real-time anomaly detection systems that identify and prevent fraudulent transactions.",
-      icon: Eye
-    }
-  ]
-
-  const faqs = [
-    {
-      question: "How long does a typical AI implementation take?",
-      answer: "A standard implementation typically takes 3-6 months from strategy to initial deployment, depending on data readiness and project complexity."
-    },
-    {
-      question: "Do we need in-house AI expertise to use your solutions?",
-      answer: "No. We build turnkey solutions that integrate smoothly with your existing systems. We also provide training and ongoing support for your team."
-    },
-    {
-      question: "How do you ensure data privacy and security?",
-      answer: "Security is built-in. We employ enterprise-grade encryption, role-based access control, and comply with SOC2, GDPR, and other relevant regulatory standards."
-    },
-    {
-      question: "Can your AI solutions integrate with our legacy software?",
-      answer: "Yes. Our architecture is designed to be highly interoperable, utilizing custom APIs and middleware to communicate with legacy systems seamlessly."
-    }
-  ]
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <main className="min-h-screen relative overflow-hidden bg-background text-foreground">
+      {/* Background Decorators */}
+      <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
+      <div className="fixed top-[-10%] left-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] mix-blend-screen" />
+      <div className="fixed bottom-[-10%] right-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] mix-blend-screen" />
+
+      {/* Navigation */}
+      <nav className="glass-nav sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
+            <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
+              <Brain className="size-4" />
+            </span>
+            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
+          </Link>
+
+          <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
+            <Link href="/services" className="transition hover:text-foreground hover:scale-105">Tech Expertise</Link>
+            <Link href="/industries" className="transition hover:text-foreground hover:scale-105">Industries</Link>
+            <Link href="/case-studies" className="transition hover:text-foreground hover:scale-105">Case Studies</Link>
+            <Link href="/resources" className="transition hover:text-foreground hover:scale-105">Resources</Link>
+            <Link href="/company" className="transition hover:text-foreground hover:scale-105">Company</Link>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Button asChild className="hidden sm:inline-flex">
+              <Link href="/contact">
+                Talk to us <ArrowRight className="ml-2 size-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section */}
-      <LegacyHero />
+      <section className="relative mx-auto max-w-7xl px-5 pt-24 pb-32 lg:px-8 lg:pt-36 lg:pb-40">
+        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
+            <span className="relative flex size-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full size-2 bg-primary"></span>
+            </span>
+            Custom AI Software Development & Consulting
+          </div>
 
-      {/* Stats Section */}
-      <StatsSection />
+          <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl leading-[1.1]">
+            Empowering Clients to <br className="hidden sm:block" />
+            <span className="text-gradient">Unlock the Full Potential of AI.</span>
+          </h1>
 
-      {/* Official Partners / Clients Logos Marquee */}
-      {partners.length > 0 && (
-        <div className="pt-16 pb-8 text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          TECHNOLOGY PARTNERS & PLATFORMS WE WORK WITH
+          <p className="mt-8 text-pretty text-lg sm:text-xl leading-8 text-muted-foreground max-w-2xl">
+            We design, build, and operationalize AI agents, enterprise knowledge systems, and AI infrastructure — integrated with core data, evaluated against business requirements, and built for internal ownership.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 group">
+              <Link href="/contact">
+                Discuss Your AI Program
+                <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="glass" asChild className="rounded-full">
+              <Link href="/case-studies">Explore Case Studies</Link>
+            </Button>
+          </div>
         </div>
-      )}
-      {partners.length > 0 && (
-        <LogoMarquee logos={partners} speed="normal" />
-      )}
+      </section>
 
-      {/* Services Grid */}
-      {services.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Our Technical Expertise"
-              headline="Custom Enterprise AI Services"
-              subtext="From predictive analytics to multi-agent LLM systems, we build resilient, secure solutions."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-              {services.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
+      {/* DeepSense-style Trust/Stats Banner */}
+      <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-12">
+        <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-center gap-12 sm:gap-24 px-5 text-center lg:px-8">
+          <div>
+            <div className="text-4xl font-bold text-primary mb-2">200+</div>
+            <div className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Commercial AI Projects</div>
+          </div>
+          <div className="hidden sm:block w-px h-16 bg-border/50" />
+          <div>
+            <div className="text-4xl font-bold text-primary mb-2">120+</div>
+            <div className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">World-Class AI Experts</div>
+          </div>
+          <div className="hidden sm:block w-px h-16 bg-border/50" />
+          <div>
+            <div className="text-4xl font-bold text-primary mb-2">10</div>
+            <div className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Years of AI Expertise</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Expertise Section */}
+      <section id="services" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div className="max-w-2xl">
+            <h2 className="eyebrow mb-4 inline-block">Tech Expertise</h2>
+            <h3 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+              Engineered for Production.
+            </h3>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Explore the technology expertise we leverage to develop scalable, secure AI solutions for ambitious enterprises.
+            </p>
+          </div>
+          <Button variant="outline" asChild className="shrink-0">
+            <Link href="/services">Explore All Expertise</Link>
+          </Button>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {coreServices.map((service) => (
+            <Link key={service.title} href={service.href} className="group outline-none">
+              <article className="glass-card h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary">
+                <div className="mb-6 inline-flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <service.icon className="size-6" />
+                </div>
+                <h4 className="text-xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h4>
+                <p className="text-sm leading-relaxed text-muted-foreground flex-grow">
+                  {service.description}
+                </p>
+              </article>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Industries Grid */}
+      <section className="relative py-24 lg:py-32 border-t border-border/50">
+        <div className="absolute inset-0 bg-primary/5 -z-10" />
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="eyebrow mb-4 inline-block">Industries</h2>
+            <h3 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+              Cross-Domain Impact.
+            </h3>
+            <p className="mt-6 text-lg text-muted-foreground">
+              With experience across rigorous industries, we deliver impactful projects tailored to highly specific operational sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {industries.map((ind) => (
+              <Link key={ind.title} href={ind.href} className="group glass-panel p-6 flex flex-col items-center justify-center text-center hover:bg-primary/5 hover:border-primary/30 transition-colors">
+                <ind.icon className="size-8 text-primary mb-4 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                <span className="font-semibold">{ind.title}</span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button variant="link" asChild>
+              <Link href="/industries">View all industries <ArrowRight className="ml-1 size-4" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Credentials Banner */}
+      <section className="border-y border-border/50 bg-background/30 backdrop-blur-sm py-12">
+        <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-between gap-8 px-5 lg:px-8">
+          <div className="max-w-xl">
+            <h3 className="text-2xl font-bold tracking-tight mb-2">Our Credentials</h3>
+            <p className="text-muted-foreground">We partner with the leading AI laboratories to bring state-of-the-art models securely into your enterprise.</p>
+          </div>
+          <div className="flex gap-4">
+            <Button variant="outline" asChild>
+              <Link href="/credentials">Anthropic Partner</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/credentials">OpenAI Partner</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Footer */}
+      <footer className="bg-background pt-16 pb-8 border-t border-border/40">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-4 mb-12">
+            <div className="md:col-span-1">
+              <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight mb-4">
+                <Brain className="size-5 text-primary" /> widle.ai
+              </Link>
+              <p className="text-sm text-muted-foreground">
+                Intelligence engineered. We build bespoke AI solutions for the modern enterprise.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Tech Expertise</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><Link href="/services/generative-ai" className="hover:text-primary transition-colors">AI Agents & GenAI</Link></li>
+                <li><Link href="/services/computer-vision" className="hover:text-primary transition-colors">Computer Vision</Link></li>
+                <li><Link href="/services/predictive-ai" className="hover:text-primary transition-colors">Predictive Analytics</Link></li>
+                <li><Link href="/services/mlops" className="hover:text-primary transition-colors">MLOps</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+                <li><Link href="/company" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/credentials" className="hover:text-primary transition-colors">Credentials</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Connect</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
+              </ul>
             </div>
           </div>
-        </section>
-      )}
-
-      {/* Solutions Tailored To Your Needs */}
-      {solutions.length > 0 && (
-        <section className="bg-secondary/20 py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Solutions"
-              headline="Solutions Tailored To Your Needs"
-              subtext="Powerful capabilities designed to solve complex challenges across industries."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
-              {solutions.map((solution, idx) => (
-                <SolutionCard key={idx} {...solution} />
-              ))}
+          <div className="border-t border-border/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+            <p>© {new Date().getFullYear()} widle.ai. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+              <Link href="/disclaimer" className="hover:text-foreground transition-colors">Terms of Service</Link>
             </div>
           </div>
-        </section>
-      )}
-
-      {/* Testimonials Carousel */}
-      {testimonials.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Testimonials"
-              headline="Trusted by Industry Leaders"
-              subtext="Hear what our clients have to say about working with widle.ai."
-            />
-            <div className="mt-12 lg:mt-16">
-              <TestimonialsCarousel testimonials={testimonials} />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Blog Posts */}
-      {insights.length > 0 && (
-        <section className="bg-secondary/20 py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="Insights"
-              headline="Latest from Our Blog"
-              subtext="Stay informed with our latest articles on AI trends, best practices, and industry insights."
-            />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-              {insights.map((post) => (
-                <BlogCard key={post.title} {...post} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FAQs */}
-      {faqs.length > 0 && (
-        <section className="bg-background py-20 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              eyebrow="FAQ"
-              headline="Frequently Asked Questions"
-              subtext="Find answers to common questions about our services and processes."
-            />
-            <div className="mt-12 lg:mt-16">
-              <FAQAccordion faqs={faqs} />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* CTA Banner */}
-      <CTABanner
-        headline="Ready to build with AI?"
-        description="Schedule a free consultation with our experts and discover how AI can accelerate your business growth."
-        buttonText="Contact Us"
-        buttonHref="/contact"
-        variant="primary"
-      />
-
-      <Footer />
-    </div>
+        </div>
+      </footer>
+    </main>
   )
 }
