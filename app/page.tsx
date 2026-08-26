@@ -1,5 +1,6 @@
 import { ArrowRight, Brain, Database, Eye, Network, Sparkles, BarChart, Stethoscope, Factory, Briefcase } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 
@@ -76,34 +77,34 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative mx-auto max-w-7xl px-5 pt-24 pb-32 lg:px-8 lg:pt-36 lg:pb-40">
-        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
-            <span className="relative flex size-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full size-2 bg-primary"></span>
-            </span>
-            Custom AI Software Development & Consulting
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div className="flex flex-col items-start text-left max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 text-sm font-medium tracking-wide text-muted-foreground border-b border-muted-foreground/30 pb-2">
+              A Creative Software Engineering Agency!
+            </div>
+
+            <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl leading-[1.1] text-[#3b6df8]">
+              We Build.<br />We Scale.<br />We Automate!
+            </h1>
+
+            <p className="mt-6 text-pretty text-2xl sm:text-3xl leading-snug text-foreground font-semibold">
+              Innovative software solutions<br />& Retool expertise to power<br />your business!
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button size="lg" variant="outline" asChild className="rounded-full border-primary/50 hover:bg-primary/10 transition-colors">
+                <Link href="/case-studies">
+                  View Projects
+                </Link>
+              </Button>
+            </div>
           </div>
 
-          <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl leading-[1.1]">
-            Empowering Clients to <br className="hidden sm:block" />
-            <span className="text-gradient">Unlock the Full Potential of AI.</span>
-          </h1>
-
-          <p className="mt-8 text-pretty text-lg sm:text-xl leading-8 text-muted-foreground max-w-2xl">
-            We design, build, and operationalize AI agents, enterprise knowledge systems, and AI infrastructure — integrated with core data, evaluated against business requirements, and built for internal ownership.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 group">
-              <Link href="/contact">
-                Discuss Your AI Program
-                <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="glass" asChild className="rounded-full">
-              <Link href="/case-studies">Explore Case Studies</Link>
-            </Button>
+          <div className="relative w-full aspect-square lg:aspect-auto lg:h-[600px] flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#3b6df8]/10 blur-[100px] rounded-full -z-10" />
+            <div className="relative w-full h-full max-h-[500px] max-w-[500px]">
+              <Image src="/hero-image.png" alt="Hero Graphic" fill className="object-contain drop-shadow-2xl" priority />
+            </div>
           </div>
         </div>
       </section>
