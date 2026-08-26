@@ -1,82 +1,85 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-
-@plugin "tailwindcss-animate";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #18181b;
-  --card-foreground: #fafafa;
-  --popover: #18181b;
-  --popover-foreground: #fafafa;
-  --primary: #4F46E5;
-  --primary-foreground: #ffffff;
-  --secondary: #27272a;
-  --secondary-foreground: #fafafa;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #0EA5E9;
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #fafafa;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #4F46E5;
-  --chart-1: #4F46E5;
-  --chart-2: #0EA5E9;
-  --chart-3: #6366f1;
-  --chart-4: #22d3ee;
-  --chart-5: #818cf8;
-  --radius: 0.5rem;
-  --sidebar: #18181b;
-  --sidebar-foreground: #fafafa;
-  --sidebar-primary: #4F46E5;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #27272a;
-  --sidebar-accent-foreground: #fafafa;
-  --sidebar-border: #27272a;
-  --sidebar-ring: #4F46E5;
+  /* Core Colors */
+  --background: oklch(0.98 0.01 220); /* Light slate-ish background */
+  --foreground: oklch(0.15 0.02 240);
+
+  --card: oklch(1 0 0 / 0.6);
+  --card-foreground: oklch(0.15 0.02 240);
+
+  --popover: oklch(1 0 0 / 0.8);
+  --popover-foreground: oklch(0.15 0.02 240);
+
+  /* Primary Accent: Deep blue/purple akin to DeepSense */
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.98 0.01 220);
+
+  --secondary: oklch(0.92 0.03 240);
+  --secondary-foreground: oklch(0.2 0.04 260);
+
+  --muted: oklch(0.92 0.02 240);
+  --muted-foreground: oklch(0.45 0.03 260);
+
+  --accent: oklch(0.90 0.05 260);
+  --accent-foreground: oklch(0.15 0.04 260);
+
+  --destructive: oklch(0.6 0.18 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.2 0.05 260 / 0.1);
+  --input: oklch(0.2 0.05 260 / 0.15);
+  --ring: oklch(0.45 0.18 260);
+
+  /* Glass specifics */
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(0, 0, 0, 0.05);
+
+  --radius: 1rem;
 }
 
-.light {
-  --background: #ffffff;
-  --foreground: #09090b;
-  --card: #ffffff;
-  --card-foreground: #09090b;
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
-  --primary: #4F46E5;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #09090b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #0EA5E9;
-  --accent-foreground: #ffffff;
-  --destructive: #dc2626;
-  --destructive-foreground: #fafafa;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #4F46E5;
-  --chart-1: #4F46E5;
-  --chart-2: #0EA5E9;
-  --chart-3: #6366f1;
-  --chart-4: #22d3ee;
-  --chart-5: #818cf8;
-  --sidebar: #f4f4f5;
-  --sidebar-foreground: #09090b;
-  --sidebar-primary: #4F46E5;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e4e4e7;
-  --sidebar-accent-foreground: #09090b;
-  --sidebar-border: #e4e4e7;
-  --sidebar-ring: #4F46E5;
+.dark {
+  /* Dark mode background: Very deep slate/navy */
+  --background: oklch(0.15 0.02 240);
+  --foreground: oklch(0.95 0.01 220);
+
+  --card: oklch(0.2 0.03 250 / 0.4);
+  --card-foreground: oklch(0.95 0.01 220);
+
+  --popover: oklch(0.15 0.02 240 / 0.8);
+  --popover-foreground: oklch(0.95 0.01 220);
+
+  /* Vibrant Cyan/Blue primary for dark mode */
+  --primary: oklch(0.7 0.15 240);
+  --primary-foreground: oklch(0.15 0.02 240);
+
+  --secondary: oklch(0.25 0.04 260);
+  --secondary-foreground: oklch(0.95 0.01 220);
+
+  --muted: oklch(0.25 0.03 260);
+  --muted-foreground: oklch(0.75 0.02 240);
+
+  --accent: oklch(0.3 0.08 260);
+  --accent-foreground: oklch(0.95 0.01 220);
+
+  --destructive: oklch(0.5 0.15 25);
+  --destructive-foreground: oklch(0.95 0.01 220);
+
+  --border: oklch(0.95 0.01 220 / 0.1);
+  --input: oklch(0.95 0.01 220 / 0.15);
+  --ring: oklch(0.7 0.15 240);
+
+  /* Glass specifics */
+  --glass-bg: rgba(20, 25, 40, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -96,30 +99,52 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
+}
+
+@layer utilities {
+  /* Core Glass Panel Utility */
+  .glass-panel {
+    @apply rounded-3xl border shadow-xl backdrop-blur-xl transition-all;
+    background-color: var(--glass-bg);
+    border-color: var(--glass-border);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .glass-card {
+    @apply rounded-2xl border shadow-lg backdrop-blur-md transition-all hover:-translate-y-1;
+    background-color: var(--glass-bg);
+    border-color: var(--glass-border);
+  }
+
+  .glass-nav {
+    @apply border-b backdrop-blur-xl;
+    background-color: var(--glass-bg);
+    border-color: var(--glass-border);
+  }
+
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.2em] text-primary; }
+  .section-title { @apply mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl; }
+  .section-copy { @apply mt-5 max-w-xl text-pretty leading-7 text-muted-foreground; }
+
+  /* Animated grid background for that tech/AI feel */
+  .bg-grid {
+    background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
 }
