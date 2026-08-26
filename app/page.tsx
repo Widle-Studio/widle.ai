@@ -76,23 +76,23 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 sm:pt-24 sm:pb-32 lg:px-8 lg:pt-36 lg:pb-40 overflow-hidden">
+      <section className="relative mx-auto max-w-7xl px-5 pt-28 pb-20 sm:pt-32 sm:pb-28 lg:px-8 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left max-w-2xl mx-auto lg:mx-0">
-            <div className="mb-6 inline-flex items-center justify-center lg:justify-start gap-2 text-xs sm:text-sm font-medium tracking-wide text-muted-foreground border-b border-muted-foreground/30 pb-2">
+          <div className="flex flex-col items-start text-left max-w-2xl mx-auto lg:mx-0 w-full">
+            <div className="mb-8 inline-flex items-center gap-2 text-sm sm:text-base font-medium tracking-wide text-muted-foreground border-b border-muted-foreground/30 pb-2">
               A Creative Software Engineering Agency!
             </div>
 
-            <h1 className="text-balance text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl leading-[1.1] text-[#3b6df8]">
-              We Build.<span className="hidden sm:inline"> </span><br className="sm:hidden lg:block" />We Scale.<span className="hidden sm:inline"> </span><br className="sm:hidden lg:block" />We Automate!
+            <h1 className="text-balance text-5xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl leading-[1.05] text-[#3b6df8]">
+              We Build.<br />We Scale.<br />We Automate!
             </h1>
 
-            <p className="mt-6 text-balance text-xl sm:text-2xl lg:text-3xl leading-snug text-foreground/90 font-medium max-w-lg lg:max-w-none mx-auto lg:mx-0">
+            <p className="mt-8 text-balance text-2xl sm:text-3xl lg:text-4xl leading-tight text-foreground font-bold max-w-lg lg:max-w-none">
               Innovative software solutions & Retool expertise to power your business!
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              <Button size="lg" variant="outline" asChild className="rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-white/10 transition-all hover:scale-105 active:scale-95 px-8">
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Button variant="outline" asChild className="h-14 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-white/10 transition-all hover:scale-105 active:scale-95 px-10 text-lg font-semibold">
                 <Link href="/case-studies">
                   View Projects
                 </Link>
