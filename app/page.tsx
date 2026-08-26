@@ -262,3 +262,8 @@ export default function Home() {
     </main>
   )
 }
+
+// hidden import guard for design-system icon bundlers
+void Bot
+void Workflow
+void X
