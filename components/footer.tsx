@@ -2,16 +2,16 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
 const serviceLinks = [
-  { label: "LLMs & RAG", href: "/services/llms-rag" },
-  { label: "AI Agents", href: "/services/ai-agents" },
+  { label: "LLMs & RAG", href: "/services/generative-ai" },
+  { label: "AI Agents", href: "/services/generative-ai" },
   { label: "MLOps", href: "/services/mlops" },
   { label: "Computer Vision", href: "/services/computer-vision" },
-  { label: "Predictive Analytics", href: "/services/predictive-analytics" },
+  { label: "Predictive Analytics", href: "/services/predictive-ai" },
 ]
 
 const companyLinks = [
   { label: "Company", href: "/company" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog", href: "/resources" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   
@@ -115,7 +115,7 @@ export function Footer() {
                 href="mailto:info@widle.ai"
                 className="text-sm font-medium text-accent hover:underline"
               >
-                info@widle.studio
+
                 info@widle.ai
               </a>
             </div>
