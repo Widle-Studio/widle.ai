@@ -91,7 +91,7 @@ export default function CaseStudiesPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {cases.map((study) => (
-            <Link key={study.slug} href={`/portfolio/${study.slug}`} className="group outline-none block h-full">
+            <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group outline-none block h-full">
               <article className="glass-panel h-full flex flex-col p-8 transition-all duration-300 hover:shadow-2xl hover:border-primary/50">
                 <div className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
                   <BookOpen className="size-3" /> {study.category}
