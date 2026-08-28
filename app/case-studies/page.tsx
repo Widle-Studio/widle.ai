@@ -5,6 +5,12 @@ import { Navbar } from "@/components/navbar"
 
 const cases = [
   {
+    title: "Enabling highly targeted, optimized campaigns",
+    category: "Marketing",
+    description: "Nielsen needed to enable brands and agencies to carry out targeted advertising campaigns using computer vision.",
+    slug: "nielsen"
+  },
+  {
     title: "Xaver Sports",
     category: "Retool SaaS Platform",
     description: "A high-performance sports management platform built for scalability and real-time data tracking.",
