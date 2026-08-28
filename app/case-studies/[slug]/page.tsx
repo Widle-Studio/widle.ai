@@ -156,7 +156,7 @@ const ContentList = ({ items }: { items: string[] }) => (
 
 const ContentBlockquote = ({ children, author }: { children: React.ReactNode; author?: string }) => (
   <blockquote className="my-12 border-l-4 border-primary pl-6 italic text-xl text-foreground font-medium">
-    <p>"{children}"</p>
+    <p>&quot;{children}&quot;</p>
     {author && (
       <footer className="mt-4 text-base text-muted-foreground font-normal not-italic">
         — {author}
@@ -222,20 +222,20 @@ const CaseStudyCard = ({
 
 // Mock data (in a real app, this would come from a CMS or database)
 const caseStudies = {
-  "nielsen": {
-    title: "Enabling highly targeted, optimized campaigns",
-    client: "Nielsen",
-    industry: "Marketing",
-    image: "/images/Nielson-logo.jpg",
+  "mcp-server-beverage-manufacturing": {
+    title: "MCP Server for Conversational Analytics in Beverage Manufacturing",
+    client: "Global Beverage Manufacturer",
+    industry: "Manufacturing",
+    image: "/images/Widle-Logo.jpg",
     challenge:
-      "Nielsen needed to enable brands and agencies to carry out targeted advertising campaigns using computer vision and large-scale data processing without compromising privacy.",
+      "The client struggled with accessing and interpreting complex manufacturing and supply chain data, often requiring specialized analysts to generate reports, delaying decision-making.",
     solution:
-      "We developed advanced computer vision models to accurately identify brand contexts and consumer behavior at scale while ensuring strict anonymization of PII.",
+      "We engineered a Model Context Protocol (MCP) server that securely connects enterprise databases and APIs to a conversational LLM interface, allowing managers to query data naturally.",
     results:
-      "Enabled highly targeted and optimized campaigns for Nielsen’s clients, significantly increasing ad ROI.",
+      "Reduced time-to-insight from days to seconds, democratized data access across the organization, and improved operational agility on the factory floor.",
     metrics: [
-      { value: "3x", label: "ROI Increase", description: "Improved ad spend efficiency" },
-      { value: "100%", label: "Privacy Compliant", description: "Zero PII leakage" },
+      { value: "90%", label: "Faster Insights", description: "Query response time reduced" },
+      { value: "100%", label: "Data Security", description: "Enterprise-grade MCP compliance" },
     ],
     content: {
       sections: [
@@ -245,11 +245,32 @@ const caseStudies = {
         },
         {
           type: "paragraph",
-          text: "In the modern digital advertising landscape, contextual relevance is king. However, identifying the right context across billions of images and videos while maintaining strict user privacy is a massive technical challenge.",
+          text: "In the fast-paced beverage manufacturing sector, real-time insights into production line efficiency, supply chain logistics, and inventory levels are critical. However, this data was siloed across multiple legacy systems.",
+        },
+        {
+          type: "paragraph",
+          text: "Factory managers had to rely on specialized data engineering teams to write SQL queries and generate dashboards. This bottleneck meant that by the time insights were delivered, the operational window to act on them had often closed.",
         },
         {
           type: "heading",
           text: "Our Approach",
+        },
+        {
+          type: "paragraph",
+          text: "To bridge this gap, Widle.ai leveraged the Model Context Protocol (MCP), an open standard that allows Large Language Models (LLMs) to securely and contextually interface with external data sources.",
+        },
+        {
+          type: "list",
+          items: [
+            "Developed a custom MCP Server connecting directly to the client's Snowflake data warehouse and production REST APIs.",
+            "Configured strict role-based access control (RBAC) ensuring the LLM only retrieved data the querying user was authorized to see.",
+            "Integrated the MCP Server with a conversational frontend, enabling users to ask complex analytical questions (e.g., 'What was the yield of line B yesterday compared to last month?').",
+            "Implemented real-time data fetching to ensure the LLM responses were grounded in the most current manufacturing data, eliminating hallucinations.",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Results & Impact",
         },
         {
           type: "paragraph",

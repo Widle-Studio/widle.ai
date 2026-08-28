@@ -5,6 +5,12 @@ import { Navbar } from "@/components/navbar"
 
 const cases = [
   {
+    title: "MCP Server for Conversational Analytics in Beverage Manufacturing",
+    category: "Generative AI",
+    description: "Developing a conversational AI system integrated with manufacturing data via an MCP server to provide real-time insights.",
+    slug: "mcp-server-beverage-manufacturing"
+  },
+  {
     title: "Enabling highly targeted, optimized campaigns",
     category: "Marketing",
     description: "Nielsen needed to enable brands and agencies to carry out targeted advertising campaigns using computer vision.",
