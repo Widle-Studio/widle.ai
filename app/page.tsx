@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import { ArrowRight, Brain, Database, Eye, Network, Sparkles, BarChart, Stethoscope, Factory, Briefcase } from "lucide-react"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -47,14 +48,7 @@ export default function Home() {
       <div className="fixed bottom-[-10%] right-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] mix-blend-screen" />
 
       {/* Navigation */}
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
-              <Brain className="size-4" />
-            </span>
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
+      <Navbar />
 
           <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
             <Link href="/services" className="transition hover:text-foreground hover:scale-105">Tech Expertise</Link>

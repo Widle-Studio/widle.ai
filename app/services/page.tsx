@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import { ArrowRight, Brain, Database, Eye, LineChart, Network, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -85,16 +86,7 @@ export default function ServicesIndex() {
       <div className="fixed top-[20%] left-[50%] -z-10 w-[80%] h-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px] mix-blend-screen" />
 
       {/* Minimal Nav */}
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
         <div className="max-w-3xl mb-16">

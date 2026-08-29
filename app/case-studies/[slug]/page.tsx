@@ -274,6 +274,65 @@ const caseStudies = {
         },
         {
           type: "paragraph",
+          text: "The deployment of the MCP-powered conversational analytics system transformed daily operations. Plant managers can now retrieve deep, contextual insights instantly through natural language on their mobile devices right from the factory floor.",
+        },
+      ],
+    },
+    relatedCaseStudies: ["retail-demand-forecasting", "nielsen"],
+  },
+  "nielsen": {
+    title: "Enabling highly targeted, optimized campaigns",
+    client: "Nielsen",
+    industry: "Marketing",
+    image: "/images/Nielson-logo.jpg",
+    challenge:
+      "Nielsen needed to enable brands and agencies to carry out targeted advertising campaigns using computer vision and large-scale data processing without compromising privacy.",
+    solution:
+      "We developed advanced computer vision models to accurately identify brand contexts and consumer behavior at scale while ensuring strict anonymization of PII.",
+    results:
+      "Enabled highly targeted and optimized campaigns for Nielsen’s clients, significantly increasing ad ROI.",
+    metrics: [
+      { value: "3x", label: "ROI Increase", description: "Improved ad spend efficiency" },
+      { value: "100%", label: "Privacy Compliant", description: "Zero PII leakage" },
+    ],
+    content: {
+      sections: [
+        {
+          type: "heading",
+          text: "The Challenge",
+        },
+        {
+          type: "paragraph",
+          text: "In the modern digital advertising landscape, contextual relevance is king. However, identifying the right context across billions of images and videos while maintaining strict user privacy is a massive technical challenge.",
+        },
+      ],
+    },
+    relatedCaseStudies: ["medtech-ai-diagnostics"],
+  },
+  "medtech-ai-diagnostics": {
+    title: "Accelerating Rare Disease Diagnosis with Computer Vision",
+    client: "Global MedTech Solutions",
+    industry: "Healthcare",
+    image: "/images/Widle-Logo.jpg",
+    challenge:
+      "A leading medical technology provider struggled with high error rates (15%) and slow processing times (avg. 48 hours) in identifying rare tissue anomalies from digital pathology slides.",
+    solution:
+      "We engineered a secure, HIPAA-compliant computer vision pipeline using state-of-the-art CNNs, trained on their proprietary dataset, wrapped in a scalable cloud architecture.",
+    results:
+      "The AI-assisted workflow reduced diagnostic turnaround time to under 2 hours and improved accuracy to 99.1%, fundamentally transforming patient care pathways.",
+    metrics: [
+      { value: "99.1%", label: "Diagnostic Accuracy", description: "Up from 85% baseline" },
+      { value: "46h", label: "Time Saved", description: "Per batch of 100 slides" },
+      { value: "$2.4M", label: "Cost Reduction", description: "Annual operational savings" },
+    ],
+    content: {
+      sections: [
+        {
+          type: "heading",
+          text: "Our Approach",
+        },
+        {
+          type: "paragraph",
           text: "Widle.ai implemented state-of-the-art computer vision models trained specifically for brand safety and contextual targeting. The pipeline was designed to operate entirely on the edge or in secure enclaves, ensuring data privacy.",
         },
         {

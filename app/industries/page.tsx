@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import { Building2, Stethoscope, Briefcase, Code, Factory, Radio } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -47,21 +48,7 @@ export default function IndustriesIndex() {
       <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
       <div className="fixed top-[20%] left-[50%] -z-10 w-[80%] h-[80%] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px] mix-blend-screen" />
 
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="/services" className="text-muted-foreground hover:text-foreground">Expertise</Link>
-            <Link href="/industries" className="text-foreground font-semibold">Industries</Link>
-            <Link href="/resources" className="text-muted-foreground hover:text-foreground">Resources</Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
         <div className="max-w-3xl mb-16">
