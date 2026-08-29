@@ -50,6 +50,25 @@ export default function Home() {
       {/* Navigation */}
       <Navbar />
 
+          <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
+            <Link href="/services" className="transition hover:text-foreground hover:scale-105">Tech Expertise</Link>
+            <Link href="/industries" className="transition hover:text-foreground hover:scale-105">Industries</Link>
+            <Link href="/case-studies" className="transition hover:text-foreground hover:scale-105">Case Studies</Link>
+            <Link href="/resources" className="transition hover:text-foreground hover:scale-105">Resources</Link>
+            <Link href="/company" className="transition hover:text-foreground hover:scale-105">Company</Link>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Button asChild className="hidden sm:inline-flex">
+              <Link href="/contact">
+                Talk to us <ArrowRight className="ml-2 size-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section (Animated Client Component) */}
       <HeroClient />
 
