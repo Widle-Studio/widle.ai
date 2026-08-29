@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import { BookOpen, FileText, Video, PlayCircle } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -35,21 +36,7 @@ export default function ResourcesIndex() {
       <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
       <div className="fixed top-[-10%] right-[-10%] -z-10 w-[60%] h-[60%] rounded-full bg-accent/15 blur-[120px] mix-blend-screen" />
 
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="/services" className="text-muted-foreground hover:text-foreground">Expertise</Link>
-            <Link href="/industries" className="text-muted-foreground hover:text-foreground">Industries</Link>
-            <Link href="/resources" className="text-foreground font-semibold">Resources</Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
         <div className="max-w-3xl mb-16">

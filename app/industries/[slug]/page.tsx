@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Brain, CheckCircle2 } from "lucide-react"
@@ -85,24 +86,7 @@ export default function IndustryDetail({ params }: { params: { slug: string } })
       <div className="fixed inset-0 -z-10 bg-grid opacity-60" />
       <div className="fixed top-[-20%] right-[-10%] -z-10 w-[60%] h-[60%] rounded-full bg-primary/15 blur-[120px] mix-blend-screen" />
 
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground shadow-lg shadow-primary/20">
-              <Brain className="size-4" />
-            </span>
-            <span className="text-xl tracking-tighter font-bold hidden sm:inline-block">widle<span className="text-primary">.ai</span></span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/industries">
-                <ArrowLeft className="mr-2 size-4" /> Back to Industries
-              </Link>
-            </Button>
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="relative mx-auto max-w-4xl px-5 pt-20 pb-32 lg:px-8 lg:pt-28">
         <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur-md">

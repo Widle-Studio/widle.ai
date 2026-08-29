@@ -1,40 +1,241 @@
-import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, BarChart3, Clock, Zap, Target } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { CaseStudyHeader } from "@/components/case-study-header"
-import { ChallengeSolutionResults } from "@/components/challenge-solution-results"
-import {
-  RichTextContent,
-  ContentHeading,
-  ContentSubheading,
-  ContentParagraph,
-  ContentList,
-  ContentBlockquote,
-  ContentImage,
-} from "@/components/rich-text-content"
-import { MetricsHighlight } from "@/components/metrics-highlight"
-import { CaseStudyCard } from "@/components/case-study-card"
 import { SectionHeader } from "@/components/section-header"
 import { CTABanner } from "@/components/cta-banner"
+import type { Metadata } from "next"
 
-// Simulated CMS data
+// In a real app, this would be a separate file
+const CaseStudyHeader = ({
+  image,
+  title,
+  client,
+  industry,
+}: {
+  image: string
+  title: string
+  client: string
+  industry: string
+}) => (
+  <header className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden border-b border-border">
+    <div className="absolute inset-0 -z-10 bg-background" />
+    <div className="absolute inset-0 -z-10 bg-grid opacity-50" />
+    <div className="absolute top-0 right-0 -z-10 w-[60%] h-[80%] rounded-full bg-primary/10 blur-[120px] mix-blend-screen" />
+
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+        {/* Left Column: Text */}
+        <div className="flex-1 max-w-3xl">
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              {industry}
+            </span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
+              Client: {client}
+            </span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-8">
+            {title}
+          </h1>
+        </div>
+
+        {/* Right Column: Hero Image/Logo */}
+        <div className="w-full lg:w-[400px] shrink-0">
+          <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-2xl border border-border/50 bg-muted/30 shadow-2xl glass-panel">
+            <Image
+              src={image}
+              alt={`${client} project`}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+)
+
+const ChallengeSolutionResults = ({
+  challenge,
+  solution,
+  results,
+}: {
+  challenge: string
+  solution: string
+  results: string
+}) => (
+  <section className="py-16 bg-muted/30 border-b border-border/50">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="grid md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-border">
+        {/* Challenge */}
+        <div className="pt-8 md:pt-0 md:pr-12 first:pt-0">
+          <div className="flex items-center gap-3 mb-4 text-destructive">
+            <Target className="size-5" />
+            <h3 className="text-lg font-bold tracking-tight">The Challenge</h3>
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            {challenge}
+          </p>
+        </div>
+
+        {/* Solution */}
+        <div className="pt-8 md:pt-0 md:px-12">
+          <div className="flex items-center gap-3 mb-4 text-primary">
+            <Zap className="size-5" />
+            <h3 className="text-lg font-bold tracking-tight">Our Solution</h3>
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            {solution}
+          </p>
+        </div>
+
+        {/* Results */}
+        <div className="pt-8 md:pt-0 md:pl-12">
+          <div className="flex items-center gap-3 mb-4 text-emerald-500">
+            <BarChart3 className="size-5" />
+            <h3 className="text-lg font-bold tracking-tight">The Results</h3>
+          </div>
+          <p className="text-muted-foreground leading-relaxed">
+            {results}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
+const MetricsHighlight = ({ metrics }: { metrics: { label: string; value: string; description: string }[] }) => (
+  <section className="py-20 border-y border-border/50 glass-panel-strong">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="grid sm:grid-cols-3 gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+        {metrics.map((metric, i) => (
+          <div key={i} className="pt-8 sm:pt-0 flex flex-col items-center justify-center">
+            <div className="text-5xl font-bold tracking-tighter text-primary mb-2">{metric.value}</div>
+            <div className="text-lg font-semibold text-foreground mb-1">{metric.label}</div>
+            <div className="text-sm text-muted-foreground">{metric.description}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
+const RichTextContent = ({ children }: { children: React.ReactNode }) => (
+  <section className="py-16 sm:py-24">
+    <div className="mx-auto max-w-[800px] px-4 sm:px-6">
+      <div className="prose prose-lg prose-slate dark:prose-invert max-w-none">
+        {children}
+      </div>
+    </div>
+  </section>
+)
+
+const ContentHeading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-3xl font-bold tracking-tight mt-16 mb-6">{children}</h2>
+)
+
+const ContentSubheading = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="text-2xl font-bold tracking-tight mt-12 mb-4">{children}</h3>
+)
+
+const ContentParagraph = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-lg text-muted-foreground leading-relaxed mb-6">{children}</p>
+)
+
+const ContentList = ({ items }: { items: string[] }) => (
+  <ul className="list-disc pl-6 space-y-2 text-lg text-muted-foreground mb-8">
+    {items.map((item, i) => (
+      <li key={i}>{item}</li>
+    ))}
+  </ul>
+)
+
+const ContentBlockquote = ({ children, author }: { children: React.ReactNode; author?: string }) => (
+  <blockquote className="my-12 border-l-4 border-primary pl-6 italic text-xl text-foreground font-medium">
+    <p>&quot;{children}&quot;</p>
+    {author && (
+      <footer className="mt-4 text-base text-muted-foreground font-normal not-italic">
+        — {author}
+      </footer>
+    )}
+  </blockquote>
+)
+
+const ContentImage = ({ src, alt, caption }: { src: string; alt: string; caption?: string }) => (
+  <figure className="my-12">
+    <div className="relative aspect-video overflow-hidden rounded-xl border border-border">
+      <Image src={src} alt={alt} fill className="object-cover" />
+    </div>
+    {caption && (
+      <figcaption className="mt-4 text-center text-sm text-muted-foreground">
+        {caption}
+      </figcaption>
+    )}
+  </figure>
+)
+
+const CaseStudyCard = ({
+  title,
+  description,
+  image,
+  tag,
+  href
+}: {
+  title: string
+  description: string
+  image: string
+  tag: string
+  href: string
+}) => (
+  <Link href={href} className="group block h-full outline-none">
+    <article className="glass-panel h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-primary/50">
+      <div className="relative aspect-video overflow-hidden border-b border-border">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">
+          {tag}
+        </div>
+        <h3 className="text-xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-sm text-muted-foreground flex-grow line-clamp-3">
+          {description}
+        </p>
+        <div className="mt-6 flex items-center font-semibold text-sm text-primary">
+          Read Case Study <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+        </div>
+      </div>
+    </article>
+  </Link>
+)
+
+
+// Mock data (in a real app, this would come from a CMS or database)
 const caseStudies = {
-  "medtech-ai-diagnostics": {
-    title: "AI-Powered Diagnostics Platform Reduces Detection Time by 85%",
-    client: "MedTech Innovations",
-    industry: "Healthcare",
+  "mcp-server-beverage-manufacturing": {
+    title: "MCP Server for Conversational Analytics in Beverage Manufacturing",
+    client: "Global Beverage Manufacturer",
+    industry: "Manufacturing",
     image: "/images/Widle-Logo.jpg",
     challenge:
-      "MedTech Innovations faced a critical bottleneck in their diagnostic workflow. Manual analysis of medical imaging took an average of 45 minutes per scan, creating delays in patient care and limiting throughput to just 30 patients per day.",
+      "The client struggled with accessing and interpreting complex manufacturing and supply chain data, often requiring specialized analysts to generate reports, delaying decision-making.",
     solution:
-      "We developed a custom computer vision model trained on over 2 million annotated medical images. The AI system integrates seamlessly with existing PACS infrastructure and provides real-time analysis with explainable AI outputs for clinician review.",
+      "We engineered a Model Context Protocol (MCP) server that securely connects enterprise databases and APIs to a conversational LLM interface, allowing managers to query data naturally.",
     results:
-      "The platform now processes scans in under 7 minutes with 97.3% accuracy, enabling the clinic to serve 3x more patients while improving diagnostic confidence and reducing physician burnout.",
+      "Reduced time-to-insight from days to seconds, democratized data access across the organization, and improved operational agility on the factory floor.",
     metrics: [
-      { value: "85%", label: "Faster Diagnostics", description: "Reduced from 45 min to 7 min" },
-      { value: "97.3%", label: "Accuracy Rate", description: "Validated against expert panel" },
-      { value: "3x", label: "Patient Throughput", description: "From 30 to 90+ patients/day" },
+      { value: "90%", label: "Faster Insights", description: "Query response time reduced" },
+      { value: "100%", label: "Data Security", description: "Enterprise-grade MCP compliance" },
     ],
     content: {
       sections: [
@@ -44,24 +245,11 @@ const caseStudies = {
         },
         {
           type: "paragraph",
-          text: "MedTech Innovations, a leading regional healthcare network with 12 diagnostic centers, was struggling to meet growing demand for medical imaging analysis. Their team of radiologists was overwhelmed, leading to extended wait times and delayed diagnoses that directly impacted patient outcomes.",
+          text: "In the fast-paced beverage manufacturing sector, real-time insights into production line efficiency, supply chain logistics, and inventory levels are critical. However, this data was siloed across multiple legacy systems.",
         },
         {
           type: "paragraph",
-          text: "The existing workflow required a radiologist to manually review each scan, annotate findings, and generate reports—a process that averaged 45 minutes per patient. With only 8 radiologists serving the entire network, the backlog was growing by hundreds of cases each month.",
-        },
-        {
-          type: "subheading",
-          text: "Key Pain Points Identified",
-        },
-        {
-          type: "list",
-          items: [
-            "Average 72-hour wait time for diagnostic reports",
-            "Radiologist burnout leading to 23% annual turnover",
-            "Inconsistent analysis quality across different shifts",
-            "Inability to scale without proportionally increasing staff costs",
-          ],
+          text: "Factory managers had to rely on specialized data engineering teams to write SQL queries and generate dashboards. This bottleneck meant that by the time insights were delivered, the operational window to act on them had often closed.",
         },
         {
           type: "heading",
@@ -69,42 +257,16 @@ const caseStudies = {
         },
         {
           type: "paragraph",
-          text: "After a comprehensive discovery phase that included shadowing radiologists and analyzing 6 months of historical data, our team designed a three-phase implementation strategy that prioritized clinical accuracy while minimizing disruption to existing workflows.",
+          text: "To bridge this gap, Widle.ai leveraged the Model Context Protocol (MCP), an open standard that allows Large Language Models (LLMs) to securely and contextually interface with external data sources.",
         },
         {
-          type: "image",
-          src: "/placeholder.svg?height=500&width=900",
-          alt: "AI diagnostic workflow diagram",
-          caption: "The hybrid human-AI workflow ensures clinical oversight while maximizing efficiency",
-        },
-        {
-          type: "subheading",
-          text: "Phase 1: Data Infrastructure",
-        },
-        {
-          type: "paragraph",
-          text: "We established a HIPAA-compliant data pipeline that connected to MedTech's existing PACS system. Our team worked with in-house IT to create anonymization protocols and secure model training environments, ensuring patient data never left their controlled infrastructure.",
-        },
-        {
-          type: "subheading",
-          text: "Phase 2: Model Development",
-        },
-        {
-          type: "paragraph",
-          text: "Using a foundation model pretrained on public medical imaging datasets, we fine-tuned the AI on MedTech's proprietary historical data. This transfer learning approach allowed us to achieve production-ready accuracy in just 8 weeks rather than the typical 6-12 months.",
-        },
-        {
-          type: "blockquote",
-          text: "The widle.ai team understood that we weren't just building technology—we were building trust. Their focus on explainable AI gave our radiologists confidence in the system from day one.",
-          author: "Dr. Sarah Chen, Chief Medical Officer, MedTech Innovations",
-        },
-        {
-          type: "subheading",
-          text: "Phase 3: Clinical Integration",
-        },
-        {
-          type: "paragraph",
-          text: "Rather than replacing radiologists, the AI system was designed as a 'first reader' that pre-screens scans, highlights areas of concern, and generates preliminary reports. Radiologists then review AI findings, make final determinations, and provide feedback that continuously improves model performance.",
+          type: "list",
+          items: [
+            "Developed a custom MCP Server connecting directly to the client's Snowflake data warehouse and production REST APIs.",
+            "Configured strict role-based access control (RBAC) ensuring the LLM only retrieved data the querying user was authorized to see.",
+            "Integrated the MCP Server with a conversational frontend, enabling users to ask complex analytical questions (e.g., 'What was the yield of line B yesterday compared to last month?').",
+            "Implemented real-time data fetching to ensure the LLM responses were grounded in the most current manufacturing data, eliminating hallucinations.",
+          ],
         },
         {
           type: "heading",
@@ -112,40 +274,26 @@ const caseStudies = {
         },
         {
           type: "paragraph",
-          text: "Within 6 months of full deployment, MedTech Innovations transformed their diagnostic operations. The AI system now handles initial screening for 95% of incoming scans, freeing radiologists to focus on complex cases and patient consultations.",
-        },
-        {
-          type: "list",
-          items: [
-            "Report turnaround reduced from 72 hours to under 24 hours",
-            "Radiologist satisfaction scores increased 40%",
-            "Zero missed critical findings in 50,000+ AI-screened cases",
-            "ROI achieved within 14 months of initial deployment",
-          ],
-        },
-        {
-          type: "paragraph",
-          text: "The success of this engagement has led MedTech to expand AI integration to two additional diagnostic modalities, with widle.ai continuing as their strategic AI partner.",
+          text: "The deployment of the MCP-powered conversational analytics system transformed daily operations. Plant managers can now retrieve deep, contextual insights instantly through natural language on their mobile devices right from the factory floor.",
         },
       ],
     },
-    relatedCaseStudies: ["fintech-fraud-detection", "retail-demand-forecasting"],
+    relatedCaseStudies: ["retail-demand-forecasting", "nielsen"],
   },
-  "fintech-fraud-detection": {
-    title: "Real-Time Fraud Detection Saves $47M Annually for Global Bank",
-    client: "GlobalBank Corp",
-    industry: "Finance",
-    image: "/images/Widle-Logo.jpg",
+  "nielsen": {
+    title: "Enabling highly targeted, optimized campaigns",
+    client: "Nielsen",
+    industry: "Marketing",
+    image: "/images/Nielson-logo.jpg",
     challenge:
-      "GlobalBank Corp was losing an estimated $62M annually to sophisticated fraud schemes that their rule-based detection systems couldn't catch. False positives were also creating customer friction, blocking 12% of legitimate transactions.",
+      "Nielsen needed to enable brands and agencies to carry out targeted advertising campaigns using computer vision and large-scale data processing without compromising privacy.",
     solution:
-      "We built a multi-model ensemble system combining graph neural networks for relationship analysis, anomaly detection for behavioral patterns, and NLP for transaction description analysis. The system processes 50,000 transactions per second in real-time.",
+      "We developed advanced computer vision models to accurately identify brand contexts and consumer behavior at scale while ensuring strict anonymization of PII.",
     results:
-      "The AI fraud detection platform now catches 94% of fraudulent transactions while reducing false positives by 78%, saving $47M in fraud losses and improving customer satisfaction scores by 23%.",
+      "Enabled highly targeted and optimized campaigns for Nielsen’s clients, significantly increasing ad ROI.",
     metrics: [
-      { value: "$47M", label: "Annual Savings", description: "Direct fraud prevention" },
-      { value: "94%", label: "Fraud Detection", description: "Up from 67% baseline" },
-      { value: "78%", label: "Fewer False Positives", description: "Improved customer experience" },
+      { value: "3x", label: "ROI Increase", description: "Improved ad spend efficiency" },
+      { value: "100%", label: "Privacy Compliant", description: "Zero PII leakage" },
     ],
     content: {
       sections: [
@@ -155,7 +303,114 @@ const caseStudies = {
         },
         {
           type: "paragraph",
-          text: "GlobalBank Corp, a top-20 international financial institution processing over 4 billion transactions annually, was facing an escalating fraud crisis. Sophisticated criminal networks had learned to exploit gaps in their legacy rule-based detection systems.",
+          text: "In the modern digital advertising landscape, contextual relevance is king. However, identifying the right context across billions of images and videos while maintaining strict user privacy is a massive technical challenge.",
+        },
+        {
+          type: "heading",
+          text: "Our Approach",
+        },
+        {
+          type: "paragraph",
+          text: "Widle.ai implemented state-of-the-art computer vision models trained specifically for brand safety and contextual targeting. The pipeline was designed to operate entirely on the edge or in secure enclaves, ensuring data privacy.",
+        },
+        {
+          type: "image",
+          src: "/images/Nielson-logo.jpg",
+          alt: "Nielsen Contextual Targeting",
+        },
+      ],
+    },
+    relatedCaseStudies: ["medtech-ai-diagnostics"],
+  },
+  "medtech-ai-diagnostics": {
+    title: "Accelerating Rare Disease Diagnosis with Computer Vision",
+    client: "Global MedTech Solutions",
+    industry: "Healthcare",
+    image: "/images/Widle-Logo.jpg",
+    challenge:
+      "A leading medical technology provider struggled with high error rates (15%) and slow processing times (avg. 48 hours) in identifying rare tissue anomalies from digital pathology slides.",
+    solution:
+      "We engineered a secure, HIPAA-compliant computer vision pipeline using state-of-the-art CNNs, trained on their proprietary dataset, wrapped in a scalable cloud architecture.",
+    results:
+      "The AI-assisted workflow reduced diagnostic turnaround time to under 2 hours and improved accuracy to 99.1%, fundamentally transforming patient care pathways.",
+    metrics: [
+      { value: "99.1%", label: "Diagnostic Accuracy", description: "Up from 85% baseline" },
+      { value: "46h", label: "Time Saved", description: "Per batch of 100 slides" },
+      { value: "$2.4M", label: "Cost Reduction", description: "Annual operational savings" },
+    ],
+    content: {
+      sections: [
+        {
+          type: "heading",
+          text: "The Challenge",
+        },
+        {
+          type: "paragraph",
+          text: "Pathologists at Global MedTech Solutions were spending thousands of hours manually reviewing high-resolution digital slides. The process was not only expensive and slow, but the cognitive fatigue led to an unacceptable 15% error rate in detecting a specific class of rare cellular anomalies.",
+        },
+        {
+          type: "paragraph",
+          text: "They needed a solution that could pre-screen slides, highlight areas of interest, and integrate seamlessly into their existing FDA-approved diagnostic software—without compromising patient data security.",
+        },
+        {
+          type: "heading",
+          text: "Our Approach",
+        },
+        {
+          type: "paragraph",
+          text: "Our engineering team started by establishing a secure, air-gapped data pipeline to anonymize and process over 100,000 historical slides. We then customized and fine-tuned a state-of-the-art Convolutional Neural Network (CNN).",
+        },
+        {
+          type: "list",
+          items: [
+            "Implemented a tile-based processing approach to handle multi-gigabyte slide images.",
+            "Utilized active learning to help expert pathologists label the most challenging edge cases.",
+            "Deployed the model using TensorRT on optimized GPU instances for real-time inference.",
+            "Built a custom API gateway compliant with strict healthcare regulations (HIPAA/HITRUST).",
+          ],
+        },
+        {
+          type: "blockquote",
+          text: "Widle.ai didn't just give us an algorithm; they delivered a production-ready system that our pathologists actually want to use.",
+          author: "Dr. Sarah Chen, Chief Medical Officer",
+        },
+        {
+          type: "heading",
+          text: "Results & Impact",
+        },
+        {
+          type: "paragraph",
+          text: "The system is now deployed across 45 regional labs. It acts as a highly accurate 'second pair of eyes,' reducing the average time to diagnosis from 48 hours to under 2 hours. By catching anomalies early and accurately, Global MedTech has improved patient outcomes while saving an estimated $2.4M annually in operational costs.",
+        },
+      ],
+    },
+    relatedCaseStudies: ["fintech-fraud-detection", "retail-demand-forecasting"],
+  },
+  "fintech-fraud-detection": {
+    title: "Real-time Fraud Prevention using Graph Neural Networks",
+    client: "GlobalBank Corp",
+    industry: "Financial Services",
+    image: "/images/Widle-Logo.jpg",
+    challenge:
+      "GlobalBank Corp was losing $40M annually to sophisticated, coordinated fraud rings that traditional rule-based detection systems failed to catch.",
+    solution:
+      "We deployed a Graph Neural Network (GNN) architecture that analyzes the topology of transaction networks in real-time, identifying complex patterns of money laundering and fraud.",
+    results:
+      "The system increased fraud detection rates by 40% while reducing false positives by 60%, saving the bank $28M in the first year of operation.",
+    metrics: [
+      { value: "$28M", label: "Fraud Prevented", description: "In the first 12 months" },
+      { value: "60%", label: "False Positives Drop", description: "Improving customer experience" },
+      { value: "<50ms", label: "Inference Latency", description: "Real-time transaction blocking" },
+    ],
+    content: {
+      sections: [
+        {
+          type: "heading",
+          text: "The Challenge",
+        },
+        {
+          type: "paragraph",
+          text: "As digital transaction volumes surged, GlobalBank Corp was facing an escalating fraud crisis. Sophisticated criminal networks had learned to exploit gaps in their legacy rule-based detection systems.",
         },
         {
           type: "paragraph",

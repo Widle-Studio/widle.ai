@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import { ArrowRight, Mail, MapPin } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -11,16 +12,7 @@ export default function ContactPage() {
       <div className="fixed top-[-10%] right-[-10%] -z-10 w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] mix-blend-screen" />
 
       {/* Minimal Nav */}
-      <nav className="glass-nav sticky top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 font-semibold tracking-tight">
-            <span className="text-xl tracking-tighter font-bold">widle<span className="text-primary">.ai</span></span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-5 pt-20 pb-24 lg:px-8 lg:pt-24 lg:pb-32 flex-grow">
         <div className="grid lg:grid-cols-2 gap-16">
