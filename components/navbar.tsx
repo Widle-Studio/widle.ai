@@ -4,7 +4,6 @@ import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useState } from "react"
 import { Menu, X, Brain, ChevronDown } from "lucide-react"
-import { Menu, X, Brain } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
