@@ -56,6 +56,12 @@ const navItems = [
       { label: "AI Readiness Quiz", href: "/ai-readiness-quiz" },
     ]
   },
+  { label: "Tech Expertise", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Company", href: "/company" },
+  { label: "Resources", href: "/resources" },
 ]
 
 export function Navbar() {
@@ -100,6 +106,13 @@ export function Navbar() {
                 {item.label}
               </Link>
             )
+            <Link
+              key={item.label}
+              href={item.href}
+              className="transition hover:text-foreground hover:scale-105"
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
 
@@ -159,6 +172,7 @@ export function Navbar() {
               </div>
             ))}
             <div className="pt-4 pb-6">
+            <div className="pt-4">
               <Button className="w-full">
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Talk to us</Link>
               </Button>

@@ -305,6 +305,28 @@ const caseStudies = {
           type: "paragraph",
           text: "In the modern digital advertising landscape, contextual relevance is king. However, identifying the right context across billions of images and videos while maintaining strict user privacy is a massive technical challenge.",
         },
+      ],
+    },
+    relatedCaseStudies: ["medtech-ai-diagnostics"],
+  },
+  "medtech-ai-diagnostics": {
+    title: "Accelerating Rare Disease Diagnosis with Computer Vision",
+    client: "Global MedTech Solutions",
+    industry: "Healthcare",
+    image: "/images/Widle-Logo.jpg",
+    challenge:
+      "A leading medical technology provider struggled with high error rates (15%) and slow processing times (avg. 48 hours) in identifying rare tissue anomalies from digital pathology slides.",
+    solution:
+      "We engineered a secure, HIPAA-compliant computer vision pipeline using state-of-the-art CNNs, trained on their proprietary dataset, wrapped in a scalable cloud architecture.",
+    results:
+      "The AI-assisted workflow reduced diagnostic turnaround time to under 2 hours and improved accuracy to 99.1%, fundamentally transforming patient care pathways.",
+    metrics: [
+      { value: "99.1%", label: "Diagnostic Accuracy", description: "Up from 85% baseline" },
+      { value: "46h", label: "Time Saved", description: "Per batch of 100 slides" },
+      { value: "$2.4M", label: "Cost Reduction", description: "Annual operational savings" },
+    ],
+    content: {
+      sections: [
         {
           type: "heading",
           text: "Our Approach",
@@ -341,6 +363,37 @@ const caseStudies = {
     content: {
       sections: [
         {
+          type: "heading",
+          text: "The Challenge",
+        },
+      ],
+    },
+    relatedCaseStudies: ["medtech-ai-diagnostics"],
+  },
+  "medtech-ai-diagnostics": {
+    title: "Accelerating Rare Disease Diagnosis with Computer Vision",
+    client: "Global MedTech Solutions",
+    industry: "Healthcare",
+    image: "/images/Widle-Logo.jpg",
+    challenge:
+      "A leading medical technology provider struggled with high error rates (15%) and slow processing times (avg. 48 hours) in identifying rare tissue anomalies from digital pathology slides.",
+    solution:
+      "We engineered a secure, HIPAA-compliant computer vision pipeline using state-of-the-art CNNs, trained on their proprietary dataset, wrapped in a scalable cloud architecture.",
+    results:
+      "The AI-assisted workflow reduced diagnostic turnaround time to under 2 hours and improved accuracy to 99.1%, fundamentally transforming patient care pathways.",
+    metrics: [
+      { value: "99.1%", label: "Diagnostic Accuracy", description: "Up from 85% baseline" },
+      { value: "46h", label: "Time Saved", description: "Per batch of 100 slides" },
+      { value: "$2.4M", label: "Cost Reduction", description: "Annual operational savings" },
+    ],
+    content: {
+      sections: [
+        {
+          type: "paragraph",
+          text: "Pathologists at Global MedTech Solutions were spending thousands of hours manually reviewing high-resolution digital slides. The process was not only expensive and slow, but the cognitive fatigue led to an unacceptable 15% error rate in detecting a specific class of rare cellular anomalies.",
+        },
+        {
+          type: "paragraph",
           type: "heading",
           text: "The Challenge",
         },
